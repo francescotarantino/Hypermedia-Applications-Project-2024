@@ -1,8 +1,8 @@
 <template>
-  <div class="relative inline-block text-left">
-    <div>
-      <button @click="toggle" class="flex flex-row items-center gap-1 justify-center w-full" id="options-menu" aria-haspopup="true">
-        <slot name="title" />
+  <div class="relative inline-block text-center">
+    <div class="flex flex-row items-center gap-1 justify-center w-full" id="options-menu" aria-haspopup="true">
+      <NuxtLink :to="hyperlink">{{title}}</NuxtLink>
+      <button @click="toggle">
         <ChevronDownIcon class="size-4" />
       </button>
     </div>
@@ -13,6 +13,10 @@
 
 <script setup lang="ts">
 import {ChevronDownIcon} from "@heroicons/vue/24/solid";
+defineProps({
+  title: String,
+  hyperlink: String
+})
 </script>
 
 <script lang="ts">
