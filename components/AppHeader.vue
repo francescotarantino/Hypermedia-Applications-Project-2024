@@ -13,8 +13,8 @@
         </NuxtLink>
         <div class="flex items-center">
           <a href="tel:800022399" class="flex flex-row gap-2 items-center">
-            <PhoneIcon class="size-6 text-primary" />
-            <p class="text-primary text-2xl">800 02 2399</p>
+            <PhoneIcon class="size-7 text-primary" />
+            <p class="text-primary text-4xl">800 02 2399</p>
           </a>
         </div>
       </div>

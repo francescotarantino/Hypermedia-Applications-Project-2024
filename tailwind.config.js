@@ -6,7 +6,7 @@ export default {
       'primary': '#3A233E',
       'secondary': '#EB6343',
       'tertiary': "#F49A9F",
-      'primary-light': '#FFFFF4',
+      'primary-light': '#FFFFFD',
       'secondary-light': '#FBF4EB',
 
     },
