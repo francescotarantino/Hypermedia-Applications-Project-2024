@@ -22,8 +22,8 @@
     <div class="h-2 bg-gradient-to-r from-secondary to-tertiary"></div>
     <div class="text-lg">
       <nav class="container mx-auto flex items-center justify-center p-6">
-        <div class="flex gap-5">
-          <NuxtLink to="/">Home</NuxtLink>
+        <div class="flex gap-20">
+          <NuxtLink to="/"><HomeIcon class="size-6 text-primary" /></NuxtLink>
           <NuxtLink to="/about-us">About Us</NuxtLink>
           <AppDropdown title="Activities" hyperlink="/activities">
             <AppDropdownContent>
@@ -45,5 +45,6 @@
 </template>
 
 <script setup lang="ts">
-import { PhoneIcon } from '@heroicons/vue/24/solid'
+import { PhoneIcon, HomeIcon } from '@heroicons/vue/24/solid'
+
 </script>
