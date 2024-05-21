@@ -6,8 +6,8 @@ export default {
       'primary': '#3A233E',
       'secondary': '#EB6343',
       'tertiary': "#F49A9F",
-      'primary-light': '#FFFFFD',
-      'secondary-light': '#FBF4EB',
+      'primary-light': '#FBF4EB',
+      'secondary-light': '#E9D1C3',
 
     },
     fontFamily: {
