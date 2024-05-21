@@ -1,18 +1,26 @@
 <template>
+  <!-- ADD AN EVENT LISTENER THAT CLOSES THE MENU WHEN CLICKING AWAY-->
+
+  <!-- Container for the dropdown menu -->
   <div class="relative inline-block text-center">
-    <div class="flex flex-row items-center gap-1 justify-center w-full" id="options-menu" aria-haspopup="true">
+    <!-- Dropdown menu content -->
+    <div class="flex flex-row items-center gap-1 justify-center w-full" id="options-menu" aria-haspopup="true" @mouseenter="show">
+      <!-- Link with title -->
       <NuxtLink :to="hyperlink">{{title}}</NuxtLink>
+      <!-- Button to toggle dropdown -->
       <button @click="toggle">
         <ChevronDownIcon class="size-4" />
       </button>
     </div>
-
+    <!-- Slot for additional content -->
     <slot />
   </div>
 </template>
 
 <script setup lang="ts">
-import {ChevronDownIcon} from "@heroicons/vue/24/solid";
+import { ChevronDownIcon } from "@heroicons/vue/24/solid";
+
+// Props for title and hyperlink
 defineProps({
   title: String,
   hyperlink: String
@@ -21,21 +29,27 @@ defineProps({
 
 <script lang="ts">
 export default {
-  provide () {
+  // Providing shared state
+  provide() {
     return {
       sharedState: this.sharedState
     }
   },
-  data () {
+  // Data for shared state
+  data() {
     return {
       sharedState: {
         active: false
       }
     }
   },
+  // Methods for toggling and showing dropdown
   methods: {
-    toggle () {
+    toggle() {
       this.sharedState.active = !this.sharedState.active
+    },
+    show() {
+      this.sharedState.active = true;
     }
   }
 }

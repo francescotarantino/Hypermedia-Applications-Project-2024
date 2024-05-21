@@ -8,7 +8,7 @@ export default {
       'tertiary': "#F49A9F",
       'primary-light': '#FBF4EB',
       'secondary-light': '#E9D1C3',
-
+      'primary-light-highlight': '#F8E9E9',
     },
     fontFamily: {
         'sans': ['Outfit', 'sans-serif'],
