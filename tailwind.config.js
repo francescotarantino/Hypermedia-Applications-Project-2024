@@ -4,11 +4,11 @@ export default {
   theme: {
     colors: {
       'primary': '#3A233E',
-      'secondary': '#EB6343',
-      'tertiary': "#F49A9F",
-      'primary-light': '#FBF4EB',
-      'secondary-light': '#E9D1C3',
-      'primary-light-highlight': '#F8E9E9',
+      'orange': '#EB6343',
+      'pinky': "#F49A9F",
+      'cream': '#FBF4EB',
+      'cream-highlight': '#f0ebdc',
+      'skin': '#F59A7A'
     },
     fontFamily: {
         'sans': ['Outfit', 'sans-serif'],
