@@ -8,7 +8,8 @@ export default {
       'pinky': "#F49A9F",
       'cream': '#FBF4EB',
       'cream-highlight': '#f0ebdc',
-      'skin': '#F59A7A'
+      'skin': '#F59A7A',
+      'skin-light': '#fcd1bd',
     },
     fontFamily: {
         'sans': ['Outfit', 'sans-serif'],
