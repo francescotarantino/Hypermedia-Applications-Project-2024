@@ -45,18 +45,22 @@ export default {
       runStatus: null, // To store the run status
       BotResponse: null, // To store the Bot response
       taskEnded: true, // Indicates if the current task has ended
+      interval: null, // To store the interval for checking the run status
     };
-  },
-
-  created() {
-    // Starts a thread for the chat when the component is created
-    this.initiateConversationThread();
   },
 
   methods: {
 
     // Toggles the chat window visibility
     toggleChat() {
+      // Push a welcome message when the chat is opened
+      this.messages.push({ text: 'Hello! Welcome to Signal for Help Empowerment (SHE). How can I support you today?', isUser: false });
+
+      // If the conversation thread has not been initiated, initiate it
+      if (this.threadId === null) {
+        this.initiateConversationThread();
+      }
+
       this.isOpen = !this.isOpen;
       this.scrollToBottom();
     },
@@ -71,19 +75,12 @@ export default {
 
     // Initiates a new conversation thread
     async initiateConversationThread() {
-      const config = useRuntimeConfig();
-      const apiKey = config.public.openaiApiKey;
       try {
-        const response = await fetch(`https://api.openai.com/v1/threads`, {
+        const response = await fetch("/api/chatbot/thread", {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`,
-            'OpenAI-Beta': 'assistants=v2',
-          },
         });
         const data = await response.json();
-        this.threadId = data.id;
+        this.threadId = data.threadId;
       } catch (error) {
         // Handle error by displaying a message to the user
         this.messages.push({ text: 'An error occurred while communicating with the AI. Please try again later.', isUser: false });
@@ -97,6 +94,8 @@ export default {
         this.taskEnded = false;
         // Add user message to the messages array
         this.messages.push({ text: this.userInput, isUser: true });
+        // Scroll to the bottom of the chat
+        this.scrollToBottom();
         // Store user input locally before clearing it
         const userInput = this.userInput;
         this.userInput = ''; // Clear the input field
@@ -106,54 +105,20 @@ export default {
 
     // Sends the user message to the AI and handles the response
     async sendMessage(userInput) {
-      const config = useRuntimeConfig();
-      const apiKey = config.public.openaiApiKey;
+      this.runStatus = "queuing";
 
       try {
         // Call Assistant API to send the message
-        const response = await fetch(`https://api.openai.com/v1/threads/${this.threadId}/messages`, {
+        const response = await fetch(`/api/chatbot/${this.threadId}/sendMessage`, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`,
-            'OpenAI-Beta': 'assistants=v2',
-          },
-          body: JSON.stringify({ role: 'user', content: userInput }),
-        });
-      
-        await this.createRun();
-
-      } catch (error) {
-        // Handle error by displaying a message to the user
-        this.messages.push({ text: 'An error occurred while communicating with the AI. Please try again later.', isUser: false });
-        this.taskEnded = true;
-      }
-    },
-
-    // Initiates a run to process the user message
-    async createRun() {
-      const config = useRuntimeConfig();
-      const apiKey = config.public.openaiApiKey;
-      const assistantId = config.public.openaiAssistantId;
-
-      try {
-        // Call Assistant API to create a run
-        const response = await fetch(`https://api.openai.com/v1/threads/${this.threadId}/runs`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`,
-            'OpenAI-Beta': 'assistants=v2',
-          },
-          body: JSON.stringify({ assistant_id: assistantId }),
+          body: JSON.stringify({ userInput }),
         });
 
         const data = await response.json();
-        this.runId = data.id;
-        this.runStatus = data.status;
 
-        await this.retrieveRun();
+        this.runId = data.runId;
 
+        this.retrieveRun();
       } catch (error) {
         // Handle error by displaying a message to the user
         this.messages.push({ text: 'An error occurred while communicating with the AI. Please try again later.', isUser: false });
@@ -162,76 +127,39 @@ export default {
     },
 
     // Retrieves the run status and waits for completion
-    async retrieveRun() {
-      const config = useRuntimeConfig();
-      const apiKey = config.public.openaiApiKey;
-      this.runStatus = null;
-      while (this.runStatus !== 'completed') {
-        try {
-          // Call Assistant API to retrieve the run status
-          const response = await fetch(`https://api.openai.com/v1/threads/${this.threadId}/runs/${this.runId}`, {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${apiKey}`,
-              'OpenAI-Beta': 'assistants=v2',
-            },
-          });
-
-          const data = await response.json();
-          this.runStatus = data.status;
-          
-          if (this.runStatus === 'failed') {
-            this.runStatus = null;
-            this.sendMessage(this.userInput);
-            this.taskEnded = true;
-            break;
-          }
-          
-        } catch (error) {
-          console.error('Error:', error);
-          // Handle error by displaying a message to the user
-          this.messages.push({ text: 'An error occurred while communicating with the AI. Please try again later.', isUser: false });
-          this.taskEnded = true;
-        }
-        if (this.runStatus === 'completed') {
-          await this.retrieveBotMessage();
-        }
-      }
-    },
-
-    // Retrieves the bot's response after the run is completed
-    async retrieveBotMessage() {
-      const config = useRuntimeConfig();
-      const apiKey = config.public.openaiApiKey;
-
-      try {
-        // Call Assistant API to retrieve the bot's message
-        const response = await fetch(`https://api.openai.com/v1/threads/${this.threadId}/messages`, {
+    retrieveRun() {
+      this.interval = setInterval(async () => {
+        const response = await fetch(`/api/chatbot/${this.threadId}/readMessage/${this.runId}`, {
           method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`,
-            'OpenAI-Beta': 'assistants=v2',
-          },
         });
 
         const data = await response.json();
-        this.BotResponse = data.data[0].content[0].text.value;
 
-        // Add AI response to the messages array
-        this.messages.push({ text: this.BotResponse, isUser: false });
-        this.scrollToBottom();
-        setTimeout(1000);
-        this.taskEnded = true;
-      } catch (error) {
-        console.error('Error:', error);
-        // Handle error by displaying a message to the user
-        this.messages.push({ text: 'An error occurred while communicating with the AI. Please try again later.', isUser: false });
-        this.taskEnded = true;
-      }
+        if (this.runStatus === 'completed' || this.runStatus === 'failed') {
+          clearInterval(this.interval);
+          return;
+        }
+
+        this.runStatus = data.runStatus;
+
+        if (this.runStatus !== 'queued' && this.runStatus !== 'in_progress') {
+          clearInterval(this.interval);
+          this.taskEnded = true;
+        }
+
+        if (this.runStatus === 'completed') {
+          this.BotResponse = data.message;
+          this.messages.push({ text: this.BotResponse, isUser: false });
+          this.scrollToBottom();
+          setTimeout(() => {
+            this.taskEnded = true;
+          }, 1000);
+        } else if (this.runStatus === 'failed') {
+          this.sendMessage(this.userInput);
+          this.taskEnded = true;
+        }
+      }, 1000);
     },
-
   },
 
 };
