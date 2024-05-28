@@ -53,11 +53,11 @@ export default {
 
     // Toggles the chat window visibility
     toggleChat() {
-      // Push a welcome message when the chat is opened
-      this.messages.push({ text: 'Hello! Welcome to Signal for Help Empowerment (SHE). How can I support you today?', isUser: false });
-
       // If the conversation thread has not been initiated, initiate it
       if (this.threadId === null) {
+        // Push a welcome message when the chat is opened
+        this.messages.push({ text: 'Hello! Welcome to Signal for Help Empowerment (SHE). How can I support you today?', isUser: false });
+
         this.initiateConversationThread();
       }
 
