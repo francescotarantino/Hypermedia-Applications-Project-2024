@@ -55,9 +55,9 @@
         </div>
         <div>
           <h2 class="text-3xl text-orange text-center font-bold mt-8 mb-4">Our Location</h2>
-          <div id="map" class="w-full h-64 mb-8">
-            <!-- MAPS EMBED -->
-          </div>
+            <div class="w-full h-full pb-24 pt-3">
+              <Map />
+            </div>
         </div>
       </div>
       <br><br>

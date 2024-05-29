@@ -1,6 +1,6 @@
 <template>
   <!-- Header Section -->
-  <header class="bg-center bg-contain bg-no-repeat bg-[url('/mani.svg')] text-primary">
+  <header class="bg-center bg-contain bg-no-repeat bg-[url('/mani.svg')] text-primary" style="z-index: 1000000">
     <div class="container mx-auto p-4">
       <div class="flex justify-between items-center gap-8">
         <div class="flex items-center gap-8">
@@ -25,7 +25,7 @@
   </header>
 
   <!-- Navigation Bar -->
-  <div class="sticky top-0 bg-cream drop-shadow">
+  <div class="sticky top-0 bg-cream drop-shadow" style="z-index: 1000000">
     <!-- Division Line Bar -->
     <div class="h-2 bg-gradient-to-r from-orange via-apricot to-orange"/>
     <nav class="container mx-auto flex items-center justify-center text-lg">
