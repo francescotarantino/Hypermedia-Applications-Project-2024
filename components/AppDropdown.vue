@@ -2,9 +2,9 @@
   <!-- ADD AN EVENT LISTENER THAT CLOSES THE MENU WHEN CLICKING AWAY-->
 
   <!-- Container for the dropdown menu -->
-  <div class="relative inline-block text-center">
+  <div class="relative inline-block text-center" @mouseenter="toggle" @mouseleave="toggle">
     <!-- Dropdown menu content -->
-    <div class="flex flex-row items-center gap-1 justify-center w-full" id="options-menu" aria-haspopup="true" @mouseenter="show">
+    <div class="flex flex-row items-center gap-1 justify-center w-full" id="options-menu" aria-haspopup="true">
       <!-- Link with title -->
       <NuxtLink :to="hyperlink">{{title}}</NuxtLink>
       <!-- Button to toggle dropdown -->
@@ -46,10 +46,7 @@ export default {
   // Methods for toggling and showing dropdown
   methods: {
     toggle() {
-      this.sharedState.active = !this.sharedState.active
-    },
-    show() {
-      this.sharedState.active = true;
+      this.sharedState.active = !this.sharedState.active;
     }
   }
 }

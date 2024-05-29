@@ -14,7 +14,7 @@
           </NuxtLink>
         </div>
         <!-- Phone Number Section -->
-        <div class="flex items-center hover:text-orange">
+        <div class="flex items-center hover:text-apricot">
           <a href="tel:800022399" class="flex flex-row gap-2 items-center">
             <PhoneIcon class="size-7" />
             <p class="text-4xl">800 02 2399</p>
@@ -27,43 +27,34 @@
   <!-- Navigation Bar -->
   <div class="sticky top-0 bg-cream drop-shadow">
     <!-- Division Line Bar -->
-    <div v-if="!isScrolled">
-      <div class="h-0.5 bg-primary"/>
-      <div class="h-1.5 bg-gradient-to-r from-orange via-skin to-orange"/>
-      <div class="h-0.5 bg-primary"/>
-    </div>
-    <div v-if="isScrolled">
-      <div class="h-0.5 bg-primary"/>
-      <div class="h-1.5 bg-gradient-to-r from-orange via-skin to-orange"/>
-      <div class="h-0.5 bg-primary"/>
-    </div>
+    <div class="h-2 bg-gradient-to-r from-orange via-apricot to-orange"/>
     <nav class="container mx-auto flex items-center justify-center text-lg">
       <div class="pr-16">
         <!-- Home Link -->
         <NuxtLink to="/">
-          <HomeIcon v-if="!isScrolled" class="size-6 text-primary rounded-lg hover:shadow-lg hover:bg-cream-highlight"/>
+          <HomeIcon v-if="!isScrolled" class="p-2 size-9 text-primary rounded-lg hover:bg-peach"/>
           <img v-else src="/logo.png" alt="Centre logo" class="w-16 h-16"/>
         </NuxtLink>
       </div>
-      <div class="p-6 flex gap-20">
+      <div class="p-4 flex gap-14">
         <!-- Activities Link -->
-        <NuxtLink to="/about-us" class="rounded-lg hover:shadow-lg hover:bg-cream-highlight hover:underline">About Us</NuxtLink>
-        <AppDropdown title="Activities" hyperlink="/activities" class="rounded-lg hover:shadow-lg hover:bg-cream-highlight hover:underline">
+        <NuxtLink to="/about-us" class="p-2 rounded-lg hover:bg-peach ">About Us</NuxtLink>
+        <AppDropdown title="Activities" hyperlink="/activities" class="p-2 rounded-lg hover:bg-peach">
           <AppDropdownContent>
             <!-- Services Link -->
-            <NuxtLink to="/activities/services" class="block px-4 py-2 text-sm bg-cream hover:bg-cream-highlight rounded-lg hover:shadow-lg hover:underline" role="menuitem">
+            <NuxtLink to="/activities/services" class="block px-4 py-2 text-sm bg-cream hover:bg-peach rounded-lg" role="menuitem">
               <p class="text-base">Services</p>
             </NuxtLink>
             <!-- Projects Link -->
-            <NuxtLink to="/activities/projects" class="block px-4 py-2 text-sm bg-cream hover:bg-cream-highlight rounded-lg hover:shadow-lg hover:underline" role="menuitem">
+            <NuxtLink to="/activities/projects" class="block px-4 py-2 text-sm bg-cream hover:bg-peach rounded-lg" role="menuitem">
               <p class="text-base">Projects</p>
             </NuxtLink>
           </AppDropdownContent>
         </AppDropdown>
         <!-- People Link -->
-        <NuxtLink to="/people" class="rounded-lg hover:shadow-lg hover:bg-cream-highlight hover:underline">People</NuxtLink>
+        <NuxtLink to="/people" class="p-2 rounded-lg hover:bg-peach ">People</NuxtLink>
         <!-- Contact Us Link -->
-        <NuxtLink to="/contact-us" class="rounded-lg hover:shadow-lg hover:bg-cream-highlight hover:underline">Contact Us</NuxtLink>
+        <NuxtLink to="/contact-us" class="p-2 rounded-lg hover:bg-peach ">Contact Us</NuxtLink>
       </div>
     </nav>
   </div>

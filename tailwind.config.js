@@ -5,11 +5,10 @@ export default {
     colors: {
       'primary': '#3A233E',
       'orange': '#EB6343',
-      'pinky': "#F49A9F",
+      'apricot': '#F59A7A',
+      'peach': '#FCD1BD',
       'cream': '#FBF4EB',
-      'cream-highlight': '#f0ebdc',
-      'skin': '#F59A7A',
-      'skin-light': '#fcd1bd',
+      'white': '#FFFFFF'
     },
     fontFamily: {
         'sans': ['Outfit', 'sans-serif'],
