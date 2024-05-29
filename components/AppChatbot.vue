@@ -25,7 +25,7 @@
       <!-- Input Field -->
       <div class="h-px bg-primary"/>
       <div class="p-2 bg-peach rounded-b-lg">
-        <input v-model="userInput" @keydown.enter="sendMessage" type="text" placeholder="Type a message..." class="w-full bg-cream p-2 rounded-md"/>
+        <input v-model="userInput" @keydown.enter="submitMessage" type="text" placeholder="Type a message..." class="w-full bg-cream p-2 rounded-md"/>
       </div>
     </div>
   </div>
@@ -41,7 +41,6 @@ export default {
       threadId: null, // To store the conversation thread ID
       runId: null, // To store the run ID
       runStatus: null, // To store the run status
-      BotResponse: null, // To store the Bot response
       taskEnded: true, // Indicates if the current task has ended
       interval: null, // To store the interval for checking the run status
     };
@@ -76,11 +75,6 @@ export default {
       try {
         const response = await fetch("/api/chatbot/thread", {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`,
-            'OpenAI-Beta': 'assistants=v2',
-          },
         });
         const data = await response.json();
         this.threadId = data.threadId;
@@ -91,8 +85,8 @@ export default {
       }
     },
 
-    // Handles user input when the user presses Enter
-    async userTyped() {
+    // Handles user input when the user presses the Enter key
+    async submitMessage() {
       if (this.userInput.trim() !== '' && this.taskEnded) {
         this.taskEnded = false;
         // Add user message to the messages array
@@ -151,8 +145,7 @@ export default {
         }
 
         if (this.runStatus === 'completed') {
-          this.BotResponse = data.message;
-          this.messages.push({ text: this.BotResponse, isUser: false });
+          this.messages.push({ text: data.message, isUser: false });
           this.scrollToBottom();
           setTimeout(() => {
             this.taskEnded = true;
