@@ -1,24 +1,31 @@
 <template>
   <!-- Header Section -->
-  <header class="bg-center bg-contain bg-no-repeat bg-[url('/mani.svg')] text-primary" style="z-index: 1000000">
+  <header class="bg-none bg-center bg-contain bg-no-repeat xl:bg-[url('/mani.svg')] text-primary" style="z-index: 1000000">
     <div class="container mx-auto p-4">
       <div class="flex justify-between items-center gap-8">
         <div class="flex items-center gap-8">
           <!-- Logo and Centre Name -->
           <NuxtLink to="/">
-            <img src="/logo.png" alt="Centre logo" class="w-32 h-32" />
+            <img src="/logo.png" alt="Centre logo" class="w-16 h-16 md:w-32 md:h-32" />
           </NuxtLink>
           <NuxtLink to="/">
-            <h1 class="text-5xl">SHE-centre</h1>
-            <h4 class="text-xl">Signal for Help Empowerment centre</h4>
+            <h1 class="text-3xl lg:text-5xl">SHE-centre</h1>
+            <h4 class="text-md lg:text-xl">Signal for Help Empowerment centre</h4>
           </NuxtLink>
         </div>
         <!-- Phone Number Section -->
-        <div class="flex items-center hover:text-apricot">
+        <div class="hidden lg:flex items-center hover:text-apricot">
           <a href="tel:800022399" class="flex flex-row gap-2 items-center">
             <PhoneIcon class="size-7" />
             <p class="text-4xl">800 02 2399</p>
           </a>
+        </div>
+
+        <!-- Hamburger Icon for Mobile View -->
+        <div class="sm:hidden">
+          <button @click="toggle">
+            <Bars3Icon class="size-7" />
+          </button>
         </div>
       </div>
     </div>
@@ -28,17 +35,18 @@
   <div class="sticky top-0 bg-cream drop-shadow" style="z-index: 1000000">
     <!-- Division Line Bar -->
     <div class="h-2 bg-gradient-to-r from-orange via-apricot to-orange"/>
-    <nav class="container mx-auto flex items-center justify-center text-lg">
-      <div class="pr-16">
+
+    <nav class="container mx-auto hidden flex-col sm:flex-row sm:flex items-center justify-center text-lg">
+      <div class="sm:pr-16 pt-4 sm:pt-0">
         <!-- Home Link -->
         <NuxtLink to="/">
           <HomeIcon v-if="!isScrolled" class="p-2 size-9 text-primary rounded-lg hover:bg-peach"/>
-          <img v-else src="/logo.png" alt="Centre logo" class="w-16 h-16"/>
+          <img v-else src="/logo.png" alt="Centre logo" class="w-12 h-12 lg:w-16 lg:h-16"/>
         </NuxtLink>
       </div>
-      <div class="p-4 flex gap-14">
+      <div class="p-4 flex gap-14 flex-col sm:flex-row text-center">
         <!-- Activities Link -->
-        <NuxtLink to="/about-us" class="p-2 rounded-lg hover:bg-peach ">About Us</NuxtLink>
+        <NuxtLink to="/about-us" class="p-2 rounded-lg hover:bg-peach">About Us</NuxtLink>
         <AppDropdown title="Activities" hyperlink="/activities" class="p-2 rounded-lg hover:bg-peach">
           <AppDropdownContent>
             <!-- Services Link -->
@@ -52,7 +60,7 @@
           </AppDropdownContent>
         </AppDropdown>
         <!-- People Link -->
-        <NuxtLink to="/people" class="p-2 rounded-lg hover:bg-peach ">People</NuxtLink>
+        <NuxtLink to="/people" class="p-2 rounded-lg hover:bg-peach">People</NuxtLink>
         <!-- Contact Us Link -->
         <NuxtLink to="/contact-us" class="p-2 rounded-lg hover:bg-peach ">Contact Us</NuxtLink>
       </div>
@@ -62,7 +70,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-import { PhoneIcon, HomeIcon } from '@heroicons/vue/24/solid'
+import { PhoneIcon, HomeIcon, Bars3Icon } from '@heroicons/vue/24/solid'
 
 // Reactive variable to track if page is scrolled
 const isScrolled = ref(false);
@@ -82,5 +90,17 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll);
 });
+
+function toggle() {
+  // Toggle mobile menu visibility
+  const nav = document.querySelector('nav');
+  if (nav?.classList.contains('hidden')) {
+    nav.classList.remove('hidden');
+    nav.classList.add('flex');
+  } else {
+    nav?.classList.remove('flex');
+    nav?.classList.add('hidden');
+  }
+}
 
 </script>

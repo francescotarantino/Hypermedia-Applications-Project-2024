@@ -1,6 +1,4 @@
 <template>
-  <!-- ADD AN EVENT LISTENER THAT CLOSES THE MENU WHEN CLICKING AWAY-->
-
   <!-- Container for the dropdown menu -->
   <div class="relative inline-block text-center" @mouseenter="toggle" @mouseleave="toggle">
     <!-- Dropdown menu content -->
