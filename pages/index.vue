@@ -1,10 +1,10 @@
 <script setup lang="ts">
-const { data: two} = await useFetch('/api/people/2')
-const { data: fifteen} = await useFetch('/api/people/15')
 const { data: twentyone} = await useFetch('/api/people/21')
+const { data: twentytwo} = await useFetch('/api/people/22')
+const { data: twentythree} = await useFetch('/api/people/23')
 
 const directiveBoard = [
-  twentyone, two, fifteen,
+  twentyone, twentytwo, twentythree,
 ];
 
 </script>
