@@ -10,7 +10,7 @@ const directiveBoard = [
 </script>
 
 <template>
-  <section class="home">
+  <section>
     <br>
     <div class="container mx-auto px-4 w-3/4">
       <!-- About Us -->

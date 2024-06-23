@@ -46,23 +46,23 @@
       </div>
       <div class="p-4 flex gap-14 flex-col sm:flex-row text-center">
         <!-- Activities Link -->
-        <NuxtLink to="/about-us" class="p-2 rounded-lg hover:bg-peach">About Us</NuxtLink>
-        <AppDropdown title="Activities" hyperlink="/activities" class="p-2 rounded-lg hover:bg-peach">
+        <NuxtLink to="/about-us" class="p-2 text-xl text-primary rounded-lg hover:bg-peach">About Us</NuxtLink>
+        <AppDropdown title="Activities" hyperlink="/activities" class="p-2 text-xl text-primary rounded-lg hover:bg-peach">
           <AppDropdownContent>
             <!-- Services Link -->
-            <NuxtLink to="/activities/services" class="block px-4 py-2 text-sm bg-cream hover:bg-peach rounded-lg" role="menuitem">
-              <p class="text-base">Services</p>
+            <NuxtLink to="/activities/services" class="block px-4 py-2 bg-cream hover:bg-peach rounded-lg" role="menuitem">
+              <p class="text-primary text-lg">Services</p>
             </NuxtLink>
             <!-- Projects Link -->
-            <NuxtLink to="/activities/projects" class="block px-4 py-2 text-sm bg-cream hover:bg-peach rounded-lg" role="menuitem">
-              <p class="text-base">Projects</p>
+            <NuxtLink to="/activities/projects" class="block px-4 py-2 bg-cream hover:bg-peach rounded-lg" role="menuitem">
+              <p class="text-primary text-lg">Projects</p>
             </NuxtLink>
           </AppDropdownContent>
         </AppDropdown>
         <!-- People Link -->
-        <NuxtLink to="/people" class="p-2 rounded-lg hover:bg-peach">People</NuxtLink>
+        <NuxtLink to="/people" class="p-2 text-xl text-primary rounded-lg hover:bg-peach">People</NuxtLink>
         <!-- Contact Us Link -->
-        <NuxtLink to="/contact-us" class="p-2 rounded-lg hover:bg-peach ">Contact Us</NuxtLink>
+        <NuxtLink to="/contact-us" class="p-2 text-xl text-primary rounded-lg hover:bg-peach ">Contact Us</NuxtLink>
       </div>
     </nav>
   </div>
