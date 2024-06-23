@@ -1,16 +1,16 @@
 <template>
   <!-- Header Section -->
-  <header class="bg-none bg-center bg-contain bg-no-repeat xl:bg-[url('/mani.svg')] text-primary" style="z-index: 1000000">
+  <header class="bg-none bg-center bg-contain bg-no-repeat xl:bg-[url('/mani.svg')] text-primary" style="z-index: 999999">
     <div class="container mx-auto p-4">
       <div class="flex justify-between items-center gap-8">
-        <div class="flex items-center gap-8">
+        <div class="flex  items-center gap-2 sm:gap-8">
           <!-- Logo and Centre Name -->
-          <NuxtLink to="/">
-            <img src="/logo.png" alt="Centre logo" class="w-16 h-16 md:w-32 md:h-32" />
+          <NuxtLink to="/" class="w-16 h-16 md:w-32 md:h-32">
+            <img src="/logo.png" alt="Centre logo" class=" w-fit h-fit"/>
           </NuxtLink>
           <NuxtLink to="/">
             <h1 class="text-3xl lg:text-5xl">SHE-centre</h1>
-            <h4 class="text-md lg:text-xl">Signal for Help Empowerment centre</h4>
+            <h4 class="hidden md:block md:text-xl">Signal for Help Empowerment centre</h4>
           </NuxtLink>
         </div>
         <!-- Phone Number Section -->
@@ -20,9 +20,8 @@
             <p class="text-4xl">800 02 2399</p>
           </a>
         </div>
-
         <!-- Hamburger Icon for Mobile View -->
-        <div class="sm:hidden">
+        <div class="sm:hidden pt-2 pr-4">
           <button @click="toggle">
             <Bars3Icon class="size-7" />
           </button>
@@ -32,7 +31,7 @@
   </header>
 
   <!-- Navigation Bar -->
-  <div class="sticky top-0 bg-cream drop-shadow" style="z-index: 1000000">
+  <div class="sticky top-0 bg-cream drop-shadow" style="z-index: 999999">
     <!-- Division Line Bar -->
     <div class="h-2 bg-gradient-to-r from-orange via-apricot to-orange"/>
 
@@ -40,11 +39,10 @@
       <div class="sm:pr-16 pt-4 sm:pt-0">
         <!-- Home Link -->
         <NuxtLink to="/">
-          <HomeIcon v-if="!isScrolled" class="p-2 size-9 text-primary rounded-lg hover:bg-peach"/>
-          <img v-else src="/logo.png" alt="Centre logo" class="w-12 h-12 lg:w-16 lg:h-16"/>
+          <HomeIcon class="p-2 size-9 text-primary rounded-lg hover:bg-peach"/>
         </NuxtLink>
       </div>
-      <div class="p-4 flex gap-14 flex-col sm:flex-row text-center">
+      <div class=" p-2 lg:p-4 flex gap-8 lg:gap-14 flex-col sm:flex-row text-center">
         <!-- Activities Link -->
         <NuxtLink to="/about-us" class="p-2 text-xl text-primary rounded-lg hover:bg-peach">About Us</NuxtLink>
         <AppDropdown title="Activities" hyperlink="/activities" class="p-2 text-xl text-primary rounded-lg hover:bg-peach">
