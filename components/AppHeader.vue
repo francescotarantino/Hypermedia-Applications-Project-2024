@@ -6,7 +6,7 @@
         <div class="flex  items-center gap-2 sm:gap-8">
           <!-- Logo and Centre Name -->
           <NuxtLink to="/" class="w-16 h-16 md:w-32 md:h-32">
-            <img src="/logo.png" alt="Centre logo" class=" w-fit h-fit"/>
+            <img src="/logo.png" alt="Centre logo" class="w-fit" />
           </NuxtLink>
           <NuxtLink to="/">
             <h1 class="text-3xl lg:text-5xl">SHE-centre</h1>
