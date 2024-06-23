@@ -6,4 +6,8 @@ export default defineNuxtConfig({
     redirect: false
   },
   ssr: true,
+  runtimeConfig: {
+    openaiApiKey: process.env.OPENAI_API_KEY,
+    openaiAssistantId: process.env.OPENAI_ASSISTANT_ID,
+  }
 })

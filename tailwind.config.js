@@ -4,9 +4,11 @@ export default {
   theme: {
     colors: {
       'primary': '#3A233E',
-      'primary-light': '#FBF4EB',
-      'secondary': '#EB6343',
-      'tertiary': "#F49A9F"
+      'orange': '#EB6343',
+      'apricot': '#F59A7A',
+      'peach': '#FCD1BD',
+      'cream': '#FBF4EB',
+      'white': '#FFFFFF'
     },
     fontFamily: {
         'sans': ['Outfit', 'sans-serif'],

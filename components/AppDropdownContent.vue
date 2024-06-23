@@ -1,7 +1,11 @@
 <template>
+  <!-- Wrapping div with conditional rendering based on 'active' state -->
   <div v-if="active">
-    <div class="origin-top-right bg-primary-light absolute right-0 mt-2 w-32 rounded-md shadow-lg ring-1 ring-primary ring-opacity-50">
-      <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+    <!-- Dropdown menu container -->
+    <div class="origin-top-right bg-cream text-primary absolute right-0 mt-2 w-full rounded-md ring-1 ring-primary ring-opacity-10">
+      <!-- Dropdown menu items -->
+      <div class="p-2" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+        <!-- Inserting slot content here -->
         <slot />
       </div>
     </div>
@@ -10,11 +14,13 @@
 
 <script>
 export default {
+  // Injecting sharedState dependency
   inject: ['sharedState'],
   computed: {
-    active () {
-      return this.sharedState.active
+    // Computed property to determine dropdown visibility
+    active() {
+      return this.sharedState.active;
     }
   }
-}
+};
 </script>

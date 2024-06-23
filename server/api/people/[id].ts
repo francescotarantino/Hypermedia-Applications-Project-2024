@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
   // Extract the id from the event context
   const id = event.context.params?.id;
 
-  // If the id is missing, return a 400 error. This should not happen since there is an index.ts file that handles the root path.
+  // If the id is missing, return a 400 error. This should not happen since there is an [runId].ts file that handles the root path.
   if (!id) {
     throw createError({statusCode: 400, message: 'Missing id'});
   }
