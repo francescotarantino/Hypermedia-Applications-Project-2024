@@ -1,21 +1,6 @@
-
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import ActivityCard from "~/components/ActivityCard.vue";
-
-const services = ref([]);
-
-const fetchData = async () => {
-  const servicesResponse = await fetch('/api/services');
-
-  if (servicesResponse.ok) {
-    services.value = await servicesResponse.json();
-  } else {
-    console.error('Failed to fetch data from the API');
-  }
-};
-
-onMounted(fetchData);
+// Fetch services
+const { data: services } = await useFetch<IService[]>('/api/services');
 </script>
 
 <template>
@@ -40,7 +25,3 @@ onMounted(fetchData);
     </div>
   </section>
 </template>
-
-<style scoped>
-
-</style>

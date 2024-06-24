@@ -1,12 +1,5 @@
 <script setup lang="ts">
-const { data: twentyone} = await useFetch('/api/people/21')
-const { data: twentytwo} = await useFetch('/api/people/22')
-const { data: twentythree} = await useFetch('/api/people/23')
-
-const directiveBoard = [
-  twentyone, twentytwo, twentythree,
-];
-
+const { data: people } = await useFetch<IPerson[]>('/api/people');
 </script>
 
 <template>
@@ -97,11 +90,11 @@ const directiveBoard = [
         <div class="flex flex-col lg:flex-row items-center bg-cream rounded-2xl drop-shadow mt-4">
           <h2 class="flex-none p-4 w-full md:w-1/3 text-3xl text-orange font-bold text-center">The directive board</h2>
           <div class="flex-grow m-8 grid grid-cols-1 md:grid-cols-3">
-            <div v-for="(person, index) in directiveBoard" :key="index">
+            <div v-for="(person, index) in people?.filter((p) => p.board_director)" :key="index">
               <div class="flex flex-col items-center">
-                <NuxtLink :to="`/people/${person.value.id}`" class="flex flex-col items-center hover:opacity-70">
-                  <img class="border-2 border-orange bg-white aspect-auto rounded-2xl w-3/4" :src="person.value.picture.path" :alt="person.value.picture.label"/>
-                  <p class="font-semibold text-xl">{{person.value.picture.label}}</p>
+                <NuxtLink :to="`/people/${person.id}`" class="flex flex-col items-center hover:opacity-70">
+                  <img class="border-2 border-orange bg-white aspect-auto rounded-2xl w-3/4" :src="person.picture.path" :alt="person.picture.label"/>
+                  <p class="font-semibold text-xl">{{person.picture.label}}</p>
                 </NuxtLink>
               </div>
             </div>

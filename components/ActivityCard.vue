@@ -1,7 +1,7 @@
 <script setup lang="ts">
-defineProps({
-  activity: Object
-})
+defineProps<{
+  activity: IActivity;
+}>();
 </script>
 
 <template>

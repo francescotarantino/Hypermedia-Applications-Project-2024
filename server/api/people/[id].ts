@@ -1,5 +1,5 @@
 import {serverSupabaseClient} from "#supabase/server";
-import {Database} from "~/types/supabase";
+import {Database} from "~/types/Supabase";
 
 /**
  * This endpoint returns a single person by id.
@@ -17,7 +17,7 @@ export default defineEventHandler(async (event) => {
 
   // Query the person by id
   const {data, error} = await client.from('people').select(
-    'id, name, surname, birthdate, city, email, bio, hobbies, main_expertise, main_role, languages,' +
+    'id, name, surname, board_director, birthdate, city, email, bio, hobbies, main_expertise, main_role, languages,' +
     'picture: images(label, path),' +
     'job_experiences(name, role, description, start_date, end_date),' +
     'educations(school_name, start_date, end_date),' +
