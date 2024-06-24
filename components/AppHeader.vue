@@ -36,31 +36,36 @@
     <div class="h-2 bg-gradient-to-r from-orange via-apricot to-orange"/>
 
     <nav class="container mx-auto hidden flex-col sm:flex-row sm:flex items-center justify-center text-lg">
-      <div class="sm:pr-16 pt-4 sm:pt-0">
+      <div class="p-2 lg:p-4 flex gap-8 lg:gap-14 flex-col sm:flex-row text-center items-center">
         <!-- Home Link -->
-        <NuxtLink to="/">
-          <HomeIcon class="p-2 size-9 text-primary rounded-lg hover:bg-peach"/>
-        </NuxtLink>
-      </div>
-      <div class=" p-2 lg:p-4 flex gap-8 lg:gap-14 flex-col sm:flex-row text-center">
+        <AppHeaderLink to="/" @click="toggle">
+          <HomeIcon class="p-2 size-9 text-primary rounded-lg hover:bg-peach" />
+        </AppHeaderLink>
         <!-- Activities Link -->
-        <NuxtLink to="/about-us" class="p-2 text-xl text-primary rounded-lg hover:bg-peach">About Us</NuxtLink>
-        <AppDropdown title="Activities" hyperlink="/activities" class="p-2 text-xl text-primary rounded-lg hover:bg-peach">
+        <AppHeaderLink to="/about-us" @click="toggle">
+          About Us
+        </AppHeaderLink>
+        <!-- Activities Dropdown -->
+        <AppDropdown title="Activities" to="/activities" class="p-2 text-xl text-primary rounded-lg hover:bg-peach">
           <AppDropdownContent>
             <!-- Services Link -->
-            <NuxtLink to="/activities/services" class="block px-4 py-2 bg-cream hover:bg-peach rounded-lg" role="menuitem">
-              <p class="text-primary text-lg">Services</p>
-            </NuxtLink>
+            <AppDropdownLink to="/activities/services" @click="toggle">
+              Services
+            </AppDropdownLink>
             <!-- Projects Link -->
-            <NuxtLink to="/activities/projects" class="block px-4 py-2 bg-cream hover:bg-peach rounded-lg" role="menuitem">
-              <p class="text-primary text-lg">Projects</p>
-            </NuxtLink>
+            <AppDropdownLink to="/activities/projects" @click="toggle">
+              Projects
+            </AppDropdownLink>
           </AppDropdownContent>
         </AppDropdown>
         <!-- People Link -->
-        <NuxtLink to="/people" class="p-2 text-xl text-primary rounded-lg hover:bg-peach">People</NuxtLink>
+        <AppHeaderLink to="/people" @click="toggle">
+          People
+        </AppHeaderLink>
         <!-- Contact Us Link -->
-        <NuxtLink to="/contact-us" class="p-2 text-xl text-primary rounded-lg hover:bg-peach ">Contact Us</NuxtLink>
+        <AppHeaderLink to="/contact-us" @click="toggle">
+          Contact Us
+        </AppHeaderLink>
       </div>
     </nav>
   </div>
