@@ -100,8 +100,8 @@ const directiveBoard = [
             <div v-for="(person, index) in directiveBoard" :key="index">
               <div class="flex flex-col items-center">
                 <NuxtLink :to="`/people/${person.value.id}`" class="flex flex-col items-center hover:opacity-70">
-                  <img class="border-2 border-orange aspect-auto rounded-2xl w-3/4" :src="person.value.picture.path" :alt="person.value.picture.label"/>
-                  <p class="text-primary text-xl">{{person.value.picture.label}}</p>
+                  <img class="border-2 border-orange bg-white aspect-auto rounded-2xl w-3/4" :src="person.value.picture.path" :alt="person.value.picture.label"/>
+                  <p class="font-semibold text-xl">{{person.value.picture.label}}</p>
                 </NuxtLink>
               </div>
             </div>
@@ -112,7 +112,7 @@ const directiveBoard = [
       <h2 class="text-3xl text-center text-orange font-bold mb-4">Our Headquarter</h2>
       <div class="flex flex-col md:flex-row items-center mt-4">
         <img class="flex-none w-full md:w-1/4 border-2 border-orange aspect-auto rounded-2xl" src="/headquarter.jpg" alt="Headquarter Image"/>
-        <p class="flex-auto text-primary text-lg pt-4 pl-0 md:pt-0 md:pl-16 text-justify">
+        <p class="flex-auto text-lg pt-4 pl-0 md:pt-0 md:pl-16 text-justify">
           Nestled in the heart of Milan, the SHE-centre finds its home in a beautifully restored 19th-century palazzo.
           Ornate stuccowork frames the grand windows, hinting at the rich history within. A vibrant crimson awning
           stretches above the entrance, emblazoned with the SHE-centre logo, symbolizing both strength and grace.
@@ -123,7 +123,7 @@ const directiveBoard = [
       </div>
       <br><br>
       <!-- Our History -->
-      <h2 class="text-3xl text-justify text-orange font-bold mt-8 mb-4">
+      <h2 class="text-3xl text-center text-orange font-bold mt-8 mb-4">
         Our History: a journey in the fight against violence
       </h2>
       <h2 class="text-2xl text-center text-orange font-bold mt-8 mb-4">Founding and Vision</h2>
