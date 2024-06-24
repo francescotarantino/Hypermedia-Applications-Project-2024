@@ -87,19 +87,19 @@ const { data: people } = await useFetch<IPerson[]>('/api/people');
       </div>
       <br><br>
       <!-- Directive Board -->
-        <div class="flex flex-col lg:flex-row items-center bg-cream rounded-2xl drop-shadow mt-4">
-          <h2 class="flex-none p-4 w-full md:w-1/3 text-3xl text-orange font-bold text-center">The directive board</h2>
-          <div class="flex-grow m-8 grid grid-cols-1 md:grid-cols-3">
-            <div v-for="(person, index) in people?.filter((p) => p.board_director)" :key="index">
-              <div class="flex flex-col items-center">
-                <NuxtLink :to="`/people/${person.id}`" class="flex flex-col items-center hover:opacity-70">
-                  <img class="border-2 border-orange bg-white aspect-auto rounded-2xl w-3/4" :src="person.picture.path" :alt="person.picture.label"/>
-                  <p class="font-semibold text-xl">{{person.picture.label}}</p>
-                </NuxtLink>
-              </div>
+      <div class="flex flex-col lg:flex-row items-center bg-cream rounded-2xl drop-shadow mt-4">
+        <h2 class="flex-none p-4 w-full md:w-1/3 text-3xl text-orange font-bold text-center">The directive board</h2>
+        <div class="flex-grow m-8 grid grid-cols-1 md:grid-cols-3">
+          <div v-for="(person, index) in people?.filter((p) => p.board_director)" :key="index">
+            <div class="flex flex-col items-center">
+              <NuxtLink :to="`/people/${person.id}`" class="flex flex-col items-center hover:opacity-70">
+                <img class="border-2 border-orange bg-white aspect-auto rounded-2xl w-3/4" :src="person.picture.path" :alt="person.picture.label"/>
+                <p class="font-semibold text-xl">{{person.picture.label}}</p>
+              </NuxtLink>
             </div>
           </div>
         </div>
+      </div>
       <br><br>
       <!-- Our Headquarter -->
       <h2 class="text-3xl text-center text-orange font-bold mb-4">Our Headquarter</h2>

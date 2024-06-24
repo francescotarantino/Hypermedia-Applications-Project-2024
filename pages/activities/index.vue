@@ -5,7 +5,10 @@ const {data: services} = await useFetch<IService[]>('/api/services');
 
 // Combine projects and services into a single array
 const activities = ref<IActivity[]>([]);
-activities.value = activities.value.concat(projects?.value || [], services?.value || []);
+activities.value = activities.value.concat(
+    projects?.value?.map((p) => ({...p, type: "project"})) ?? [],
+    services?.value?.map((p) => ({...p, type: "service"})) ?? []
+);
 
 // Sort the activities by name
 activities.value.sort((a, b) => a.name.localeCompare(b.name));

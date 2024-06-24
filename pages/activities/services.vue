@@ -19,7 +19,7 @@ const { data: services } = await useFetch<IService[]>('/api/services');
       </p>
       <div class="grid justify-items-center">
         <div class="max-w-screen-lg grid grid-cols-1 md:grid-cols-2 gap-4">
-          <ActivityCard v-for="service in services" :key="service.id" :activity="service" />
+          <ActivityCard v-for="service in services" :key="service.id" :activity="service" type="service" />
         </div>
       </div>
     </div>

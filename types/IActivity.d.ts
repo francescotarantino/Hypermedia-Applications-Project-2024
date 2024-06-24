@@ -1,5 +1,6 @@
 declare interface IActivity {
   id: number;
+  type?: "project" | "service";
   name: string;
   abstract: string;
   main_image: IPicture;

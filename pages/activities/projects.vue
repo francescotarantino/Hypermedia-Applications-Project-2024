@@ -8,7 +8,7 @@ const { data: projects }  = await useFetch<IProject[]>('/api/projects');
     <div class="container mx-auto px-4 py-8">
       <h1 class="text-3xl font-semibold text-center text-orange">Projects</h1>
       <p class="text-center text-lg text-gray-600 mt-8 mb-12">
-        TThe SHE-Centre, established in 2010, is dedicated to supporting women facing violence and abuse through a range
+        The SHE-Centre, established in 2010, is dedicated to supporting women facing violence and abuse through a range
         of comprehensive services and innovative projects. Our Safe Shelter, launched in January 2010, provides a secure
         environment for over 1,500 women and children annually. Legal Assistance, started in March 2011, helps women
         navigate the legal system, while Skills Training, initiated in June 2012, empowers over 3,000 women yearly with
@@ -21,7 +21,7 @@ const { data: projects }  = await useFetch<IProject[]>('/api/projects');
       </p>
       <div class="grid justify-items-center">
         <div class="max-w-screen-lg grid grid-cols-1 md:grid-cols-2 gap-4">
-          <ActivityCard v-for="project in projects" :key="project.id" :activity="project" />
+          <ActivityCard v-for="project in projects" :key="project.id" :activity="project" type="project" />
         </div>
       </div>
     </div>
