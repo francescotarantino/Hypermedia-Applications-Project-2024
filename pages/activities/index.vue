@@ -16,9 +16,9 @@ activities.value.sort((a, b) => a.name.localeCompare(b.name));
 
 <template>
   <section>
-    <div class="container mx-auto px-4 py-8">
+    <div class="container mx-auto px-4 w-3/4">
       <h1 class="text-3xl font-semibold text-center text-orange">Activities</h1>
-      <p class="text-center text-lg text-gray-600 mt-8 mb-12">
+      <p class="text-justify text-lg text-gray-600 mt-8 mb-12">
         The SHE-Centre, established in 2010, supports women facing violence with comprehensive services and projects.
         Our Safe Shelter provides security for 1,500 women and children annually. Legal Assistance helps navigate the
         legal system, while Skills Training empowers 3,000 women yearly. Crisis Counseling offers emotional support, and

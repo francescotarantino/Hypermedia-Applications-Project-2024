@@ -7,24 +7,34 @@ const { data: project } = await useFetch<IProject>(`/api/projects/${route.params
 
 <template>
   <section>
-    <div class="container mx-auto py-8 w-3/4">
+    <div class="container mx-auto px-4 w-3/4">
       <h1 class="text-3xl text-center text-orange font-bold mt-4 mb-8">{{project?.name}}</h1>
 
-      <div class="flex flex-col lg:flex-row gap-8 drop-shadow">
-        <div class="self-center">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <div class="self-center drop-shadow">
           <img class="object-cover rounded-xl w-48" :src="project?.main_image.path" :alt="project?.main_image.label">
         </div>
 
-        <div class="flex flex-col bg-cream rounded-2xl drop-shadow p-8 gap-8 flex-1 self-stretch">
+        <div class="flex flex-col p-8 gap-8 flex-1 self-stretch">
           <p class="text-xl text-gray-600">
-            <UserCircleIcon class="w-6 h-6 inline-block mr-2" /><NuxtLink :to="`/person/${project?.main_responsible?.id}`">{{project?.main_responsible?.name + " " + project?.main_responsible?.surname}}</NuxtLink>
+            <UserCircleIcon class="w-6 h-6 inline-block mr-2" />
+            <NuxtLink :to="`/person/${project?.main_responsible?.id}`" class="hover:underline">
+              {{project?.main_responsible?.name + " " + project?.main_responsible?.surname}}
+            </NuxtLink>
+
             <br />
-            <EnvelopeIcon class="w-6 h-6 inline-block mr-2" /><a :href="`mailto:${project?.main_responsible?.email}`">{{project?.main_responsible?.email}}</a>
+
+            <EnvelopeIcon class="w-6 h-6 inline-block mr-2" />
+            <a :href="`mailto:${project?.main_responsible?.email}`" class="hover:underline">
+              {{project?.main_responsible?.email}}
+            </a>
           </p>
 
-          <p class="text-lg text-gray-600">
-            {{project?.abstract}}
-          </p>
+          <div class="bg-cream rounded-2xl drop-shadow p-8">
+            <p class="text-lg text-gray-600">
+              {{project?.abstract}}
+            </p>
+          </div>
         </div>
       </div>
 

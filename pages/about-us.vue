@@ -4,7 +4,6 @@ const { data: people } = await useFetch<IPerson[]>('/api/people');
 
 <template>
   <section>
-    <br>
     <div class="container mx-auto px-4 w-3/4">
       <!-- About Us -->
       <h2 class="text-3xl text-center text-orange font-bold mt-4 mb-8">About Us</h2>
@@ -212,7 +211,3 @@ const { data: people } = await useFetch<IPerson[]>('/api/people');
     </div>
   </section>
 </template>
-
-<style scoped>
-
-</style>

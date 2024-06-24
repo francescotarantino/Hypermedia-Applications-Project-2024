@@ -1,8 +1,12 @@
 <template>
   <div>
     <AppHeader />
-    <NuxtPage />
+    <div class="py-12">
+      <NuxtPage />
+    </div>
     <AppChatbot />
     <AppFooter />
   </div>
 </template>
+<script setup lang="ts">
+</script>

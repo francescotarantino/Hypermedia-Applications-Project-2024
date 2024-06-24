@@ -5,9 +5,9 @@ const { data: services } = await useFetch<IService[]>('/api/services');
 
 <template>
   <section>
-    <div class="container mx-auto px-4 py-8">
+    <div class="container mx-auto px-4 w-3/4">
       <h1 class="text-3xl font-semibold text-center text-orange">Services</h1>
-      <p class="text-center text-lg text-gray-600 mt-8 mb-12">
+      <p class="text-justify text-lg text-gray-600 mt-8 mb-12">
         The SHE-Centre, established in 2010, offers comprehensive services to support women facing violence. Our Safe
         Shelter, launched in January 2010, provides a secure environment for over 1,500 women and children annually,
         offering safety and emotional support. Legal Assistance, available since March 2011, helps women navigate the
