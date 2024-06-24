@@ -3,13 +3,13 @@ declare interface IPerson {
   name: string;
   surname: string;
   board_director: boolean;
+  main_role: string;
   birthdate?: string;
   city?: string;
   email?: string;
   bio: string;
   hobbies?: string[];
   main_expertise?: string;
-  main_role?: string;
   languages?: string[];
   picture: IPicture;
   job_experiences?: {

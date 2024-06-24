@@ -13,7 +13,11 @@ export default {
     fontFamily: {
         'sans': ['Outfit', 'sans-serif'],
     },
-    extend: {},
+    extend: {
+      lineClamp: {
+        9: '9',
+      }
+    },
   },
   plugins: [],
 }
