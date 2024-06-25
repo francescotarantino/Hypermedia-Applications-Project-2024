@@ -16,6 +16,10 @@ export default defineNuxtConfig({
         },
       ]
     },
+    pageTransition: {
+      name: 'page',
+      mode: 'out-in'
+    },
   },
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase", "@nuxt/fonts"],
