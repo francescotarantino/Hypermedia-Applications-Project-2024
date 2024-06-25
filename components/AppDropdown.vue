@@ -17,6 +17,8 @@ const toggle = () => {
 
 // Providing the active state to the dropdown content
 provide('dropdownActive', dropdownActive);
+
+const toggleMenu = inject<() => void>('toggleMenu');
 </script>
 
 <template>
@@ -25,7 +27,7 @@ provide('dropdownActive', dropdownActive);
     <!-- Dropdown menu content -->
     <div class="flex flex-row items-center gap-1 justify-center w-full" id="options-menu" aria-haspopup="true">
       <!-- Link with title -->
-      <NuxtLink :to="to">{{title}}</NuxtLink>
+      <NuxtLink :to="to" @click="toggleMenu">{{title}}</NuxtLink>
       <!-- Button to toggle dropdown -->
       <button @click="toggle">
         <ChevronDownIcon class="size-4" />

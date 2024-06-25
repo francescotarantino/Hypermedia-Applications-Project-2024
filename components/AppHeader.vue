@@ -1,3 +1,31 @@
+<script setup lang="ts">
+import { PhoneIcon, HomeIcon, Bars3Icon } from '@heroicons/vue/24/solid'
+
+const isMenuOpen = ref(false);
+
+function toggleMenu() {
+  // Toggle mobile menu visibility
+  const nav = document.querySelector('nav');
+  if (!isMenuOpen.value) {
+    nav?.classList.remove('hidden');
+    nav?.classList.add('flex');
+  } else {
+    nav?.classList.remove('flex');
+    nav?.classList.add('hidden');
+  }
+  isMenuOpen.value = !isMenuOpen.value;
+}
+
+function closeMenu() {
+  if (isMenuOpen.value) {
+    toggleMenu();
+  }
+}
+
+provide('toggleMenu', toggleMenu);
+
+</script>
+
 <template>
   <!-- Header Section -->
   <header class="bg-none bg-center bg-contain bg-no-repeat xl:bg-[url('/mani.svg')] text-primary" style="z-index: 999999">
@@ -22,7 +50,7 @@
         </div>
         <!-- Hamburger Icon for Mobile View -->
         <div class="sm:hidden pt-2 pr-4">
-          <button @click="toggle">
+          <button @click="toggleMenu">
             <Bars3Icon class="size-7" />
           </button>
         </div>
@@ -38,32 +66,32 @@
     <nav class="container mx-auto hidden flex-col sm:flex-row sm:flex items-center justify-center text-lg">
       <div class="p-2 lg:p-4 flex gap-8 lg:gap-14 flex-col sm:flex-row text-center items-center">
         <!-- Home Link -->
-        <AppHeaderLink to="/" @click="toggle">
+        <AppHeaderLink to="/">
           <HomeIcon class="p-2 size-9 text-primary" />
         </AppHeaderLink>
         <!-- Activities Link -->
-        <AppHeaderLink to="/about-us" @click="toggle">
+        <AppHeaderLink to="/about-us">
           About Us
         </AppHeaderLink>
         <!-- Activities Dropdown -->
         <AppDropdown title="Activities" to="/activities" class="p-2 text-xl text-primary rounded-lg hover:bg-peach transition ease-in-out duration-200">
           <AppDropdownContent>
             <!-- Services Link -->
-            <AppDropdownLink to="/activities/services" @click="toggle">
+            <AppDropdownLink to="/activities/services">
               Services
             </AppDropdownLink>
             <!-- Projects Link -->
-            <AppDropdownLink to="/activities/projects" @click="toggle">
+            <AppDropdownLink to="/activities/projects">
               Projects
             </AppDropdownLink>
           </AppDropdownContent>
         </AppDropdown>
         <!-- People Link -->
-        <AppHeaderLink to="/people" @click="toggle">
+        <AppHeaderLink to="/people">
           People
         </AppHeaderLink>
         <!-- Contact Us Link -->
-        <AppHeaderLink to="/contact-us" @click="toggle">
+        <AppHeaderLink to="/contact-us">
           Contact Us
         </AppHeaderLink>
       </div>
@@ -71,39 +99,3 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue';
-import { PhoneIcon, HomeIcon, Bars3Icon } from '@heroicons/vue/24/solid'
-
-// Reactive variable to track if page is scrolled
-const isScrolled = ref(false);
-
-// Function to handle scroll event
-const handleScroll = () => {
-  // Update isScrolled value based on scroll position
-  isScrolled.value = window.scrollY > 180;
-};
-
-// Add scroll event listener when component is mounted
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-});
-
-// Remove scroll event listener when component is unmounted
-onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll);
-});
-
-function toggle() {
-  // Toggle mobile menu visibility
-  const nav = document.querySelector('nav');
-  if (nav?.classList.contains('hidden')) {
-    nav.classList.remove('hidden');
-    nav.classList.add('flex');
-  } else {
-    nav?.classList.remove('flex');
-    nav?.classList.add('hidden');
-  }
-}
-
-</script>
