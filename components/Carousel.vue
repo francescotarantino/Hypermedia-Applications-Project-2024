@@ -6,6 +6,15 @@ const props = defineProps<{
   images: IPicture[];
 }>();
 
+// Preload images
+useHead({
+  link: props.images.map((image) => ({
+    rel: "preload",
+    href: image.path,
+    as: "image",
+  }))
+});
+
 // State of the component: current index of the image being displayed and interval for automatic sliding
 const currentIndex = ref(0);
 let interval: NodeJS.Timeout;
