@@ -2,11 +2,18 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      title: "Signal for Help Empowerment centre",
+      title: 'Signal for Help Empowerment centre',
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       link: [
         { rel: 'icon', type: 'image/png', href: '/logo.png' },
+      ],
+      meta: [
+        {
+          name: 'description',
+          content:
+            'The SHE-Centre is a pioneering organization dedicated to combating violence against women and promoting gender equality.'
+        },
       ]
     },
   },
