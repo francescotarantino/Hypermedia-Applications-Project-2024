@@ -83,7 +83,7 @@ const boardDirectors = people?.value?.filter((p) => p.main_role === 'Director');
         <div>
           <h2 class="text-3xl text-orange text-center font-bold mt-8 mb-4">Our Location</h2>
           <div class="w-full h-64 lg:h-full pb-4 lg:pb-24 pt-3">
-            <Map />
+            <Map :coordinates="[45.478, 9.226]"/>
           </div>
         </div>
       </div>

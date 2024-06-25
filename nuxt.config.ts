@@ -22,7 +22,12 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase", "@nuxt/fonts"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/supabase",
+    "@nuxt/fonts",
+    "@nuxtjs/leaflet"
+  ],
   supabase: {
     redirect: false
   },
