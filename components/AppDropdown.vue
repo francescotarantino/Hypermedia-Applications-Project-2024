@@ -6,6 +6,17 @@ defineProps<{
   title: string;
   to: string;
 }>();
+
+// Ref for the dropdown active state
+const dropdownActive = ref(false);
+
+// Method for toggling the dropdown
+const toggle = () => {
+  dropdownActive.value = !dropdownActive.value;
+};
+
+// Providing the active state to the dropdown content
+provide('dropdownActive', dropdownActive);
 </script>
 
 <template>
@@ -24,28 +35,3 @@ defineProps<{
     <slot />
   </div>
 </template>
-
-<script lang="ts">
-export default {
-  // Providing shared state
-  provide() {
-    return {
-      sharedState: this.sharedState
-    }
-  },
-  // Data for shared state
-  data() {
-    return {
-      sharedState: {
-        active: false
-      }
-    }
-  },
-  // Methods for toggling and showing dropdown
-  methods: {
-    toggle() {
-      this.sharedState.active = !this.sharedState.active;
-    }
-  }
-}
-</script>

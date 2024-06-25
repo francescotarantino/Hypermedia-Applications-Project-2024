@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <NuxtLink :to="to" class="block px-4 py-2 bg-cream hover:bg-peach rounded-lg" role="menuitem">
+  <NuxtLink :to="to" class="block px-4 py-2 bg-cream rounded-lg hover:bg-peach transition ease-in-out duration-200" role="menuitem">
     <p class="text-primary text-lg">
       <slot />
     </p>

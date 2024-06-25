@@ -39,14 +39,14 @@
       <div class="p-2 lg:p-4 flex gap-8 lg:gap-14 flex-col sm:flex-row text-center items-center">
         <!-- Home Link -->
         <AppHeaderLink to="/" @click="toggle">
-          <HomeIcon class="p-2 size-9 text-primary rounded-lg hover:bg-peach" />
+          <HomeIcon class="p-2 size-9 text-primary" />
         </AppHeaderLink>
         <!-- Activities Link -->
         <AppHeaderLink to="/about-us" @click="toggle">
           About Us
         </AppHeaderLink>
         <!-- Activities Dropdown -->
-        <AppDropdown title="Activities" to="/activities" class="p-2 text-xl text-primary rounded-lg hover:bg-peach">
+        <AppDropdown title="Activities" to="/activities" class="p-2 text-xl text-primary rounded-lg hover:bg-peach transition ease-in-out duration-200">
           <AppDropdownContent>
             <!-- Services Link -->
             <AppDropdownLink to="/activities/services" @click="toggle">
