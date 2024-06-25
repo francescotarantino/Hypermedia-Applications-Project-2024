@@ -101,7 +101,6 @@ export type Database = {
         Row: {
           bio: string
           birthdate: string
-          board_director: boolean
           city: string
           email: string
           hobbies: string[]
@@ -116,7 +115,6 @@ export type Database = {
         Insert: {
           bio: string
           birthdate: string
-          board_director?: boolean
           city: string
           email: string
           hobbies: string[]
@@ -131,7 +129,6 @@ export type Database = {
         Update: {
           bio?: string
           birthdate?: string
-          board_director?: boolean
           city?: string
           email?: string
           hobbies?: string[]

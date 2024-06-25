@@ -2,7 +2,6 @@ declare interface IPerson {
   id: number;
   name: string;
   surname: string;
-  board_director: boolean;
   main_role: string;
   birthdate?: string;
   city?: string;
