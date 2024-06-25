@@ -7,7 +7,7 @@
 <style>
 .page-enter-active,
 .page-leave-active {
-  transition: all 0.4s;
+  transition: opacity 150ms;
 }
 .page-enter-from,
 .page-leave-to {

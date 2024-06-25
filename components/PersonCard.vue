@@ -7,7 +7,7 @@ defineProps<{
 <template>
   <NuxtLink :to="`/person/${person.id}`" class="card backdrop bg-cream rounded-2xl drop-shadow hover:bg-peach transition ease-in-out duration-200">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 m-4">
-      <img class="aspect-auto rounded-xl" :src="person.picture.path" :alt="person.picture.label">
+      <img class="aspect-auto rounded-xl" :src="person.picture.path" :alt="person.picture.label" loading="eager">
 
       <div class="flex flex-col text-center">
         <h2 class="text-2xl font-bold text-orange">{{ person.name + ' ' + person.surname }}</h2>
