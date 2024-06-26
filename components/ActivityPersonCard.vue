@@ -19,7 +19,7 @@ defineProps<{
 
     <div v-if="isMainResponsible" class="absolute top-0 left-0">
       <div class="bg-apricot text-white text-sm rounded-br-xl rounded-tl-xl px-3">
-        Main responsible
+        Responsible
       </div>
     </div>
   </NuxtLink>

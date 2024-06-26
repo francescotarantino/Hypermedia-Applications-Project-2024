@@ -24,7 +24,7 @@ defineProps<{
     </div>
 
     <div v-if="activity.type" class="absolute top-0 right-0">
-      <div class="bg-apricot text-white text-sm rounded-tr-xl rounded-bl-xl px-3 first-letter:uppercase">
+      <div class="bg-apricot text-white text-center text-sm rounded-tr-xl rounded-bl-xl px-3 first-letter:uppercase">
         {{ activity.type }}
       </div>
     </div>
