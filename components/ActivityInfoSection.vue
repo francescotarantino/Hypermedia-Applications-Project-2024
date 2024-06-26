@@ -21,35 +21,45 @@ defineProps<{
             <div class="flex flex-col p-8 md:p-0 gap-8 flex-1 self-stretch">
               <p class="text-xl text-gray-600 text-center lg:text-left">
                 <UserCircleIcon class="w-6 h-6 inline-block mr-2" />
-                <NuxtLink :to="`/person/${activity?.main_responsible?.id}`" class="hover:underline">
-                  {{activity?.main_responsible?.name + " " + activity?.main_responsible?.surname}}
+                <NuxtLink :to="`/person/${activity.main_responsible?.id}`" class="hover:underline">
+                  {{activity.main_responsible?.name + " " + activity.main_responsible?.surname}}
                 </NuxtLink>
 
                 <br />
 
                 <EnvelopeIcon class="w-6 h-6 inline-block mr-2" />
-                <a :href="`mailto:${activity?.main_responsible?.email}`" class="hover:underline">
-                  {{activity?.main_responsible?.email}}
+                <a :href="`mailto:${activity.main_responsible?.email}`" class="hover:underline">
+                  {{activity.main_responsible?.email}}
                 </a>
               </p>
 
               <div class="bg-cream rounded-2xl drop-shadow p-8">
                 <p class="text-lg text-gray-600">
-                  {{activity?.abstract}}
+                  {{activity.abstract}}
                 </p>
               </div>
             </div>
           </div>
         </div>
 
+        <h2 class="text-2xl text-center text-orange font-bold">Description</h2>
+
         <div class="flex justify-center">
-          <div class="flex flex-col lg:flex-row justify-center mb-8 pt-4 gap-8 md:w-3/4">
+          <div class="flex flex-col lg:flex-row justify-center gap-8 md:w-3/4">
             <p class="text-lg text-justify w-3/4 self-center lg:self-start">
               {{activity?.description}}
             </p>
 
-            <Carousel :images="activity?.other_images || []" />
+            <Carousel :images="activity.other_images!" />
           </div>
+        </div>
+
+        <h2 class="text-2xl text-center text-orange font-bold">People involved</h2>
+
+        <div class="flex flex-wrap self-center justify-center gap-4">
+          <ActivityPersonCard :person="activity.main_responsible!" :isMainResponsible="true" />
+
+          <ActivityPersonCard v-for="person in activity.people_involved!" :person="person" />
         </div>
       </div>
     </div>
