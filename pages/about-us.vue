@@ -1,17 +1,12 @@
 <script setup lang="ts">
-const { data: twentyone} = await useFetch('/api/people/21')
-const { data: twentytwo} = await useFetch('/api/people/22')
-const { data: twentythree} = await useFetch('/api/people/23')
+const { data: people } = await useFetch<IPerson[]>('/api/people');
 
-const directiveBoard = [
-  twentyone, twentytwo, twentythree,
-];
-
+// Filter only the directors
+const boardDirectors = people?.value?.filter((p) => p.main_role === 'Director');
 </script>
 
 <template>
   <section>
-    <br>
     <div class="container mx-auto px-4 w-3/4">
       <!-- About Us -->
       <h2 class="text-3xl text-center text-orange font-bold mt-4 mb-8">About Us</h2>
@@ -88,31 +83,31 @@ const directiveBoard = [
         <div>
           <h2 class="text-3xl text-orange text-center font-bold mt-8 mb-4">Our Location</h2>
           <div class="w-full h-64 lg:h-full pb-4 lg:pb-24 pt-3">
-            <Map />
+            <Map :coordinates="[45.478, 9.226]"/>
           </div>
         </div>
       </div>
       <br><br>
       <!-- Directive Board -->
-        <div class="flex flex-col lg:flex-row items-center bg-cream rounded-2xl drop-shadow mt-4">
-          <h2 class="flex-none p-4 w-full md:w-1/3 text-3xl text-orange font-bold text-center">The directive board</h2>
-          <div class="flex-grow m-8 grid grid-cols-1 md:grid-cols-3">
-            <div v-for="(person, index) in directiveBoard" :key="index">
-              <div class="flex flex-col items-center">
-                <NuxtLink :to="`/people/${person.value.id}`" class="flex flex-col items-center hover:opacity-70">
-                  <img class="border-2 border-orange aspect-auto rounded-2xl w-3/4" :src="person.value.picture.path" :alt="person.value.picture.label"/>
-                  <p class="text-primary text-xl">{{person.value.picture.label}}</p>
-                </NuxtLink>
-              </div>
+      <div class="flex flex-col lg:flex-row items-center bg-cream rounded-2xl drop-shadow mt-4">
+        <h2 class="flex-none p-4 w-full md:w-1/3 text-3xl text-orange font-bold text-center">The directive board</h2>
+        <div class="flex-grow m-8 grid grid-cols-1 md:grid-cols-3">
+          <div v-for="(person, index) in boardDirectors" :key="index">
+            <div class="flex flex-col items-center">
+              <NuxtLink :to="`/people/${person.id}`" class="flex flex-col items-center hover:opacity-70">
+                <img class="border-2 border-orange bg-white aspect-auto rounded-2xl w-3/4" :src="person.picture.path" :alt="person.picture.label"/>
+                <p class="font-semibold text-xl">{{person.name + ' ' + person.surname}}</p>
+              </NuxtLink>
             </div>
           </div>
         </div>
+      </div>
       <br><br>
       <!-- Our Headquarter -->
       <h2 class="text-3xl text-center text-orange font-bold mb-4">Our Headquarter</h2>
       <div class="flex flex-col md:flex-row items-center mt-4">
         <img class="flex-none w-full md:w-1/4 border-2 border-orange aspect-auto rounded-2xl" src="/headquarter.jpg" alt="Headquarter Image"/>
-        <p class="flex-auto text-primary text-lg pt-4 pl-0 md:pt-0 md:pl-16 text-justify">
+        <p class="flex-auto text-lg pt-4 pl-0 md:pt-0 md:pl-16 text-justify">
           Nestled in the heart of Milan, the SHE-centre finds its home in a beautifully restored 19th-century palazzo.
           Ornate stuccowork frames the grand windows, hinting at the rich history within. A vibrant crimson awning
           stretches above the entrance, emblazoned with the SHE-centre logo, symbolizing both strength and grace.
@@ -123,7 +118,7 @@ const directiveBoard = [
       </div>
       <br><br>
       <!-- Our History -->
-      <h2 class="text-3xl text-justify text-orange font-bold mt-8 mb-4">
+      <h2 class="text-3xl text-center text-orange font-bold mt-8 mb-4">
         Our History: a journey in the fight against violence
       </h2>
       <h2 class="text-2xl text-center text-orange font-bold mt-8 mb-4">Founding and Vision</h2>
@@ -219,7 +214,3 @@ const directiveBoard = [
     </div>
   </section>
 </template>
-
-<style scoped>
-
-</style>

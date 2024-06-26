@@ -1,5 +1,5 @@
 import {serverSupabaseClient} from "#supabase/server";
-import {Database} from "~/types/supabase";
+import {Database} from "~/types/Supabase";
 
 /**
  * This endpoint returns all projects.

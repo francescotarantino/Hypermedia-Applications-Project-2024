@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <AppHeader />
+  <AppLayout>
     <NuxtPage />
-    <AppChatbot />
-    <AppFooter />
-  </div>
+  </AppLayout>
 </template>

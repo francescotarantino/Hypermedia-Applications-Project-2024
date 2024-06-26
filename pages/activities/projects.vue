@@ -1,28 +1,14 @@
-
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import ActivityCard from "~/components/ActivityCard.vue";
-
-const projects = ref([]);
-const fetchData = async () => {
-  const projectsResponse = await fetch('/api/projects');
-
-  if (projectsResponse.ok) {
-    projects.value = await projectsResponse.json();
-  } else {
-    console.error('Failed to fetch data from the API');
-  }
-};
-
-onMounted(fetchData);
+// Fetch projects
+const { data: projects }  = await useFetch<IProject[]>('/api/projects');
 </script>
 
 <template>
   <section>
-    <div class="container mx-auto px-4 py-8">
+    <div class="container mx-auto px-4 w-3/4">
       <h1 class="text-3xl font-semibold text-center text-orange">Projects</h1>
-      <p class="text-center text-lg text-gray-600 mt-8 mb-12">
-        TThe SHE-Centre, established in 2010, is dedicated to supporting women facing violence and abuse through a range
+      <p class="text-justify text-lg text-gray-600 mt-8 mb-12">
+        The SHE-Centre, established in 2010, is dedicated to supporting women facing violence and abuse through a range
         of comprehensive services and innovative projects. Our Safe Shelter, launched in January 2010, provides a secure
         environment for over 1,500 women and children annually. Legal Assistance, started in March 2011, helps women
         navigate the legal system, while Skills Training, initiated in June 2012, empowers over 3,000 women yearly with
@@ -35,13 +21,9 @@ onMounted(fetchData);
       </p>
       <div class="grid justify-items-center">
         <div class="max-w-screen-lg grid grid-cols-1 md:grid-cols-2 gap-4">
-          <ActivityCard v-for="project in projects" :key="project.id" :activity="project" />
+          <ActivityCard v-for="project in projects" :key="project.id" :activity="project" type="project" />
         </div>
       </div>
     </div>
   </section>
 </template>
-
-<style scoped>
-
-</style>

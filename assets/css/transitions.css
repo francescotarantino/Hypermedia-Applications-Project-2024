@@ -1,0 +1,33 @@
+/* Page transitions */
+.page-enter-active,
+.page-leave-active {
+    transition: opacity 150ms;
+}
+
+.page-enter-from,
+.page-leave-to {
+    opacity: 0;
+}
+
+/* Carousel transitions */
+.carousel-enter-active,
+.carousel-leave-active {
+    transition: opacity 1s, transform 1s;
+}
+
+.carousel-enter-from,
+.carousel-leave-to {
+    opacity: 0;
+    transform: translateX(0);
+}
+
+/* Fade transition */
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 200ms;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}

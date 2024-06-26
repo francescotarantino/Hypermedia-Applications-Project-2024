@@ -1,5 +1,5 @@
 import {serverSupabaseClient} from "#supabase/server";
-import {Database} from "~/types/supabase";
+import {Database} from "~/types/Supabase";
 
 /**
  * This endpoint returns all people.
@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
 
   // Get all people with minimal information
   const {data, error} = await client.from('people').select(
-    'id, name, surname, bio,' +
+    'id, name, surname, main_role, bio,' +
     'picture: images(label, path)'
   );
 

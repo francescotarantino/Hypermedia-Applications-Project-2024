@@ -1,17 +1,5 @@
-<script setup lang="ts">
-const { data: twentyone} = await useFetch('/api/people/21')
-const { data: twentytwo} = await useFetch('/api/people/22')
-const { data: twentythree} = await useFetch('/api/people/23')
-
-const directiveBoard = [
-  twentyone, twentytwo, twentythree,
-];
-
-</script>
-
 <template>
   <section>
-    <br>
     <div class="container mx-auto px-4 w-3/4">
       <!-- About Us -->
       <h2 class="text-3xl text-center text-orange font-bold mt-4 mb-8">Home</h2>
@@ -44,7 +32,3 @@ const directiveBoard = [
     </div>
   </section>
 </template>
-
-<style scoped>
-
-</style>

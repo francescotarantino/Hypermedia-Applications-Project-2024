@@ -1,10 +1,33 @@
+<script setup lang="ts">
+import { ChevronDownIcon } from "@heroicons/vue/24/solid";
+
+// Props for title and link
+defineProps<{
+  title: string;
+  to: string;
+}>();
+
+// Ref for the dropdown active state
+const dropdownActive = ref(false);
+
+// Method for toggling the dropdown
+const toggle = () => {
+  dropdownActive.value = !dropdownActive.value;
+};
+
+// Providing the active state to the dropdown content
+provide('dropdownActive', dropdownActive);
+
+const toggleMenu = inject<() => void>('toggleMenu');
+</script>
+
 <template>
   <!-- Container for the dropdown menu -->
   <div class="relative inline-block text-center" @mouseenter="toggle" @mouseleave="toggle">
     <!-- Dropdown menu content -->
     <div class="flex flex-row items-center gap-1 justify-center w-full" id="options-menu" aria-haspopup="true">
       <!-- Link with title -->
-      <NuxtLink :to="hyperlink">{{title}}</NuxtLink>
+      <NuxtLink :to="to" @click="toggleMenu">{{title}}</NuxtLink>
       <!-- Button to toggle dropdown -->
       <button @click="toggle">
         <ChevronDownIcon class="size-4" />
@@ -14,38 +37,3 @@
     <slot />
   </div>
 </template>
-
-<script setup lang="ts">
-import { ChevronDownIcon } from "@heroicons/vue/24/solid";
-
-// Props for title and hyperlink
-defineProps({
-  title: String,
-  hyperlink: String
-})
-</script>
-
-<script lang="ts">
-export default {
-  // Providing shared state
-  provide() {
-    return {
-      sharedState: this.sharedState
-    }
-  },
-  // Data for shared state
-  data() {
-    return {
-      sharedState: {
-        active: false
-      }
-    }
-  },
-  // Methods for toggling and showing dropdown
-  methods: {
-    toggle() {
-      this.sharedState.active = !this.sharedState.active;
-    }
-  }
-}
-</script>
