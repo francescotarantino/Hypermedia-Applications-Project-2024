@@ -21,6 +21,9 @@ export default defineNuxtConfig({
       mode: 'out-in'
     },
   },
+  css: [
+    '~/assets/css/transitions.css',
+  ],
   devtools: { enabled: true },
   modules: [
     "@nuxtjs/tailwindcss",

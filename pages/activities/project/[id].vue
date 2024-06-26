@@ -10,5 +10,9 @@ useSeoMeta({
 </script>
 
 <template>
-  <ActivityInfoSection :activity="project as IActivity" />
+  <section>
+    <h5 class="text-md text-center text-orange font-bold">Project</h5>
+
+    <ActivityInfoSection :activity="project as IActivity" />
+  </section>
 </template>

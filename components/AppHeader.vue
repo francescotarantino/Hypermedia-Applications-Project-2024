@@ -28,7 +28,7 @@ provide('toggleMenu', toggleMenu);
 
 <template>
   <!-- Header Section -->
-  <header class="bg-none bg-center bg-contain bg-no-repeat xl:bg-[url('/mani.svg')] text-primary" style="z-index: 999999">
+  <header class="bg-none bg-center bg-contain bg-no-repeat text-primary" style="z-index: 999999">
     <div class="container mx-auto p-4">
       <div class="flex justify-between items-center gap-8">
         <div class="flex  items-center gap-2 sm:gap-8">

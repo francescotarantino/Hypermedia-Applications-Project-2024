@@ -27,13 +27,9 @@ activities.value.sort((a, b) => a.name.localeCompare(b.name));
       </p>
       <div class="grid justify-items-center">
         <div class="max-w-screen-lg grid grid-cols-1 md:grid-cols-2 gap-4">
-          <ActivityCard v-for="activity in activities" :key="activity.id" :activity="activity" />
+          <ActivityCard v-for="(activity, index) in activities" :key="index" :activity="activity" />
         </div>
       </div>
     </div>
   </section>
 </template>
-
-<style scoped>
-
-</style>

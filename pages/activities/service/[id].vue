@@ -10,13 +10,17 @@ useSeoMeta({
 </script>
 
 <template>
-  <ActivityInfoSection :activity="service as IActivity" />
+  <section>
+    <h5 class="text-md text-center text-orange font-bold">Service</h5>
 
-  <h2 class="text-2xl text-center text-orange font-bold my-8">Testimonials</h2>
+    <ActivityInfoSection :activity="service as IActivity" />
 
-  <div class="flex justify-center">
-    <div class="flex flex-col gap-4 mx-auto md:w-3/4">
-      <TestimonialCard v-for="(testimonial, index) in service?.service_testimonials" :key="index" :testimonial="testimonial" />
+    <h2 class="text-2xl text-center text-orange font-bold my-8">Testimonials</h2>
+
+    <div class="flex justify-center">
+      <div class="flex flex-col gap-4 mx-auto md:w-3/4">
+        <TestimonialCard v-for="(testimonial, index) in service?.service_testimonials" :key="index" :testimonial="testimonial" />
+      </div>
     </div>
-  </div>
+  </section>
 </template>

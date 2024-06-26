@@ -56,7 +56,7 @@ onUnmounted(() => {
       <!-- Images -->
       <template v-for="(image, index) in images" :key="index">
         <!-- Fade transition -->
-        <transition name="fade">
+        <transition name="carousel">
           <img :src="image.path" :alt="image.label" class="absolute w-full h-full rounded-xl object-cover"
                v-if="index === currentIndex" />
         </transition>
@@ -70,16 +70,3 @@ onUnmounted(() => {
     </div>
   </div>
 </template>
-
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 1s, transform 1s;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-  transform: translateX(0);
-}
-</style>
