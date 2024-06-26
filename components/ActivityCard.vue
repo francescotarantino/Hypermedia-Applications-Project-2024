@@ -6,7 +6,7 @@ defineProps<{
 </script>
 
 <template>
-  <NuxtLink :to="`/activities/${type || activity.type}/${activity.id}`" class="card backdrop bg-cream rounded-2xl drop-shadow hover:bg-peach transition ease-in-out duration-200">
+  <NuxtLink :to="`/activities/${type || activity.type}/${activity.id}`" class="relative bg-cream rounded-2xl drop-shadow hover:bg-peach transition ease-in-out duration-200">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 m-4">
       <img class="hidden lg:block aspect-auto rounded-xl" :src="activity.main_image.path" :alt="activity.main_image.label">
 
@@ -20,6 +20,12 @@ defineProps<{
         <p>
           {{ activity.abstract }}
         </p>
+      </div>
+    </div>
+
+    <div v-if="activity.type" class="absolute top-0 right-0">
+      <div class="bg-apricot text-white text-sm rounded-tr-xl rounded-bl-xl px-3 first-letter:uppercase">
+        {{ activity.type }}
       </div>
     </div>
   </NuxtLink>
