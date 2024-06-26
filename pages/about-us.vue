@@ -3,6 +3,16 @@ const { data: people } = await useFetch<IPerson[]>('/api/people');
 
 // Filter only the directors
 const boardDirectors = people?.value?.filter((p) => p.main_role === 'Director');
+
+const HOURS = [
+  { day: 'Monday', hours: '9:00 AM - 6:00 PM' },
+  { day: 'Tuesday', hours: '9:00 AM - 6:00 PM' },
+  { day: 'Wednesday', hours: '9:00 AM - 6:00 PM' },
+  { day: 'Thursday', hours: '9:00 AM - 6:00 PM' },
+  { day: 'Friday', hours: '9:00 AM - 6:00 PM' },
+  { day: 'Saturday', hours: '10:00 AM - 4:00 PM' },
+  { day: 'Sunday', hours: 'Closed' },
+];
 </script>
 
 <template>
@@ -40,41 +50,17 @@ const boardDirectors = people?.value?.filter((p) => p.main_role === 'Director');
         <!-- Opening Hours -->
         <div>
           <h2 class="text-3xl text-orange text-center font-bold mt-8 mb-4">Opening Hours</h2>
-          <table class="ml-auto mr-auto bg-cream border-2 border-primary text-center w-fit h-fit ">
+          <table class="ml-auto mr-auto bg-cream rounded-xl text-center w-fit h-fit ">
             <thead>
             <tr>
-              <th class="px-4 py-2">Day</th>
-              <th class="px-4 py-2">Opening Hours</th>
+              <th class="border-r-2 border-r-apricot border-b-2 border-b-apricot px-4 py-2">Day</th>
+              <th class="border-b-2 border-b-apricot px-4 py-2">Opening Hours</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td class="border px-4 py-2">Monday</td>
-              <td class="border px-4 py-2">9:00 AM - 6:00 PM</td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">Tuesday</td>
-              <td class="border px-4 py-2">9:00 AM - 6:00 PM</td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">Wednesday</td>
-              <td class="border px-4 py-2">9:00 AM - 6:00 PM</td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">Thursday</td>
-              <td class="border px-4 py-2">9:00 AM - 6:00 PM</td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">Friday</td>
-              <td class="border px-4 py-2">9:00 AM - 6:00 PM</td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">Saturday</td>
-              <td class="border px-4 py-2">10:00 AM - 4:00 PM</td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">Sunday</td>
-              <td class="border px-4 py-2">Closed</td>
+            <tr v-for="(hour, index) in HOURS" :key="index">
+              <td class="border-r-2 border-r-apricot px-4 py-2">{{hour.day}}</td>
+              <td class="px-4 py-2">{{hour.hours}}</td>
             </tr>
             </tbody>
           </table>
@@ -95,7 +81,7 @@ const boardDirectors = people?.value?.filter((p) => p.main_role === 'Director');
           <div v-for="(person, index) in boardDirectors" :key="index">
             <div class="flex flex-col items-center">
               <NuxtLink :to="`/people/${person.id}`" class="flex flex-col items-center hover:opacity-70">
-                <img class="border-2 border-orange bg-white aspect-auto rounded-2xl w-3/4" :src="person.picture.path" :alt="person.picture.label"/>
+                <img class="border-2 border-apricot bg-white aspect-auto rounded-2xl w-3/4" :src="person.picture.path" :alt="person.picture.label"/>
                 <p class="font-semibold text-xl">{{person.name + ' ' + person.surname}}</p>
               </NuxtLink>
             </div>
@@ -106,7 +92,7 @@ const boardDirectors = people?.value?.filter((p) => p.main_role === 'Director');
       <!-- Our Headquarter -->
       <h2 class="text-3xl text-center text-orange font-bold mb-4">Our Headquarter</h2>
       <div class="flex flex-col md:flex-row items-center mt-4">
-        <img class="flex-none w-full md:w-1/4 border-2 border-orange aspect-auto rounded-2xl" src="/headquarter.jpg" alt="Headquarter Image"/>
+        <img class="flex-none w-full md:w-1/4 aspect-auto rounded-2xl" src="/headquarter.jpg" alt="Headquarter Image"/>
         <p class="flex-auto text-lg pt-4 pl-0 md:pt-0 md:pl-16 text-justify">
           Nestled in the heart of Milan, the SHE-centre finds its home in a beautifully restored 19th-century palazzo.
           Ornate stuccowork frames the grand windows, hinting at the rich history within. A vibrant crimson awning
