@@ -88,7 +88,7 @@ provide('toggleMenu', toggleMenu);
         </AppDropdown>
         <!-- People Link -->
         <AppHeaderLink to="/people">
-          People
+          Our Team
         </AppHeaderLink>
         <!-- Contact Us Link -->
         <AppHeaderLink to="/contact-us">
