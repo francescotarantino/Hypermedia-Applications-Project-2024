@@ -9,12 +9,15 @@
 
     <transition name="fade">
       <!-- Chatbot Window -->
-      <div v-if="isOpen" class="fixed bottom-4 right-4 left-4 md:left-auto bg-white w-auto md:w-1/2 xl:w-1/4 h-4/5 md:h-3/4 lg:h-2/3 shadow-lg rounded-lg flex flex-col border border-primary" ref="chatContainer" style="z-index: 999999">
+      <div class="fixed bottom-4 right-4 left-4 md:left-auto bg-white w-auto md:w-1/2 xl:w-1/4 h-4/5 md:h-3/4 lg:h-2/3 shadow-lg rounded-lg flex flex-col border border-primary"
+           v-if="isOpen" style="z-index: 999999">
         <!-- Header -->
         <div class="p-1 bg-apricot flex justify-between items-center rounded-t-lg">
           <img src="/chatbot.png" alt="Chatbot Icon" class="w-12 h-12 rounded-full shadow-lg border border-primary"/>
           <h3 class="text-lg">SHE-helper</h3>
-          <button @click="toggleChat" class="pr-3 hover:opacity-70"><XMarkIcon class="size-6 text-primary" /></button>
+          <button @click="toggleChat" class="mr-3 p-1 rounded-md hover:bg-peach transition ease-in-out duration-200" aria-label="Close chatbot">
+            <XMarkIcon class="size-6 text-primary" />
+          </button>
         </div>
 
         <!-- Divider -->
@@ -22,15 +25,20 @@
 
         <!-- Chat Messages Container -->
         <div class="flex-grow p-4 overflow-y-auto" ref="messagesContainer">
-          <div v-for="(message, index) in messages" :key="index" class="mb-4">
-            <div :class="message.isUser ? 'text-right bg-cream' : 'text-left bg-peach'" class="p-2 rounded-md">
-              {{ message.text }}
+          <transition-group name="chat">
+            <div v-for="(message, index) in messages" :key="index" class="mb-4">
+              <div :class="message.isUser ? 'text-right bg-cream' : 'text-left bg-peach'" class="p-2 rounded-md break-words">
+                {{ message.text }}
+              </div>
             </div>
-          </div>
-          <!-- Typing Indicator -->
-          <div v-if="typing" class="text-left bg-peach p-2 rounded-md opacity-50">
-            <p class="text-sm italic">Typing...</p>
-          </div>
+          </transition-group>
+
+          <transition name="chat">
+            <!-- Typing Indicator -->
+            <div v-if="typing" class="text-left bg-peach p-2 rounded-md opacity-50">
+              <p class="text-sm italic">Typing...</p>
+            </div>
+          </transition>
         </div>
 
         <!-- Disclaimer -->
@@ -38,8 +46,13 @@
 
         <!-- Input Field -->
         <div class="h-px bg-primary" />
-        <div class="p-2 bg-peach rounded-b-lg">
-          <input v-model="userInput" @keydown.enter="submitMessage" type="text" placeholder="Type a message..." class="w-full bg-cream p-2 rounded-md" />
+        <div class="p-2 bg-peach rounded-b-lg flex flex-row gap-2">
+          <textarea type="text" placeholder="Type a message..." aria-label="Type a message to the chatbot" class="w-full bg-cream p-2 rounded-md resize-none" rows="1"
+                    ref="messageTextarea" v-model.trim="userInput" @keydown.enter.exact.prevent="submitMessage" @input="autoresize" :disabled="!taskEnded" />
+
+          <button @click="submitMessage" :disabled="!taskEnded" class="bg-apricot rounded-md h-full px-2 hover:bg-opacity-50 transition ease-in-out duration-200 disabled:cursor-not-allowed">
+            <PaperAirplaneIcon class="size-6 text-primary" />
+          </button>
         </div>
       </div>
     </transition>
@@ -47,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import { XMarkIcon } from "@heroicons/vue/24/outline";
+import { XMarkIcon, PaperAirplaneIcon } from "@heroicons/vue/24/outline";
 
 const RESPONSE_CHECK_INTERVAL = 1000;
 const FIRST_MESSAGE = 'Hello! Welcome to Signal for Help Empowerment (SHE). How can I support you today?';
@@ -68,6 +81,7 @@ const taskEnded = ref(true); // Indicates if the current task has ended
 const typing = ref(false); // Indicates if the AI is typing
 const interval = ref<NodeJS.Timeout | null>(null); // Stores the interval for checking the run status
 const messagesContainer = ref<HTMLDivElement>(); // Reference to the chat messages container
+const messageTextarea = ref<HTMLTextAreaElement>(); // Reference to the message textarea
 
 // Toggles the chat window visibility
 function toggleChat() {
@@ -86,9 +100,7 @@ function toggleChat() {
 // Scrolls the chat to the bottom
 function scrollToBottom() {
   nextTick(() => {
-    if (messagesContainer.value) {
-      messagesContainer.value.scrollTop = messagesContainer.value.scrollHeight;
-    }
+    messagesContainer.value!.scrollTop = messagesContainer.value!.scrollHeight;
   });
 }
 
@@ -108,14 +120,14 @@ async function initiateConversationThread() {
 
 // Handles user input when the user presses the Enter key
 function submitMessage() {
-  if (userInput.value.trim() !== '' && taskEnded.value) {
+  if (userInput.value.length !== 0 && taskEnded.value) {
     taskEnded.value = false;
     pushMessage(userInput.value, true);
 
-    const oldUserInput = userInput.value;
+    sendMessage(userInput.value);
     userInput.value = ''; // Clear the input field
 
-    sendMessage(oldUserInput);
+    messageTextarea.value!.style.height = 'auto'; // Reset the input field height
   }
 }
 
@@ -171,7 +183,9 @@ function retrieveRun() {
 
     if (runStatus.value === 'completed') {
       typing.value = false;
-      pushMessage(data.message);
+      setTimeout(() => {
+        pushMessage(data.message);
+      }, 500);
     } else if (runStatus.value === 'failed') {
       sendMessage(userInput.value);
     }
@@ -184,5 +198,12 @@ function pushMessage(text: string, isUser = false) {
 
   // Scroll to the bottom of the chat
   scrollToBottom();
+}
+
+// Automatically resizes the text area based on the content
+function autoresize(event: Event) {
+  const target = event.target as HTMLTextAreaElement;
+  target.style.height = 'auto';
+  target.style.height = Math.min(target.scrollHeight, 200) + 'px';
 }
 </script>

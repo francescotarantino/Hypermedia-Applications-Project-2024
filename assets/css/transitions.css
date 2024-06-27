@@ -59,3 +59,14 @@
 .fade-leave-to {
     opacity: 0;
 }
+
+/* Chat message transition */
+.chat-enter-active,
+.chat-leave-active {
+    transition: opacity 500ms;
+}
+
+.chat-enter-from,
+.chat-leave-to {
+    opacity: 0;
+}
