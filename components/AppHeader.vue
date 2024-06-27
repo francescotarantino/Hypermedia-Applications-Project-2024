@@ -22,7 +22,7 @@ function closeMenu() {
   }
 }
 
-provide('toggleMenu', toggleMenu);
+provide('closeMenu', closeMenu);
 
 </script>
 
@@ -49,8 +49,8 @@ provide('toggleMenu', toggleMenu);
           </a>
         </div>
         <!-- Hamburger Icon for Mobile View -->
-        <div class="sm:hidden pt-2 pr-4">
-          <button @click="toggleMenu">
+        <div class="sm:hidden pr-4">
+          <button @click="toggleMenu" class="p-2 rounded-md hover:bg-cream transition ease-in-out duration-200">
             <Bars3Icon class="size-7" />
           </button>
         </div>
