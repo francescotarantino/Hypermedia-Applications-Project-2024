@@ -1,18 +1,10 @@
 <script setup lang="ts">
-import { PhoneIcon, HomeIcon, Bars3Icon } from '@heroicons/vue/24/solid'
+import { PhoneIcon, Bars3Icon } from '@heroicons/vue/24/solid'
 
 const isMenuOpen = ref(false);
 
+// Toggle mobile menu visibility
 function toggleMenu() {
-  // Toggle mobile menu visibility
-  const nav = document.querySelector('nav');
-  if (!isMenuOpen.value) {
-    nav?.classList.remove('hidden');
-    nav?.classList.add('flex');
-  } else {
-    nav?.classList.remove('flex');
-    nav?.classList.add('hidden');
-  }
   isMenuOpen.value = !isMenuOpen.value;
 }
 
@@ -24,6 +16,13 @@ function closeMenu() {
 
 provide('closeMenu', closeMenu);
 
+onMounted(() => {
+  window.addEventListener('resize', closeMenu);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', closeMenu);
+});
 </script>
 
 <template>
@@ -59,43 +58,25 @@ provide('closeMenu', closeMenu);
   </header>
 
   <!-- Navigation Bar -->
-  <div class="sticky top-0 bg-cream drop-shadow" style="z-index: 999999">
+  <div class="sticky top-0 drop-shadow" style="z-index: 999999">
     <!-- Division Line Bar -->
     <div class="h-2 bg-gradient-to-r from-orange via-apricot to-orange"/>
 
-    <nav class="container mx-auto hidden flex-col sm:flex-row sm:flex items-center justify-center text-lg">
+    <nav class="hidden sm:flex flex-col items-center justify-center text-lg bg-cream h-full">
       <div class="p-2 lg:p-4 flex gap-8 lg:gap-14 flex-col sm:flex-row text-center items-center">
-        <!-- Home Link -->
-        <AppHeaderLink to="/">
-          <HomeIcon class="p-1 size-7 text-primary" />
-        </AppHeaderLink>
-        <!-- Activities Link -->
-        <AppHeaderLink to="/about-us">
-          About Us
-        </AppHeaderLink>
-        <!-- Activities Dropdown -->
-        <AppDropdown title="Activities" to="/activities">
-          <AppDropdownContent>
-            <!-- Services Link -->
-            <AppDropdownLink to="/activities/services">
-              Services
-            </AppDropdownLink>
-            <!-- Projects Link -->
-            <AppDropdownLink to="/activities/projects">
-              Projects
-            </AppDropdownLink>
-          </AppDropdownContent>
-        </AppDropdown>
-        <!-- People Link -->
-        <AppHeaderLink to="/people">
-          Our Team
-        </AppHeaderLink>
-        <!-- Contact Us Link -->
-        <AppHeaderLink to="/contact-us">
-          Contact Us
-        </AppHeaderLink>
+        <AppNavbar />
       </div>
     </nav>
+
+    <div class="overflow-hidden">
+      <transition name="navbar">
+        <nav v-if="isMenuOpen">
+          <div class="p-2 flex gap-4 flex-col text-center items-center bg-cream">
+            <AppNavbar />
+          </div>
+        </nav>
+      </transition>
+    </div>
   </div>
 </template>
 

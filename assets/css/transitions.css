@@ -70,3 +70,15 @@
 .chat-leave-to {
     opacity: 0;
 }
+
+/* Navbar transition */
+.navbar-enter-active,
+.navbar-leave-active {
+    transition: transform 400ms, opacity 400ms;
+}
+
+.navbar-enter-from,
+.navbar-leave-to {
+    transform: translateY(-100%);
+    opacity: 0;
+}
