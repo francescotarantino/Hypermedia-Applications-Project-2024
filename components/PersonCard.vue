@@ -15,8 +15,8 @@ defineProps<{
 
         <div class="flex-grow" />
 
-        <p class="text-left line-clamp-9">
-          {{ person.bio }}
+        <p class="text-center line-clamp-6">
+          {{ person.bio.split('.')[0] }}.
         </p>
       </div>
     </div>
