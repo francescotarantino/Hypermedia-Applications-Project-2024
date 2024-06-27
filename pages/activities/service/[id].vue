@@ -15,14 +15,14 @@ useSeoMeta({
 
     <ActivityInfoSection :activity="service as IActivity" />
 
-    <div class="flex flex-row gap-4 justify-center">
+    <div class="flex items-center flex-col lg:flex-row lg:items-start gap-4 justify-center">
       <div class="max-w-md">
         <h2 class="text-2xl text-center text-orange font-bold my-8">Service hours</h2>
 
         <div class="flex flex-col items-center gap-4">
           <HoursTable v-if="service?.service_hours" :hours="service?.service_hours || []" />
 
-          <p v-if="service?.service_hours_description" class="text-center">
+          <p v-if="service?.service_hours_description" class="text-center px-4">
             {{service?.service_hours_description}}
           </p>
         </div>

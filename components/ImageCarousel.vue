@@ -54,7 +54,7 @@ onUnmounted(() => {
 
 <template>
   <div class="flex h-[100%]">
-    <div class="flex mx-auto justify-center relative w-[400px] h-[500px] m-auto">
+    <div class="flex mx-auto justify-center relative w-screen md:w-[400px] h-[500px] m-auto">
       <!-- Images -->
       <template v-for="(image, index) in images" :key="index">
         <!-- Fade transition -->
