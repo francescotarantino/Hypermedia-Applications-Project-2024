@@ -21,6 +21,34 @@
     transform: translateX(0);
 }
 
+/* Slide transition */
+.slide-enter-active,
+.slide-leave-active {
+    transition: transform 1s, opacity 1s;
+}
+.slide-enter-from {
+    transform: translateX(100%);
+    opacity: 0;
+}
+.slide-leave-to {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+/* Slide back transition */
+.slideback-enter-active,
+.slideback-leave-active {
+    transition: transform 1s, opacity 1s;
+}
+.slideback-enter-from {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+.slideback-leave-to {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
 /* Fade transition */
 .fade-enter-active,
 .fade-leave-active {

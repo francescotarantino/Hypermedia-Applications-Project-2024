@@ -17,10 +17,10 @@ useSeoMeta({
 
     <h2 class="text-2xl text-center text-orange font-bold my-8">Testimonials</h2>
 
-    <div class="flex justify-center">
-      <div class="flex flex-col gap-4 mx-auto md:w-3/4">
-        <TestimonialCard v-for="(testimonial, index) in service?.service_testimonials" :key="index" :testimonial="testimonial" />
-      </div>
-    </div>
+    <CardCarousel :items="service?.service_testimonials">
+      <template #default="{ item, active }">
+        <TestimonialCard :testimonial="item" :active="active" class="h-full" />
+      </template>
+    </CardCarousel>
   </section>
 </template>

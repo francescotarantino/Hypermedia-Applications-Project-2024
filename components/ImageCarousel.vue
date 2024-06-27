@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/vue/24/outline";
 
+const SLIDE_TIMEOUT = 5000;
+
 // Props of the component: images to display
 const props = defineProps<{
   images: IPicture[];
@@ -32,7 +34,7 @@ const prevSlide = () => {
 const startSlider = () => {
   interval = setInterval(() => {
     nextSlide();
-  }, 10000);
+  }, SLIDE_TIMEOUT);
 };
 
 const stopSlider = () => {

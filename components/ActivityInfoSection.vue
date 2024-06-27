@@ -50,7 +50,7 @@ defineProps<{
               {{activity?.description}}
             </p>
 
-            <Carousel :images="activity.other_images!" />
+            <ImageCarousel :images="activity.other_images!" />
           </div>
         </div>
 
