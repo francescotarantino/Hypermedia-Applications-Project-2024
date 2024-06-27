@@ -67,14 +67,14 @@ provide('toggleMenu', toggleMenu);
       <div class="p-2 lg:p-4 flex gap-8 lg:gap-14 flex-col sm:flex-row text-center items-center">
         <!-- Home Link -->
         <AppHeaderLink to="/">
-          <HomeIcon class="p-2 size-9 text-primary" />
+          <HomeIcon class="p-1 size-7 text-primary" />
         </AppHeaderLink>
         <!-- Activities Link -->
         <AppHeaderLink to="/about-us">
           About Us
         </AppHeaderLink>
         <!-- Activities Dropdown -->
-        <AppDropdown title="Activities" to="/activities" class="p-2 text-xl text-primary rounded-lg hover:bg-peach transition ease-in-out duration-200">
+        <AppDropdown title="Activities" to="/activities">
           <AppDropdownContent>
             <!-- Services Link -->
             <AppDropdownLink to="/activities/services">

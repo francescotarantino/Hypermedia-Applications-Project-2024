@@ -19,11 +19,14 @@ const toggle = () => {
 provide('dropdownActive', dropdownActive);
 
 const toggleMenu = inject<() => void>('toggleMenu');
+
+const route = useRoute();
 </script>
 
 <template>
   <!-- Container for the dropdown menu -->
-  <div class="relative inline-block text-center" @mouseenter="toggle" @mouseleave="toggle">
+  <div class="relative inline-block text-center p-2 text-xl text-primary rounded-lg hover:bg-peach transition ease-in-out duration-200"
+       @mouseenter="toggle" @mouseleave="toggle" :class="{'bg-peach bg-opacity-50' : route.fullPath.startsWith(to)}">
     <!-- Dropdown menu content -->
     <div class="flex flex-row items-center gap-1 justify-center w-full" id="options-menu" aria-haspopup="true">
       <!-- Link with title -->

@@ -80,7 +80,7 @@ const HOURS = [
         <div class="flex-grow m-8 grid grid-cols-1 md:grid-cols-3">
           <div v-for="(person, index) in boardDirectors" :key="index">
             <div class="flex flex-col items-center">
-              <NuxtLink :to="`/people/${person.id}`" class="flex flex-col items-center hover:opacity-70">
+              <NuxtLink :to="`/person/${person.id}`" class="flex flex-col items-center hover:opacity-70">
                 <img class="border-2 border-apricot bg-white aspect-auto rounded-2xl w-3/4" :src="person.picture.path" :alt="person.picture.label"/>
                 <p class="font-semibold text-xl">{{person.name + ' ' + person.surname}}</p>
               </NuxtLink>
