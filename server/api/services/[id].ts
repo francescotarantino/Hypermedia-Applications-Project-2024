@@ -17,7 +17,7 @@ export default defineEventHandler(async (event) => {
 
   // Query the service by id
   const {data, error} = await client.from('services').select(
-    'id, name, abstract, description, service_hours,' +
+    'id, name, abstract, description, service_hours, service_hours_description,' +
     'main_image: images!main_image_id(label, path),' +
     'other_images: images!service_other_image(label, path),' +
     'service_testimonials(name, comment, date),' +
