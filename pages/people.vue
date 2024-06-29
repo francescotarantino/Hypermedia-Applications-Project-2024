@@ -24,7 +24,7 @@ const { data: people }  = await useFetch<IPerson[]>('/api/people');
       </p>
       <div class="grid justify-items-center">
         <div class="max-w-screen-lg grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <PersonCard v-for="person in people" :key="person.id" :person="person" />
+          <PersonCard v-for="person in people" :key="person.id" :person="person" show-bio />
         </div>
       </div>
     </div>

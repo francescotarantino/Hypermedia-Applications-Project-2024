@@ -105,7 +105,7 @@ function scrollTo(id: string) {
       <h2 class="text-3xl text-center text-orange font-bold mb-4">The directive board</h2>
       <div class="grid justify-items-center">
         <div class="max-w-screen-lg grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <PersonCardSmall v-for="person in boardDirectors" :key="person.id" :person="person" />
+          <PersonCard v-for="person in boardDirectors" :key="person.id" :person="person" :show-bio="false" />
         </div>
       </div>
       <br><br>
@@ -126,7 +126,7 @@ function scrollTo(id: string) {
           <!-- Selector for chapter -->
           <div class="flex flex-col gap-4 w-full md:w-auto">
             <div
-                v-for="(tab, i) in tabs" :key="tab.id" @click="scrollTo(tab.id)"
+                v-for="(tab) in tabs" :key="tab.id" @click="scrollTo(tab.id)"
                 class="flex flex-row items-center w-full md:w-56 text-lg text-bold text-left p-2 rounded-xl cursor-pointer hover:bg-cream transition ease-in-out duration-200"
                 :class="{ 'bg-peach': selectedTab === tab.id }">
               <p>{{ tab.label }}</p>
@@ -341,7 +341,7 @@ function scrollTo(id: string) {
         <h2 class="text-2xl text-center text-orange font-bold my-8">Our Team</h2>
         <StaffCarousel :items=staffMembers>
           <template #default="{ item, active }">
-            <PersonCardSmall :person="item" :active="active" class="h-full" />
+            <PersonCard :person="item" :active="active" class="h-full" :show-bio="false" />
           </template>
         </StaffCarousel>
       </div>
