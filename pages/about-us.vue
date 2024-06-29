@@ -128,7 +128,8 @@ function scrollTo(id: string) {
             <div
                 v-for="(tab) in tabs" :key="tab.id" @click="scrollTo(tab.id)"
                 class="flex flex-row items-center w-full md:w-56 text-lg text-bold text-left p-2 rounded-xl cursor-pointer hover:bg-cream transition ease-in-out duration-200"
-                :class="{ 'bg-peach': selectedTab === tab.id }">
+                :class="{ 'bg-peach': selectedTab === tab.id }"
+            >
               <p>{{ tab.label }}</p>
 
               <div class="flex-grow" />
