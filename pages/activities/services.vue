@@ -5,7 +5,7 @@ const { data: services } = await useFetch<IService[]>('/api/services');
 
 <template>
   <section>
-    <div class="container mx-auto px-4 w-3/4">
+    <div class="container mx-auto px-8 md:w-3/4">
       <h1 class="text-3xl font-semibold text-center text-orange">Services</h1>
       <p class="text-justify text-lg text-gray-600 mt-8 mb-12">
         At SHE Centre we provide a range of essential resources and support tailored to empower women facing domestic violence. 

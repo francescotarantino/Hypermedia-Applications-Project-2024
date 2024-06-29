@@ -46,9 +46,10 @@ function scrollTo(id: string) {
 
 <template>
   <section>
-    <div class="container mx-auto px-4 w-3/4">
+    <div class="container mx-auto px-8 md:w-3/4">
       <!-- About Us -->
-      <h2 class="text-3xl text-center text-orange font-bold mt-4 mb-8">About Us</h2>
+      <h2 class="text-3xl text-center text-orange font-bold mb-8">About Us</h2>
+
       <p class="text-lg text-justify mb-8">
         Welcome to the Signal for Help Empowerment (SHE) Centre, a sanctuary of hope and support for women facing 
         domestic violence. Located at 340 Boulevard NE in Atlanta, Georgia, we are dedicated to empowering women 
@@ -121,25 +122,25 @@ function scrollTo(id: string) {
         Today, it stands as a beacon of hope, empowering women to reclaim their lives and achieve independence.
       </p>
       <div class="flex flex-row">
-        <div class="flex flex-col lg:flex-row gap-8">
+        <div class="flex flex-col md:flex-row gap-8">
           <!-- Selector for chapter -->
-          <div class="flex flex-col gap-4 self-center">
+          <div class="flex flex-col gap-4 w-full md:w-auto">
             <div
-                v-for="tab in tabs" :key="tab.id" @click="scrollTo(tab.id)"
-                class="flex flex-row items-center w-56 text-lg text-bold text-left p-2 rounded-xl cursor-pointer hover:bg-cream transition ease-in-out duration-200"
+                v-for="(tab, i) in tabs" :key="tab.id" @click="scrollTo(tab.id)"
+                class="flex flex-row items-center w-full md:w-56 text-lg text-bold text-left p-2 rounded-xl cursor-pointer hover:bg-cream transition ease-in-out duration-200"
                 :class="{ 'bg-peach': selectedTab === tab.id }">
               <p>{{ tab.label }}</p>
 
               <div class="flex-grow" />
 
-              <ChevronRightIcon class="w-6 h-6 text-primary rotate-90 lg:rotate-0" />
+              <ChevronRightIcon class="w-6 h-6 text-primary rotate-90 md:rotate-0" />
             </div>
           </div>
 
           <div>
             <transition name="fade" mode="out-in">
               <!-- Chapter 1 -->
-              <div v-if="selectedTab === 'Chapter_1'" id="Chapter_1" class="scroll-mt-8 lg:scroll-mt-24">
+              <div v-if="selectedTab === 'Chapter_1'" id="Chapter_1" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 1 - The Vision Takes Root</h2>
                 <p class="text-lg  mb-8 text-justify">
                   The genesis of the Signal for Help Empowerment (SHE) Centre traces back to the early 2000s when
@@ -165,7 +166,7 @@ function scrollTo(id: string) {
               </div>
 
               <!-- Chapter 2 -->
-              <div v-else-if="selectedTab === 'Chapter_2'" id="Chapter_2" class="scroll-mt-8 lg:scroll-mt-24">
+              <div v-else-if="selectedTab === 'Chapter_2'" id="Chapter_2" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 2 - The Founding Years</h2>
                 <p class="text-lg  mb-8 text-justify">
                   The SHE Centre officially opened its doors on June 15, 2005, at a modest location in downtown Atlanta.
@@ -189,7 +190,7 @@ function scrollTo(id: string) {
               </div>
 
               <!-- Chapter 3 -->
-              <div v-else-if="selectedTab === 'Chapter_3'" id="Chapter_3" class="scroll-mt-8 lg:scroll-mt-24">
+              <div v-else-if="selectedTab === 'Chapter_3'" id="Chapter_3" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 3 - Expanding Services and Outreach</h2>
                 <p class="text-lg  mb-8 text-justify">
                   With a more substantial facility and a growing team, the SHE Centre was able to broaden its range
@@ -212,7 +213,7 @@ function scrollTo(id: string) {
               </div>
 
               <!-- Chapter 4 -->
-              <div v-else-if="selectedTab === 'Chapter_4'" id="Chapter_4" class="scroll-mt-8 lg:scroll-mt-24">
+              <div v-else-if="selectedTab === 'Chapter_4'" id="Chapter_4" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 4 - Building a Strong Community Presence</h2>
                 <p class="text-lg  mb-8 text-justify">
                   By 2012, the SHE Centre had firmly established itself as a vital resource in the Atlanta community.
@@ -229,7 +230,7 @@ function scrollTo(id: string) {
               </div>
 
               <!-- Chapter 5 -->
-              <div v-else-if="selectedTab === 'Chapter_5'" id="Chapter_5" class="scroll-mt-8 lg:scroll-mt-24">
+              <div v-else-if="selectedTab === 'Chapter_5'" id="Chapter_5" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 5 - Facing Challenges and Overcoming Obstacles</h2>
                 <p class="text-lg  mb-8 text-justify">
                   As with any growing organization, the SHE Centre faced its share of challenges.
@@ -246,7 +247,7 @@ function scrollTo(id: string) {
               </div>
 
               <!-- Chapter 6 -->
-              <div v-else-if="selectedTab === 'Chapter_6'" id="Chapter_6" class="scroll-mt-8 lg:scroll-mt-24">
+              <div v-else-if="selectedTab === 'Chapter_6'" id="Chapter_6" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 6 - Innovating for the Future</h2>
                 <p class="text-lg  mb-8 text-justify">
                   By 2015, the SHE Centre had become a model for domestic violence support services.
@@ -263,7 +264,7 @@ function scrollTo(id: string) {
               </div>
 
               <!-- Chapter 7 -->
-              <div v-else-if="selectedTab === 'Chapter_7'" id="Chapter_7" class="scroll-mt-8 lg:scroll-mt-24">
+              <div v-else-if="selectedTab === 'Chapter_7'" id="Chapter_7" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 7 - The COVID-19 Pandemic and Its Impact</h2>
                 <p class="text-lg  mb-8 text-justify">
                   The outbreak of the COVID-19 pandemic in 2020 brought unprecedented challenges to the SHE Centre.
@@ -280,7 +281,7 @@ function scrollTo(id: string) {
               </div>
 
               <!-- Chapter 8 -->
-              <div v-else-if="selectedTab === 'Chapter_8'" id="Chapter_8" class="scroll-mt-8 lg:scroll-mt-24">
+              <div v-else-if="selectedTab === 'Chapter_8'" id="Chapter_8" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 8 - A Beacon of Hope and Empowerment</h2>
                 <p class="text-lg  mb-8 text-justify">
                   Today, the Signal for Help Empowerment (SHE) Centre stands as a beacon of hope and empowerment for women
@@ -297,7 +298,7 @@ function scrollTo(id: string) {
               </div>
 
               <!-- Chapter 9 -->
-              <div v-else-if="selectedTab === 'Chapter_9'" id="Chapter_9" class="scroll-mt-8 lg:scroll-mt-24">
+              <div v-else-if="selectedTab === 'Chapter_9'" id="Chapter_9" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 9 - Community Engagement and Future Goals</h2>
                 <p class="text-lg mb-8 text-justify">
                   The SHE Centre's engagement with the local community remains a cornerstone of its success.
@@ -314,7 +315,7 @@ function scrollTo(id: string) {
               </div>
 
               <!-- Chapter 10 -->
-              <div v-else-if="selectedTab === 'Chapter_10'" id="Chapter_10" class="scroll-mt-8 lg:scroll-mt-24">
+              <div v-else-if="selectedTab === 'Chapter_10'" id="Chapter_10" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 10 - The Legacy of Empowerment</h2>
                 <p class="text-lg  mb-8 text-justify">
                   The story of the Signal for Help Empowerment (SHE) Centre is a testament to the power of vision,

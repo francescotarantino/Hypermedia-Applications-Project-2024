@@ -5,8 +5,9 @@ const { data: people }  = await useFetch<IPerson[]>('/api/people');
 
 <template>
   <section>
-    <div class="container mx-auto px-4 w-3/4">
+    <div class="container mx-auto px-8 md:w-3/4">
       <h1 class="text-3xl font-semibold text-center text-orange">Our Team</h1>
+
       <p class="text-justify text-lg text-gray-600 mt-8 mb-12">
         Welcome to the SHE-Centre's team page. We are a diverse group of dedicated individuals who work tirelessly to
         make our anti-violence center a safe, supportive, and empowering environment for all who seek our services.

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/vue/24/outline";
-import { defineProps, ref, computed, onMounted, onUnmounted } from 'vue';
 
 const SLIDE_TIMEOUT = 10000;
 

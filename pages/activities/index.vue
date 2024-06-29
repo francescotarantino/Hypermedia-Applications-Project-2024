@@ -16,7 +16,7 @@ activities.value.sort((a, b) => a.name.localeCompare(b.name));
 
 <template>
   <section>
-    <div class="container mx-auto px-4 w-3/4">
+    <div class="container mx-auto px-8 md:w-3/4">
       <h1 class="text-3xl font-semibold text-center text-orange">Activities</h1>
       <p class="text-justify text-lg mt-8 mb-12">
         At SHE Centre our commitment to empowering women facing domestic violence has evolved over the years to offer a 

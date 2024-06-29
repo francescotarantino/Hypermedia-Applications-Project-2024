@@ -5,7 +5,7 @@ const { data: projects }  = await useFetch<IProject[]>('/api/projects');
 
 <template>
   <section>
-    <div class="container mx-auto px-4 w-3/4">
+    <div class="container mx-auto px-8 md:w-3/4">
       <h1 class="text-3xl font-semibold text-center text-orange">Projects</h1>
       <p class="text-justify text-lg text-gray-600 mt-8 mb-12">
         At SHE Centre we highlight innovative initiatives aimed at empowering women and children affected by domestic violence. 
