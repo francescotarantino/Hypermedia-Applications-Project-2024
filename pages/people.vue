@@ -10,6 +10,8 @@ const { data: people }  = await useFetch<IPerson[]>('/api/people');
       <p class="text-justify text-lg text-gray-600 mt-8 mb-12">
         Welcome to the SHE-Centre's team page. We are a diverse group of dedicated individuals who work tirelessly to
         make our anti-violence center a safe, supportive, and empowering environment for all who seek our services.
+      </p>
+      <p class="text-justify text-lg text-gray-600 mt-8 mb-12">
         Our team is composed of professionals from various fields, including counselors, social workers, legal advisors,
         and more. Each member brings their unique skills and experiences to the table, united by a common goal: to combat
         violence and provide resources for those affected by it. At SHE-Centre, we believe in the power of community and
