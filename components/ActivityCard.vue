@@ -10,7 +10,7 @@ defineProps<{
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 m-4">
       <img class="hidden lg:block aspect-auto rounded-xl" :src="activity.main_image.path" :alt="activity.main_image.label">
 
-      <div class="flex flex-col text-center">
+      <div class="flex flex-col text-center pt-2">
         <h2 class="text-2xl font-bold text-orange">
           {{ activity.name }}
         </h2>
