@@ -12,13 +12,11 @@ const { data: services } = await useFetch<IService[]>('/api/services');
         Our services have evolved over the years to encompass a comprehensive approach to healing and empowerment. 
         From crisis intervention and safe shelter to legal advocacy, skills training, and community outreach, each service 
         is designed to meet the unique needs of survivors on their journey towards safety and independence.
-      </p>
-      <p class="text-justify text-lg text-gray-600 mt-8 mb-12">
+        <br><br>
         What began with a focus on immediate crisis response has grown into a network of support that addresses 
         the holistic needs of survivors. Our commitment to innovation and collaboration has enabled us to forge 
         partnerships with local organizations and professionals, ensuring that our services remain relevant and effective.
-      </p>
-      <p class="text-justify text-lg text-gray-600 mt-8 mb-12">
+        <br><br>
         Explore our diverse range of services and discover how the SHE Centre can support you or someone you know in navigating 
         the challenges of domestic violence. Whether you are seeking shelter, legal guidance, skills development, or community 
         engagement, we are here to provide compassionate care and practical assistance every step of the way.

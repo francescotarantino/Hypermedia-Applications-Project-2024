@@ -14,6 +14,10 @@ import {HomeIcon} from "@heroicons/vue/24/solid";
   <!-- Activities Dropdown -->
   <AppDropdown title="Activities" to="/activities">
     <AppDropdownContent>
+      <!-- All activities Link -->
+      <AppDropdownLink to="/activities">
+        All
+      </AppDropdownLink>
       <!-- Services Link -->
       <AppDropdownLink to="/activities/services">
         Services

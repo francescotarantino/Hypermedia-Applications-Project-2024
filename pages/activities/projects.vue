@@ -12,14 +12,12 @@ const { data: projects }  = await useFetch<IProject[]>('/api/projects');
         Our projects go beyond immediate support to offer long-term solutions and opportunities for healing and growth. 
         From transitional housing and child support services to financial empowerment and art therapy, each project is designed 
         to address specific aspects of recovery and empowerment.
-      </p>
-      <p class="text-justify text-lg text-gray-600 mt-8 mb-12">
+        <br><br>
         Since our inception, the SHE Centre has been committed to expanding our impact through strategic projects that meet 
         the evolving needs of survivors. These initiatives are driven by our dedication to fostering resilience, independence, 
         and community support. Through partnerships with experts and stakeholders, we continue to develop and implement projects 
         that make a lasting difference in the lives of those we serve.
-      </p>
-      <p class="text-justify text-lg text-gray-600 mt-8 mb-12">
+        <br><br>
         Explore our transformative projects and learn how the SHE Centre is creating pathways to healing and empowerment. 
         Whether you are interested in supporting children affected by violence, gaining financial literacy, or exploring 
         the healing power of art, our projects offer opportunities for growth, healing, and a brighter future. 
