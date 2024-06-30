@@ -1,5 +1,18 @@
 <script setup lang="ts">
-import {ChevronRightIcon} from '@heroicons/vue/24/outline';
+import {
+
+  ChevronRightIcon,
+  ArrowTrendingUpIcon,
+  ChatBubbleLeftRightIcon,
+  GlobeEuropeAfricaIcon,
+  CubeIcon,
+  LightBulbIcon,
+  BookOpenIcon
+
+} from '@heroicons/vue/24/outline';
+
+
+
 
 const { data: people } = await useFetch<IPerson[]>('/api/people');
 
@@ -17,14 +30,12 @@ const HOURS = [
 ];
 
 const VALUES = [
-  { name: 'Empowerment' , description: 'We believe in equipping women with the tools and resources they need to build independent, fulfilling lives.' },
-  { name: 'Respect' , description: 'We honor the dignity and worth of every person, fostering an environment of trust and mutual respect.' },
-  { name: 'Community' , description: 'We are committed to building strong community ties and engaging with local partners to enhance our support network.' },
-  { name: 'Resilience' , description: 'We strive to overcome challenges with determination and adaptability, continually evolving to meet the needs of those we serve.' },
-  { name: 'Innovation' , description: 'We seek out new and effective ways to provide support, leveraging technology and partnerships to enhance our services.' },
-  { name: 'Collaboration' , description: 'We work together with clients, staff, and partners to create a supportive and inclusive environment that fosters growth and healing.' },
-  { name: 'Education' , description: 'We believe in the power of knowledge and strive to provide educational opportunities that empower woman to make informed choices.' },
-
+  { name: 'Empowerment' , description: 'We believe in equipping women with the tools and resources they need to build independent, fulfilling lives.' , icon: ArrowTrendingUpIcon },
+  { name: 'Respect' , description: 'We honor the dignity and worth of every person, fostering an environment of trust and mutual respect.' , icon: ChatBubbleLeftRightIcon},
+  { name: 'Community' , description: 'We are committed to building strong community ties and engaging with local partners to enhance our support network.' , icon: GlobeEuropeAfricaIcon },
+  { name: 'Resilience' , description: 'We strive to overcome challenges with determination and adaptability, continually evolving to meet the needs of those we serve.' , icon: CubeIcon},
+  { name: 'Collaboration' , description: 'We work together with clients, staff, and partners to create a supportive and inclusive environment that fosters growth and healing.' , icon: LightBulbIcon},
+  { name: 'Education' , description: 'We believe in the power of knowledge and strive to provide educational opportunities that empower woman to make informed choices.' , icon: BookOpenIcon},
 ];
 
 const selectedTab = ref<string>('1');
@@ -119,7 +130,7 @@ function scrollTo(id: string) {
         The SHE Centre aspires to be a beacon of hope and empowerment, offering holistic, multi-faceted support
         that addresses the complex needs of survivors and promotes long-term healing and independence.
       </p>
-      <div class="flex flex-wrap justify-center items-center">
+      <div class="flex flex-wrap-reverse justify-center items-center">
         <ValueCard v-for="(value, index) in VALUES" :key="index" :value="value" />
       </div>
 

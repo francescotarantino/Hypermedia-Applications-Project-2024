@@ -1,10 +1,12 @@
 <script setup lang="ts">
+
 const isFlipped = ref(false);
 
 defineProps<{
   value: {
     name: string;
     description: string;
+    icon: string;
   };
 }>();
 
@@ -27,7 +29,10 @@ defineProps<{
       <div class="flex w-full h-full absolute bg-cream border border-orange items-center justify-center rounded-xl backface-hidden duration-700 ease-in-out transform-gpu"
            :class="isFlipped ? 'rotate-y-180-front' : 'rotate-y-0-front'"
       >
-        <p class="flex-col p-4 text-orange font-bold text-center text-3xl">{{ value.name }}</p>
+        <div class="flex-col grid grid-rows-2 justify-items-center">
+          <p class="p-4 text-orange font-bold te xt-center text-3xl">{{ value.name }}</p>
+          <component :is="value.icon" class="text-orange flex-row w-18 h-10" />
+        </div>
       </div>
     </div>
   </div>
