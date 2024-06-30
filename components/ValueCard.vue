@@ -11,16 +11,22 @@ defineProps<{
 </script>
 
 <template>
-  <div class="w-64 h-64 bg-transparent perspective-1000 cursor-pointer m-2">
+  <div class="w-64 h-64 bg-transparent cursor-pointer m-2">
     <div
-        :class="{ 'rotate-y-180': isFlipped }"
-        class="w-full h-full relative duration-700 ease-in-out transform-gpu hover:drop-shadow-2xl transition"
+        class="w-full h-full relative hover:drop-shadow-2xl transition duration-500 ease-in-out perspective-1000"
         @click="isFlipped = !isFlipped"
     >
-      <div class="flex w-full h-full absolute bg-peach items-center justify-center rounded-xl backface-hidden ">
-        <p class="flex-col p-4 text-primary text-center text-lg rotate-y-180">{{value.description}}</p>
+      <!-- Back -->
+      <div class="flex w-full h-full absolute bg-peach items-center justify-center rounded-xl duration-700 ease-in-out transform-gpu"
+           :class="isFlipped ? 'rotate-y-180-back' : 'rotate-y-0-back'"
+      >
+        <p class="flex-col p-4 text-primary text-center text-lg rotate-y-180-back">{{ value.description }}</p>
       </div>
-      <div class="flex w-full h-full absolute bg-cream border border-orange items-center justify-center rounded-xl transform backface-hidden ">
+
+      <!-- Front -->
+      <div class="flex w-full h-full absolute bg-cream border border-orange items-center justify-center rounded-xl backface-hidden duration-700 ease-in-out transform-gpu"
+           :class="isFlipped ? 'rotate-y-180-front' : 'rotate-y-0-front'"
+      >
         <p class="flex-col p-4 text-orange font-bold text-center text-3xl">{{ value.name }}</p>
       </div>
     </div>
@@ -34,9 +40,23 @@ defineProps<{
 
 .backface-hidden {
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-.rotate-y-180 {
-  transform: rotateY(180deg);
+.rotate-y-0-back {
+  transform: rotateY(0deg) translateZ(1px);
 }
+
+.rotate-y-180-back {
+  transform: rotateY(180deg) translateZ(1px);
+}
+
+.rotate-y-0-front {
+  transform: rotateY(0deg) translateZ(1px);
+}
+
+.rotate-y-180-front {
+  transform: rotateY(180deg) translateZ(1px);
+}
+
 </style>
