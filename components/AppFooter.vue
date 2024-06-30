@@ -4,7 +4,7 @@
       <!-- Legal Information -->
       <div>
         <h3 class="font-semibold text-lg mb-2">Legal Information</h3>
-        <p>Cooperativa Sociale SHE-centre</p>
+        <p>Social Cooperative SHE-centre</p>
         <p class="text-sm"><a href="#" class="hover:underline">Privacy Policy</a></p>
         <p class="text-sm"><a href="#" class="hover:underline">Terms of Service</a></p>
       </div>
@@ -20,9 +20,9 @@
       <!-- Address -->
       <div>
         <h3 class="font-semibold text-lg mb-2">Address</h3>
-        <p>Piazza Leonardo da Vinci, 32</p>
-        <p>Milan (MI), 20133</p>
-        <p>Italy</p>
+        <p>340 Boulevard NE</p>
+        <p>Atlanta, GA 30312</p>
+        <p>United States of America</p>
       </div>
 
       <!-- Socials -->
@@ -59,5 +59,3 @@
     </div>
   </footer>
 </template>
-<script setup lang="ts">
-</script>

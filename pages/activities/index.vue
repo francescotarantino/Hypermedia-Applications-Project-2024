@@ -16,14 +16,18 @@ activities.value.sort((a, b) => a.name.localeCompare(b.name));
 
 <template>
   <section>
-    <div class="container mx-auto px-4 w-3/4">
+    <div class="container mx-auto px-8 md:w-3/4">
       <h1 class="text-3xl font-semibold text-center text-orange">Activities</h1>
-      <p class="text-justify text-lg text-gray-600 mt-8 mb-12">
-        The SHE-Centre, established in 2010, supports women facing violence with comprehensive services and projects.
-        Our Safe Shelter provides security for 1,500 women and children annually. Legal Assistance helps navigate the
-        legal system, while Skills Training empowers 3,000 women yearly. Crisis Counseling offers emotional support, and
-        Community Outreach raises awareness. Projects include the Legal Advocacy Program, Transitional Housing, Child
-        Support Services, the Financial Empowerment Initiative, and Empowerment Through Art.
+      <p class="text-justify text-lg mt-8 mb-12">
+        At SHE Centre our commitment to empowering women facing domestic violence has evolved over the years to offer a 
+        comprehensive array of supportive services. From our humble beginnings providing safe shelter and crisis counseling, 
+        we have grown to encompass legal assistance, skills training, and community outreach initiatives. 
+        Each of these programs has been carefully developed to address the multifaceted needs of survivors, offering a 
+        holistic approach to recovery and empowerment.<br>
+        Explore our activities and discover how the SHE Centre is making a difference in the lives of women and children
+        in our community. Whether you are seeking immediate shelter, legal guidance, skills training, or simply a supportive 
+        community, we are here to help you every step of the way. Join us in our journey towards empowerment, resilience, and 
+        a future free from violence.  
       </p>
       <div class="grid justify-items-center">
         <div class="max-w-screen-lg grid grid-cols-1 md:grid-cols-2 gap-4">

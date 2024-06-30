@@ -11,7 +11,7 @@ const dropdownActive = inject('dropdownActive');
       <div class="origin-top-right bg-cream text-primary absolute right-0 mt-2 w-full rounded-md drop-shadow-xl">
         <!-- Dropdown menu items -->
         <div class="m-2" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-          <!-- Inserting slot content here -->
+          <!-- Dropdown content -->
           <slot />
         </div>
       </div>

@@ -5,17 +5,21 @@ const { data: services } = await useFetch<IService[]>('/api/services');
 
 <template>
   <section>
-    <div class="container mx-auto px-4 w-3/4">
+    <div class="container mx-auto px-8 md:w-3/4">
       <h1 class="text-3xl font-semibold text-center text-orange">Services</h1>
       <p class="text-justify text-lg text-gray-600 mt-8 mb-12">
-        The SHE-Centre, established in 2010, offers comprehensive services to support women facing violence. Our Safe
-        Shelter, launched in January 2010, provides a secure environment for over 1,500 women and children annually,
-        offering safety and emotional support. Legal Assistance, available since March 2011, helps women navigate the
-        legal system. Skills Training, initiated in June 2012, empowers 3,000 women yearly with vocational skills.
-        Crisis Counseling, available since November 2010, provides immediate and long-term emotional support. Community
-        Outreach, begun in May 2013, raises awareness and educates the public, fostering a supportive community to
-        prevent violence and support survivors. These services collectively address the immediate and long-term needs of
-        women affected by violence, promoting their safety, well-being, and empowerment.
+        At SHE Centre we provide a range of essential resources and support tailored to empower women facing domestic violence. 
+        Our services have evolved over the years to encompass a comprehensive approach to healing and empowerment. 
+        From crisis intervention and safe shelter to legal advocacy, skills training, and community outreach, each service 
+        is designed to meet the unique needs of survivors on their journey towards safety and independence.
+        <br><br>
+        What began with a focus on immediate crisis response has grown into a network of support that addresses 
+        the holistic needs of survivors. Our commitment to innovation and collaboration has enabled us to forge 
+        partnerships with local organizations and professionals, ensuring that our services remain relevant and effective.
+        <br><br>
+        Explore our diverse range of services and discover how the SHE Centre can support you or someone you know in navigating 
+        the challenges of domestic violence. Whether you are seeking shelter, legal guidance, skills development, or community 
+        engagement, we are here to provide compassionate care and practical assistance every step of the way.
       </p>
       <div class="grid justify-items-center">
         <div class="max-w-screen-lg grid grid-cols-1 md:grid-cols-2 gap-4">

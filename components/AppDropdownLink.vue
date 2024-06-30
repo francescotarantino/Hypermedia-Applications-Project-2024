@@ -3,12 +3,14 @@ defineProps<{
   to: string;
 }>();
 
-const toggleMenu = inject<() => void>('toggleMenu');
+const closeMenu = inject<() => void>('closeMenu');
 </script>
 
 <template>
-  <NuxtLink :to="to" @click="toggleMenu" class="block p-2 bg-cream rounded-lg hover:bg-peach transition ease-in-out duration-200" role="menuitem">
+  <NuxtLink class="block p-2 bg-cream rounded-lg hover:bg-peach transition ease-in-out duration-200" role="menuitem"
+            :to="to" @click="closeMenu" active-class="bg-peach bg-opacity-50">
     <p class="text-primary text-lg">
+      <!-- Slot for the link text -->
       <slot />
     </p>
   </NuxtLink>

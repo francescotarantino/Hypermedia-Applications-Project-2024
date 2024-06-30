@@ -1,8 +1,17 @@
+<script setup lang="ts">
+
+const { data: people } = await useFetch<IPerson[]>('/api/people');
+
+// Filter only the staff members
+const staffMembers = people?.value?.filter((p) => p.main_role !== 'Director');
+</script>
+
 <template>
   <section>
-    <div class="container mx-auto px-4 w-3/4">
+    <div class="container mx-auto px-8 md:w-3/4">
       <!-- About Us -->
-      <h2 class="text-3xl text-center text-orange font-bold mt-4 mb-8">Home</h2>
+      <h2 class="text-3xl text-center text-orange font-bold mb-8">Home</h2>
+
       <p class="text-lg text-justify mb-8">
         The SHE-Centre, founded in 2001 and located at Piazza Leonardo da Vinci 32, Milan, is a pioneering organization
         dedicated to combating violence against women and promoting gender equality. Over the years, it has become a
@@ -29,6 +38,16 @@
         remains committed to empowering women, fostering safe communities, and creating lasting change in the fight
         against violence.
       </p>
+      <!-- Our Team -->
+      <div>
+        <h2 class="text-2xl text-center text-orange font-bold my-8">Our Team</h2>
+        <StaffCarousel :items=staffMembers>
+          <template #default="{ item, active }">
+            <HorizontalPersonCard :person="item" :active="active" class="h-full" :show-bio="false" />
+          </template>
+        </StaffCarousel>
+      </div>
+      <br><br>
     </div>
   </section>
 </template>

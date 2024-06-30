@@ -1,23 +1,29 @@
 <script setup lang="ts">
 defineProps<{
   person: IPerson;
+  showBio: boolean;
 }>();
 </script>
 
 <template>
   <NuxtLink :to="`/person/${person.id}`" class="bg-cream rounded-2xl drop-shadow hover:bg-peach transition ease-in-out duration-200">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 m-4">
-      <img class="aspect-auto rounded-xl" :src="person.picture.path" :alt="person.picture.label">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 m-4 text-center justify-items-center">
+      <div class="col-span-2 justify-self-center">
+        <img class="aspect-auto rounded-xl w-48" :src="person.picture.path" :alt="person.picture.label">
+      </div>
 
-      <div class="flex flex-col text-center">
+      <div class="flex flex-col text-center col-span-3">
         <h2 class="text-2xl font-bold text-orange">{{ person.name + ' ' + person.surname }}</h2>
+
         <h5 class="text-md font-semibold text-orange">{{ person.main_role }}</h5>
 
         <div class="flex-grow" />
 
-        <p class="text-left line-clamp-9">
-          {{ person.bio }}
+        <p v-if="showBio" class="text-center line-clamp-4">
+          {{ person.bio.split('.')[0] }}.
         </p>
+
+        <div class="flex-grow" />
       </div>
     </div>
   </NuxtLink>

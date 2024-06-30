@@ -13,12 +13,13 @@ export default {
     fontFamily: {
         'sans': ['Outfit', 'sans-serif'],
     },
+  },
+  variants: {
     extend: {
-      lineClamp: {
-        9: '9',
-      }
+      transform: ['hover', 'focus'],
+      transitionDuration: ['hover', 'focus'],
+      transitionTimingFunction: ['hover', 'focus'],
     },
   },
   plugins: [],
 }
-

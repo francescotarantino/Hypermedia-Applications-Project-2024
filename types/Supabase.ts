@@ -352,7 +352,8 @@ export type Database = {
           main_image_id: number
           main_responsible_id: number
           name: string
-          service_hours: string[]
+          service_hours: Json[] | null
+          service_hours_description: string | null
         }
         Insert: {
           abstract: string
@@ -361,7 +362,8 @@ export type Database = {
           main_image_id: number
           main_responsible_id: number
           name: string
-          service_hours: string[]
+          service_hours?: Json[] | null
+          service_hours_description?: string | null
         }
         Update: {
           abstract?: string
@@ -370,7 +372,8 @@ export type Database = {
           main_image_id?: number
           main_responsible_id?: number
           name?: string
-          service_hours?: string[]
+          service_hours?: Json[] | null
+          service_hours_description?: string | null
         }
         Relationships: [
           {
