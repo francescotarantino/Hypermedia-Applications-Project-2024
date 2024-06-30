@@ -6,9 +6,6 @@ const { data: people } = await useFetch<IPerson[]>('/api/people');
 // Filter only the directors
 const boardDirectors = people?.value?.filter((p) => p.main_role === 'Director');
 
-// Filter only the staff members
-const staffMembers = people?.value?.filter((p) => p.main_role !== 'Director');
-
 const HOURS = [
   { day: 'Monday', hours: '9:00 AM - 6:00 PM' },
   { day: 'Tuesday', hours: '9:00 AM - 6:00 PM' },
@@ -19,18 +16,29 @@ const HOURS = [
   { day: 'Sunday', hours: 'Closed' },
 ];
 
-const selectedTab = ref<string>('Chapter_1');
+const VALUES = [
+  { name: 'Empowerment' , description: 'We believe in equipping women with the tools and resources they need to build independent, fulfilling lives.' },
+  { name: 'Respect' , description: 'We honor the dignity and worth of every person, fostering an environment of trust and mutual respect.' },
+  { name: 'Community' , description: 'We are committed to building strong community ties and engaging with local partners to enhance our support network.' },
+  { name: 'Resilience' , description: 'We strive to overcome challenges with determination and adaptability, continually evolving to meet the needs of those we serve.' },
+  { name: 'Innovation' , description: 'We seek out new and effective ways to provide support, leveraging technology and partnerships to enhance our services.' },
+  { name: 'Collaboration' , description: 'We work together with clients, staff, and partners to create a supportive and inclusive environment that fosters growth and healing.' },
+  { name: 'Education' , description: 'We believe in the power of knowledge and strive to provide educational opportunities that empower woman to make informed choices.' },
+
+];
+
+const selectedTab = ref<string>('1');
 const tabs = [
-  { label: 'Roots', id: 'Chapter_1' },
-  { label: 'Founding Years', id: 'Chapter_2' },
-  { label: 'Expanding Services', id: 'Chapter_3' },
-  { label: 'Community', id: 'Chapter_4' },
-  { label: 'Challenges', id: 'Chapter_5' },
-  { label: 'Innovations', id: 'Chapter_6' },
-  { label: 'Pandemic', id: 'Chapter_7' },
-  { label: 'Hope&Empowerment', id: 'Chapter_8' },
-  { label: 'Future Goals', id: 'Chapter_9' },
-  { label: 'Legacy', id: 'Chapter_10' },
+  { label: 'Roots', id: '1' },
+  { label: 'Founding Years', id: '2' },
+  { label: 'Expanding Services', id: '3' },
+  { label: 'Community', id: '4' },
+  { label: 'Challenges', id: '5' },
+  { label: 'Innovations', id: '6' },
+  { label: 'Pandemic', id: '7' },
+  { label: 'Hope&Empowerment', id: '8' },
+  { label: 'Future Goals', id: '9' },
+  { label: 'Legacy', id: '10' },
 ];
 function scrollTo(id: string) {
   selectedTab.value = id;
@@ -49,19 +57,12 @@ function scrollTo(id: string) {
     <div class="container mx-auto px-8 md:w-3/4">
       <!-- About Us -->
       <h2 class="text-3xl text-center text-orange font-bold mb-8">About Us</h2>
-
       <p class="text-lg text-justify mb-8">
         Welcome to the Signal for Help Empowerment (SHE) Centre, a sanctuary of hope and support for women facing 
         domestic violence. Located at 340 Boulevard NE in Atlanta, Georgia, we are dedicated to empowering women 
         to reclaim their lives through a comprehensive range of services and projects tailored to support them 
-        on their journey to safety and independence.
-      </p>
-      <p class="text-lg text-justify mb-8">
-        
-      </p>
-      <h2 class="text-2xl text-center text-orange font-bold mb-4">Our Mission</h2>
-      <p class="text-lg text-justify mb-8">At SHE, our mission is to empower women by providing them with the tools, 
-        resources, and support necessary to break free from the cycle of domestic violence. 
+        on their journey to safety and independence. At SHE, our mission is to empower women by providing them with the
+        tools, resources, and support necessary to break free from the cycle of domestic violence.
         We strive to create a world where every woman has the opportunity to live a life free from fear, 
         filled with confidence, and enriched with possibilities.
         We believe in the strength and resilience of women. 
@@ -76,18 +77,18 @@ function scrollTo(id: string) {
         </div>
         <!-- Map -->
         <div>
-          <h2 class="text-3xl text-orange text-center font-bold mt-8 mb-4">Our Location</h2>
+          <h2 class="text-3xl text-orange text-center font-bold mt-8 mb-3">Our Location</h2>
           <div class="w-full h-64 lg:h-full pb-4 lg:pb-24 pt-3">
             <Map :coordinates="[33.763590, -84.372281]"/>
           </div>
         </div>
       </div>
       <br><br>
-      
+
       <!-- Our Headquarter -->
       <h2 class="text-3xl text-center text-orange font-bold mb-4">Our Headquarter</h2>
       <div class="flex flex-col md:flex-row items-center mt-4">
-        <img class="flex-none w-full md:w-1/4 aspect-auto border-2 border-apricot bg-white rounded-2xl" src="/Headquarter.png" alt="Headquarter Image"/>
+        <img class="flex-none w-full md:w-1/4 aspect-auto drop-shadow-xl rounded-2xl" src="/headquarter.jpg" alt="Headquarter Image"/>
         <p class="flex-auto text-lg pt-4 pl-0 md:pt-0 md:pl-16 text-justify">
           The headquarters of the SHE Centre is located at 340 Boulevard NE, Atlanta, GA. Situated in a spacious and welcoming 
           facility, our headquarters serves as a safe haven and hub of support for women and children fleeing domestic violence. 
@@ -102,17 +103,29 @@ function scrollTo(id: string) {
       <br><br>
 
       <!-- Directive Board -->
-      <h2 class="text-3xl text-center text-orange font-bold mb-4">The directive board</h2>
-      <div class="grid justify-items-center">
-        <div class="max-w-screen-lg grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <PersonCard v-for="person in boardDirectors" :key="person.id" :person="person" :show-bio="false" />
+      <div class="flex flex-col xl:flex-row mt-4 mb-16 items-center">
+        <h2 class="flex-col md:w-1/3 text-3xl text-orange font-bold text-center mb-8 xl:mb-0">The directive board</h2>
+        <div class="flex-col grid grid-cols-1 xl:grid-cols-3 gap-6">
+          <div v-for="(person, index) in boardDirectors" :key="index">
+            <VerticalPersonCard class="flex flex-col" :person="person" :is-main-responsible="false"/>
+          </div>
         </div>
       </div>
-      <br><br>
-      
-      <!-- Our History -->
-      <h2 class="text-3xl text-center text-orange font-bold mb-4">Our History</h2>
+
+      <!-- Our Values -->
+      <h2 class="text-3xl text-center text-orange font-bold mt-8 mb-4">Our Values</h2>
       <p class="text-lg text-justify mb-8">
+        We envision a world where every woman can live free from the threat of domestic violence.
+        The SHE Centre aspires to be a beacon of hope and empowerment, offering holistic, multi-faceted support
+        that addresses the complex needs of survivors and promotes long-term healing and independence.
+      </p>
+      <div class="flex flex-wrap justify-center items-center">
+        <ValueCard v-for="(value, index) in VALUES" :key="index" :value="value" />
+      </div>
+
+      <!-- Our History -->
+      <h2 class="text-3xl text-center text-orange font-bold mt-8 mb-4">Our History</h2>
+      <p class="text-lg text-justify mb-20">
         The Signal for Help Empowerment (SHE) Centre, founded in 2005 by Dr. Jane Anderson and a dedicated team, 
         began as a small but vital resource for women facing domestic violence in Atlanta, Georgia. 
         Over the years, it expanded from a modest shelter to a comprehensive support center offering crisis intervention,
@@ -124,13 +137,13 @@ function scrollTo(id: string) {
       <div class="flex flex-row">
         <div class="flex flex-col md:flex-row gap-8">
           <!-- Selector for chapter -->
-          <div class="flex flex-col gap-4 w-full md:w-auto">
+          <div class="flex flex-col gap-4 w-full md:w-auto bg-cream rounded-xl p-4">
             <div
                 v-for="(tab) in tabs" :key="tab.id" @click="scrollTo(tab.id)"
-                class="flex flex-row items-center w-full md:w-56 text-lg text-bold text-left p-2 rounded-xl cursor-pointer hover:bg-cream transition ease-in-out duration-200"
+                class="flex flex-row items-center w-full md:w-64 text-lg text-bold text-left p-2 rounded-xl cursor-pointer hover:bg-opacity-40 hover:bg-peach transition ease-in-out duration-200"
                 :class="{ 'bg-peach': selectedTab === tab.id }"
             >
-              <p>{{ tab.label }}</p>
+              <p>{{tab.id + ": " + tab.label }}</p>
 
               <div class="flex-grow" />
 
@@ -141,7 +154,7 @@ function scrollTo(id: string) {
           <div>
             <transition name="fade" mode="out-in">
               <!-- Chapter 1 -->
-              <div v-if="selectedTab === 'Chapter_1'" id="Chapter_1" class="scroll-mt-8 sm:scroll-mt-24">
+              <div v-if="selectedTab === '1'" id="1" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 1 - The Vision Takes Root</h2>
                 <p class="text-lg  mb-8 text-justify">
                   The genesis of the Signal for Help Empowerment (SHE) Centre traces back to the early 2000s when
@@ -167,7 +180,7 @@ function scrollTo(id: string) {
               </div>
 
               <!-- Chapter 2 -->
-              <div v-else-if="selectedTab === 'Chapter_2'" id="Chapter_2" class="scroll-mt-8 sm:scroll-mt-24">
+              <div v-else-if="selectedTab === '2'" id="2" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 2 - The Founding Years</h2>
                 <p class="text-lg  mb-8 text-justify">
                   The SHE Centre officially opened its doors on June 15, 2005, at a modest location in downtown Atlanta.
@@ -191,7 +204,7 @@ function scrollTo(id: string) {
               </div>
 
               <!-- Chapter 3 -->
-              <div v-else-if="selectedTab === 'Chapter_3'" id="Chapter_3" class="scroll-mt-8 sm:scroll-mt-24">
+              <div v-else-if="selectedTab === '3'" id="3" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 3 - Expanding Services and Outreach</h2>
                 <p class="text-lg  mb-8 text-justify">
                   With a more substantial facility and a growing team, the SHE Centre was able to broaden its range
@@ -214,7 +227,7 @@ function scrollTo(id: string) {
               </div>
 
               <!-- Chapter 4 -->
-              <div v-else-if="selectedTab === 'Chapter_4'" id="Chapter_4" class="scroll-mt-8 sm:scroll-mt-24">
+              <div v-else-if="selectedTab === '4'" id="4" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 4 - Building a Strong Community Presence</h2>
                 <p class="text-lg  mb-8 text-justify">
                   By 2012, the SHE Centre had firmly established itself as a vital resource in the Atlanta community.
@@ -231,7 +244,7 @@ function scrollTo(id: string) {
               </div>
 
               <!-- Chapter 5 -->
-              <div v-else-if="selectedTab === 'Chapter_5'" id="Chapter_5" class="scroll-mt-8 sm:scroll-mt-24">
+              <div v-else-if="selectedTab === '5'" id="5" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 5 - Facing Challenges and Overcoming Obstacles</h2>
                 <p class="text-lg  mb-8 text-justify">
                   As with any growing organization, the SHE Centre faced its share of challenges.
@@ -248,7 +261,7 @@ function scrollTo(id: string) {
               </div>
 
               <!-- Chapter 6 -->
-              <div v-else-if="selectedTab === 'Chapter_6'" id="Chapter_6" class="scroll-mt-8 sm:scroll-mt-24">
+              <div v-else-if="selectedTab === '6'" id="6" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 6 - Innovating for the Future</h2>
                 <p class="text-lg  mb-8 text-justify">
                   By 2015, the SHE Centre had become a model for domestic violence support services.
@@ -265,7 +278,7 @@ function scrollTo(id: string) {
               </div>
 
               <!-- Chapter 7 -->
-              <div v-else-if="selectedTab === 'Chapter_7'" id="Chapter_7" class="scroll-mt-8 sm:scroll-mt-24">
+              <div v-else-if="selectedTab === '7'" id="7" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 7 - The COVID-19 Pandemic and Its Impact</h2>
                 <p class="text-lg  mb-8 text-justify">
                   The outbreak of the COVID-19 pandemic in 2020 brought unprecedented challenges to the SHE Centre.
@@ -282,7 +295,7 @@ function scrollTo(id: string) {
               </div>
 
               <!-- Chapter 8 -->
-              <div v-else-if="selectedTab === 'Chapter_8'" id="Chapter_8" class="scroll-mt-8 sm:scroll-mt-24">
+              <div v-else-if="selectedTab === '8'" id="8" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 8 - A Beacon of Hope and Empowerment</h2>
                 <p class="text-lg  mb-8 text-justify">
                   Today, the Signal for Help Empowerment (SHE) Centre stands as a beacon of hope and empowerment for women
@@ -299,7 +312,7 @@ function scrollTo(id: string) {
               </div>
 
               <!-- Chapter 9 -->
-              <div v-else-if="selectedTab === 'Chapter_9'" id="Chapter_9" class="scroll-mt-8 sm:scroll-mt-24">
+              <div v-else-if="selectedTab === '9'" id="9" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 9 - Community Engagement and Future Goals</h2>
                 <p class="text-lg mb-8 text-justify">
                   The SHE Centre's engagement with the local community remains a cornerstone of its success.
@@ -316,7 +329,7 @@ function scrollTo(id: string) {
               </div>
 
               <!-- Chapter 10 -->
-              <div v-else-if="selectedTab === 'Chapter_10'" id="Chapter_10" class="scroll-mt-8 sm:scroll-mt-24">
+              <div v-else-if="selectedTab === '10'" id="10" class="scroll-mt-8 sm:scroll-mt-24">
                 <h2 class="text-2xl text-center text-orange font-bold mb-4">Chapter 10 - The Legacy of Empowerment</h2>
                 <p class="text-lg  mb-8 text-justify">
                   The story of the Signal for Help Empowerment (SHE) Centre is a testament to the power of vision,
@@ -336,39 +349,11 @@ function scrollTo(id: string) {
           </div>
         </div>
 	    </div>
-
-      <!-- Our Team -->
-      <div>
-        <h2 class="text-2xl text-center text-orange font-bold my-8">Our Team</h2>
-        <StaffCarousel :items=staffMembers>
-          <template #default="{ item, active }">
-            <PersonCard :person="item" :active="active" class="h-full" :show-bio="false" />
-          </template>
-        </StaffCarousel>
-      </div>
-      <br><br>
-
-      <!-- Our Values -->
-      <h2 class="text-2xl text-center text-orange font-bold mb-4">Our Values</h2>
-      <p class="text-lg text-justify mb-8">
-        We envision a world where every woman can live free from the threat of domestic violence. 
-        The SHE Centre aspires to be a beacon of hope and empowerment, offering holistic, multi-faceted support 
-        that addresses the complex needs of survivors and promotes long-term healing and independence.
-      </p>
-      <ul class="text-lg text-justify mb-8 list-disc list-inside marker:text-orange">
-        <li><span class="text-orange">Empowerment:</span> We believe in equipping women with the tools and resources they need to build independent, fulfilling lives.</li>
-        <li><span class="text-orange">Respect:</span> We honor the dignity and worth of every person, fostering an environment of trust and mutual respect.</li>
-        <li><span class="text-orange">Community:</span> We are committed to building strong community ties and engaging with local partners to enhance our support network.</li>
-        <li><span class="text-orange">Resilience:</span> We strive to overcome challenges with determination and adaptability, continually evolving to meet the needs of those we serve.</li>
-        <li><span class="text-orange">Innovation:</span> We seek out new and effective ways to provide support, leveraging technology and partnerships to enhance our services.</li>
-      </ul>
-
       <!-- Our Impact -->
-      <h2 class="text-2xl text-center text-orange font-bold mb-4">Our Impact</h2>
-      <div id="app">
+      <h2 class="text-3xl text-center text-orange font-bold mt-8 mb-4">Our Impact</h2>
+      <div class="w-full">
         <BarChart />
       </div>
-
     </div>
   </section>
 </template>

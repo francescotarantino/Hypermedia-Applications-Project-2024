@@ -1,3 +1,11 @@
+<script setup lang="ts">
+
+const { data: people } = await useFetch<IPerson[]>('/api/people');
+
+// Filter only the staff members
+const staffMembers = people?.value?.filter((p) => p.main_role !== 'Director');
+</script>
+
 <template>
   <section>
     <div class="container mx-auto px-8 md:w-3/4">
@@ -30,6 +38,16 @@
         remains committed to empowering women, fostering safe communities, and creating lasting change in the fight
         against violence.
       </p>
+      <!-- Our Team -->
+      <div>
+        <h2 class="text-2xl text-center text-orange font-bold my-8">Our Team</h2>
+        <StaffCarousel :items=staffMembers>
+          <template #default="{ item, active }">
+            <HorizontalPersonCard :person="item" :active="active" class="h-full" :show-bio="false" />
+          </template>
+        </StaffCarousel>
+      </div>
+      <br><br>
     </div>
   </section>
 </template>

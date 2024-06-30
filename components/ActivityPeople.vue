@@ -9,9 +9,9 @@ defineProps<{
     <h2 class="text-2xl text-center text-orange font-bold">People involved</h2>
 
     <div class="flex flex-wrap self-center justify-center gap-4 md:w-3/4">
-      <ActivityPersonCard :person="activity.main_responsible!" :isMainResponsible="true" />
+      <VerticalPersonCard :person="activity.main_responsible!" :isMainResponsible="true" />
 
-      <ActivityPersonCard v-for="person in activity.people_involved!" :person="person" />
+      <VerticalPersonCard v-for="person in activity.people_involved!" :person="person" />
     </div>
   </div>
 </template>
