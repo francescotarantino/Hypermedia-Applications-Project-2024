@@ -30,12 +30,32 @@ const HOURS = [
 ];
 
 const VALUES = [
-  { name: 'Empowerment' , description: 'We believe in equipping women with the tools and resources they need to build independent, fulfilling lives.' , icon: ArrowTrendingUpIcon },
-  { name: 'Respect' , description: 'We honor the dignity and worth of every person, fostering an environment of trust and mutual respect.' , icon: ChatBubbleLeftRightIcon},
-  { name: 'Community' , description: 'We are committed to building strong community ties and engaging with local partners to enhance our support network.' , icon: GlobeEuropeAfricaIcon },
-  { name: 'Resilience' , description: 'We strive to overcome challenges with determination and adaptability, continually evolving to meet the needs of those we serve.' , icon: CubeIcon},
-  { name: 'Collaboration' , description: 'We work together with clients, staff, and partners to create a supportive and inclusive environment that fosters growth and healing.' , icon: LightBulbIcon},
-  { name: 'Education' , description: 'We believe in the power of knowledge and strive to provide educational opportunities that empower woman to make informed choices.' , icon: BookOpenIcon},
+
+  { name: 'Empowerment' ,
+    description: 'We believe in equipping women with the tools and resources they need to build independent, fulfilling lives.' ,
+    icon: ArrowTrendingUpIcon
+  },
+  { name: 'Respect' ,
+    description: 'We honor the dignity and worth of every person, fostering an environment of trust and mutual respect.' ,
+    icon: ChatBubbleLeftRightIcon
+  },
+  { name: 'Community' ,
+    description: 'We are committed to building strong community ties and engaging with local partners to enhance our support network.' ,
+    icon: GlobeEuropeAfricaIcon
+  },
+  { name: 'Resilience' ,
+    description: 'We strive to overcome challenges with determination and adaptability, continually evolving to meet the needs of those we serve.' ,
+    icon: CubeIcon
+  },
+  { name: 'Collaboration' ,
+    description: 'We work together with clients, staff, and partners to create a supportive and inclusive environment that fosters growth and healing.' ,
+    icon: LightBulbIcon
+  },
+  { name: 'Education' ,
+    description: 'We believe in the power of knowledge and strive to provide educational opportunities that empower woman to make informed choices.' ,
+    icon: BookOpenIcon
+  }
+
 ];
 
 const selectedTab = ref<string>('1');

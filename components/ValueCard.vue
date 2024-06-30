@@ -6,7 +6,7 @@ defineProps<{
   value: {
     name: string;
     description: string;
-    icon: string;
+    icon: Component;
   };
 }>();
 
@@ -31,7 +31,7 @@ defineProps<{
       >
         <div class="flex-col grid grid-rows-2 justify-items-center">
           <p class="p-4 text-orange font-bold te xt-center text-3xl">{{ value.name }}</p>
-          <component :is="value.icon" class="text-orange flex-row w-18 h-10" />
+          <component :is="value.icon" class="text-orange flex-row w-10 h-10" />
         </div>
       </div>
     </div>
