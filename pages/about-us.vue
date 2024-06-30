@@ -54,7 +54,7 @@ function scrollTo(id: string) {
 
 <template>
   <section>
-    <div class="container mx-auto px-8 md:w-3/4">
+    <div class="container mx-auto px-8 sm:w-7/8 xl:w-3/4">
       <!-- About Us -->
       <h2 class="text-3xl text-center text-orange font-bold mb-8">About Us</h2>
       <p class="text-lg text-justify mb-8">
@@ -103,9 +103,9 @@ function scrollTo(id: string) {
       <br><br>
 
       <!-- Directive Board -->
-      <div class="flex flex-col xl:flex-row mt-4 mb-16 items-center">
-        <h2 class="flex-col md:w-1/3 text-3xl text-orange font-bold text-center mb-8 xl:mb-0">The directive board</h2>
-        <div class="flex-col grid grid-cols-1 xl:grid-cols-3 gap-6">
+      <div class="flex flex-col xl:flex-row mt-4 mb-16 items-center justify-between gap-2">
+        <h2 class="flex-col flex-1 text-3xl text-orange font-bold text-center mb-8 xl:mb-0">The directive board</h2>
+        <div class="flex flex-wrap gap-6 justify-center items-center">
           <div v-for="(person, index) in boardDirectors" :key="index">
             <VerticalPersonCard class="flex flex-col" :person="person" :is-main-responsible="false"/>
           </div>
