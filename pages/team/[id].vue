@@ -213,13 +213,13 @@ useSeoMeta({
                     <ActivityCard
                         v-for="(activity, index) in person?.responsible_for_services.map((s) => ({...s, type: 'service'}))" :key="index"
                         :activity="activity"
-                        star
+                        star-label="Responsible"
                     />
 
                     <ActivityCard
                         v-for="(activity, index) in person?.responsible_for_projects.map((s) => ({...s, type: 'project'}))" :key="index"
                         :activity="activity"
-                        star
+                        star-label="Responsible"
                     />
 
                     <ActivityCard
