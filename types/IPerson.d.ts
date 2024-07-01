@@ -22,6 +22,7 @@ declare interface IPerson {
     end_date: string;
     start_date: string;
     school_name: string;
+    course: string;
   }[];
   responsible_for_services?: {
     id: number;

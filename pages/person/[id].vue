@@ -1,15 +1,56 @@
 <script setup lang="ts">
-import {ChevronRightIcon, EnvelopeIcon, CakeIcon, MapPinIcon, UserIcon, HeartIcon} from '@heroicons/vue/24/outline';
+import {
+  ChevronRightIcon,
+  EnvelopeIcon,
+  CakeIcon,
+  MapPinIcon,
+  UserIcon,
+  HeartIcon,
+  LanguageIcon,
+  BriefcaseIcon,
+  AcademicCapIcon,
+  LightBulbIcon
+} from '@heroicons/vue/24/outline';
 
 const route = useRoute();
 const { data: person } = await useFetch<IPerson>(`/api/people/${route.params.id}`);
 
-const selectedTab = ref<string>('personal_data');
+const selectedTab = ref<number>(0);
 const tabs = [
-  { label: 'Personal data', id: 'personal_data' },
-  { label: 'Career', id: 'career' },
-  { label: 'Activities', id: 'activities' },
+  'Personal data',
+  'Career',
+  'Activities',
 ];
+
+function getAge(birthdate: string) {
+  return new Date().getFullYear() - new Date(birthdate).getFullYear();
+}
+
+function getFlagUrl(language: string) {
+  const LANGUAGES = [
+    { cc: 'US', name: 'English' },
+    { cc: 'ES', name: 'Spanish' },
+    { cc: 'FR', name: 'French' },
+    { cc: 'DE', name: 'German' },
+    { cc: 'IT', name: 'Italian' },
+    { cc: 'PT', name: 'Portuguese' },
+    { cc: 'RU', name: 'Russian' },
+    { cc: 'CN', name: 'Chinese' },
+    { cc: 'JP', name: 'Japanese' },
+    { cc: 'KR', name: 'Korean' },
+    { cc: 'SE', name: 'Swedish'}
+  ];
+
+  const countryCode = LANGUAGES.find(l => l.name === language)?.cc;
+  if (!countryCode) return '';
+
+  // SVG flags from https://gitlab.com/catamphetamine/country-flag-icons
+  return `https://purecatamphetamine.github.io/country-flag-icons/3x2/${countryCode}.svg`;
+}
+
+function formatDate(date: string) {
+  return new Intl.DateTimeFormat('en-GB', {dateStyle: 'medium'}).format(new Date(date));
+}
 
 useSeoMeta({
   ogTitle: person?.value?.name,
@@ -32,16 +73,16 @@ useSeoMeta({
       </div>
 
       <div class="flex justify-center">
-        <div class="flex flex-col lg:flex-row gap-8 md:w-5/6">
+        <div class="flex flex-col lg:flex-row gap-8 md:w-11/12">
           <div class="flex flex-col md:flex-row gap-8">
             <!-- Selector for personal data, career, and other -->
             <div class="flex self-center flex-col md:justify-start md:self-start gap-4 w-screen md:w-auto px-4">
               <div
-                  v-for="tab in tabs" :key="tab.id" @click="selectedTab = tab.id"
+                  v-for="(tab, index) in tabs" :key="index" @click="selectedTab = index"
                   class="flex flex-row items-center w-full md:w-48 text-lg text-bold text-left p-4 rounded-xl cursor-pointer hover:bg-cream transition ease-in-out duration-200"
-                  :class="{ 'bg-peach': selectedTab === tab.id }"
+                  :class="{ 'bg-peach': selectedTab === index }"
               >
-                <p>{{ tab.label }}</p>
+                <p>{{ tab }}</p>
 
                 <div class="flex-grow" />
 
@@ -52,11 +93,11 @@ useSeoMeta({
             <div>
               <transition name="fade" mode="out-in">
                 <!-- Personal data -->
-                <div v-if="selectedTab === 'personal_data'" class="bg-cream rounded-2xl drop-shadow p-8 flex flex-col gap-2 m-4 md:m-0">
+                <div v-if="selectedTab === 0" class="bg-cream rounded-2xl drop-shadow p-8 flex flex-col gap-2 m-4 md:m-0">
                   <div class="flex flex-col lg:flex-row gap-8 items-center lg:items-start xl:items-stretch">
                     <img class="bg-white object-cover rounded-xl w-64 drop-shadow-xl" :src="person?.picture.path" :alt="person?.picture.label">
 
-                    <div class="flex flex-col gap-4">
+                    <div class="flex flex-col gap-6">
                       <div class="flex flex-row gap-4 flex-wrap">
                         <p>
                           <EnvelopeIcon class="w-6 h-6 inline-block mr-2" /><span class="font-bold">Email: </span>
@@ -68,7 +109,13 @@ useSeoMeta({
                         <p>
                           <CakeIcon class="w-6 h-6 inline-block mr-2" />
                           <span class="font-bold">Age: </span>
-                          {{ new Date().getFullYear() - new Date(person?.birthdate!).getFullYear() }}
+                          {{ getAge(person?.birthdate!) }}
+                        </p>
+
+                        <p>
+                          <MapPinIcon class="w-6 h-6 inline-block mr-2" />
+                          <span class="font-bold">City: </span>
+                          {{ person?.city }}
                         </p>
 
                         <p>
@@ -78,9 +125,9 @@ useSeoMeta({
                         </p>
 
                         <p>
-                          <MapPinIcon class="w-6 h-6 inline-block mr-2" />
-                          <span class="font-bold">City: </span>
-                          {{ person?.city }}
+                          <LightBulbIcon class="w-6 h-6 inline-block mr-2" />
+                          <span class="font-bold">Expertise: </span>
+                          {{ person?.main_expertise }}
                         </p>
                       </div>
 
@@ -100,12 +147,68 @@ useSeoMeta({
                 </div>
 
                 <!-- Career -->
-                <div v-else-if="selectedTab === 'career'">
+                <div v-else-if="selectedTab === 1">
+                  <div class="bg-cream rounded-2xl drop-shadow p-8 flex flex-col gap-6 m-4 md:m-0">
+                    <div class="flex flex-row gap-4 flex-wrap">
+                      <div class="flex">
+                        <LanguageIcon class="w-6 h-6 inline-block mr-2" />
+                        <span class="font-bold mr-2">Languages:</span>
 
+                        <div class="flex-1 flex flex-wrap gap-3">
+                          <div v-for="(language, index) in person?.languages" :key="index">
+                            <img :src="getFlagUrl(language)" class="w-8 inline-block rounded-sm mr-0.5" :alt="`Country flag (${language})`" />
+                            {{ language }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div v-for="(education, index) in person?.educations" :key="index">
+                      <div class="flex flex-row gap-2">
+                        <AcademicCapIcon class="w-6 h-6" />
+
+                        <div class="flex-1 flex flex-col lg:flex-row">
+                          <p>
+                            <span class="font-bold">{{education.course}}</span> at <span class="italic">{{education.school_name}}</span>
+                          </p>
+
+                          <div class="flex-grow" />
+
+                          <p class="text-sm">
+                            {{formatDate(education.start_date)}} - {{formatDate(education.end_date)}}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div v-for="(job, index) in person?.job_experiences" :key="index">
+                      <div class="flex flex-row gap-2">
+                        <BriefcaseIcon class="w-6 h-6" />
+
+                        <div class="flex-1">
+                          <div class="flex flex-col lg:flex-row">
+                            <p>
+                              <span class="font-bold">{{job.role}}</span> at <span class="italic">{{job.name}}</span>
+                            </p>
+
+                            <div class="flex-grow" />
+
+                            <p class="text-sm">
+                              {{formatDate(job.start_date)}} - {{formatDate(job.end_date)}}
+                            </p>
+                          </div>
+
+                          <p class="text-justify mt-2">
+                            {{job.description}}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <!-- Activities -->
-                <div v-else-if="selectedTab === 'activities'">
+                <div v-else-if="selectedTab === 2">
 
                 </div>
               </transition>
