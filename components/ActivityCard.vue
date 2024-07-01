@@ -11,7 +11,7 @@ defineProps<{
 <template>
   <NuxtLink :to="`/activities/${type || activity.type}/${activity.id}`" class="relative bg-cream rounded-2xl drop-shadow hover:bg-peach transition ease-in-out duration-200 group">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 m-4">
-      <img class="hidden lg:block aspect-auto rounded-xl" :src="activity.main_image.path" :alt="activity.main_image.label">
+      <img class="w-full h-48 aspect-auto rounded-xl md:w-full md:h-full object-cover" :src="activity.main_image.path" :alt="activity.main_image.label">
 
       <div class="flex flex-col text-center pt-2">
         <h2 class="text-2xl font-bold text-orange">
@@ -20,7 +20,7 @@ defineProps<{
 
         <div class="flex-grow" />
 
-        <p>
+        <p class="line-clamp-[8]">
           {{ activity.abstract }}
         </p>
       </div>

@@ -74,7 +74,7 @@ useSeoMeta({
 
       <div class="flex justify-center">
         <div class="flex flex-col lg:flex-row gap-8 md:w-11/12">
-          <div class="flex flex-col md:flex-row gap-8">
+          <div class="flex flex-col md:flex-row gap-0 md:gap-8">
             <!-- Selector for personal data, career, and other -->
             <div class="flex self-center flex-col md:justify-start md:self-start gap-4 w-screen md:w-auto px-4">
               <div
@@ -90,10 +90,10 @@ useSeoMeta({
               </div>
             </div>
 
-            <div>
+            <div class="m-4 md:m-0">
               <transition name="fade" mode="out-in">
                 <!-- Personal data -->
-                <div v-if="selectedTab === 0" class="bg-cream rounded-2xl drop-shadow p-8 flex flex-col gap-2 m-4 md:m-0">
+                <div v-if="selectedTab === 0" class="bg-cream rounded-2xl drop-shadow p-8 flex flex-col gap-2">
                   <div class="flex flex-col lg:flex-row gap-8 items-center lg:items-start xl:items-stretch">
                     <img class="bg-white object-cover rounded-xl w-64 drop-shadow-xl" :src="person?.picture.path" :alt="person?.picture.label">
 
@@ -148,7 +148,7 @@ useSeoMeta({
 
                 <!-- Career -->
                 <div v-else-if="selectedTab === 1">
-                  <div class="bg-cream rounded-2xl drop-shadow p-8 flex flex-col gap-6 m-4 md:m-0">
+                  <div class="bg-cream rounded-2xl drop-shadow p-8 flex flex-col gap-6">
                     <div class="flex flex-row gap-4 flex-wrap">
                       <div class="flex">
                         <LanguageIcon class="w-6 h-6 inline-block mr-2" />
