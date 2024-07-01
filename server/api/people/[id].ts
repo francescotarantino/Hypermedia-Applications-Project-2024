@@ -21,10 +21,10 @@ export default defineEventHandler(async (event) => {
     'picture: images(label, path),' +
     'job_experiences(name, role, description, start_date, end_date),' +
     'educations(school_name, course, start_date, end_date),' +
-    'responsible_for_services: services!services_main_responsible_id_fkey(id, name, main_image: images!main_image_id(label, path)),' +
-    'involved_in_services: services!service_person_involved(id, name, main_image: images!main_image_id(label, path)),' +
-    'responsible_for_projects: projects!projects_main_responsible_id_fkey(id, name, main_image: images!main_image_id(label, path)),' +
-    'involved_in_projects: projects!project_person_involved(id, name, main_image: images!main_image_id(label, path))'
+    'responsible_for_services: services!services_main_responsible_id_fkey(id, name, abstract, main_image: images!main_image_id(label, path)),' +
+    'involved_in_services: services!service_person_involved(id, name, abstract, main_image: images!main_image_id(label, path)),' +
+    'responsible_for_projects: projects!projects_main_responsible_id_fkey(id, name, abstract, main_image: images!main_image_id(label, path)),' +
+    'involved_in_projects: projects!project_person_involved(id, name, abstract, main_image: images!main_image_id(label, path))'
   )
     .eq('id', id)
     .single();

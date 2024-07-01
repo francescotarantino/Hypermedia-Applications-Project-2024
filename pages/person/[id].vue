@@ -209,7 +209,29 @@ useSeoMeta({
 
                 <!-- Activities -->
                 <div v-else-if="selectedTab === 2">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <ActivityCard
+                        v-for="(activity, index) in person?.responsible_for_services.map((s) => ({...s, type: 'service'}))" :key="index"
+                        :activity="activity"
+                        star
+                    />
 
+                    <ActivityCard
+                        v-for="(activity, index) in person?.responsible_for_projects.map((s) => ({...s, type: 'project'}))" :key="index"
+                        :activity="activity"
+                        star
+                    />
+
+                    <ActivityCard
+                        v-for="(activity, index) in person?.involved_in_services.map((s) => ({...s, type: 'service'}))" :key="index"
+                        :activity="activity"
+                    />
+
+                    <ActivityCard
+                        v-for="(activity, index) in person?.involved_in_projects.map((s) => ({...s, type: 'project'}))" :key="index"
+                        :activity="activity"
+                    />
+                  </div>
                 </div>
               </transition>
             </div>

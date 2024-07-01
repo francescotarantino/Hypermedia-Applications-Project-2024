@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import {StarIcon} from "@heroicons/vue/24/solid";
+
 defineProps<{
   activity: IActivity;
   type?: "project" | "service";
+  star?: boolean;
 }>();
 </script>
 
@@ -20,6 +23,12 @@ defineProps<{
         <p>
           {{ activity.abstract }}
         </p>
+      </div>
+    </div>
+
+    <div v-if="star" class="absolute top-2 left-2">
+      <div class="bg-apricot text-white text-center text-sm rounded-full p-1.5">
+        <StarIcon class="w-6 h-6 inline-block text-cream" />
       </div>
     </div>
 
