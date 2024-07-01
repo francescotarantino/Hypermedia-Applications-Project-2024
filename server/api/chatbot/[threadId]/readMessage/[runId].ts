@@ -43,7 +43,7 @@ export default defineEventHandler(async (event) => {
     });
     const messageData = await messageResponse.json();
 
-    message = messageData.data[0].content[0].text.value;
+    message = removeBracketsContent(messageData.data[0].content[0].text.value);
   }
 
   return {
@@ -51,3 +51,11 @@ export default defineEventHandler(async (event) => {
     message
   };
 })
+
+function removeBracketsContent(text: string): string {
+  // Regular expression to match anything between 【 and 】 including the brackets
+  const regex = /【[^【】]*】/g;
+
+  // Replace matched patterns with an empty string
+  return text.replace(regex, '');
+}
