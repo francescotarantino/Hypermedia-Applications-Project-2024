@@ -6,7 +6,7 @@ defineProps<{
 </script>
 
 <template>
-  <NuxtLink :to="`/person/${person.id}`" class="relative bg-cream rounded-2xl drop-shadow hover:bg-peach transition ease-in-out duration-200">
+  <NuxtLink :to="`/team/${person.id}`" class="relative bg-cream rounded-2xl drop-shadow hover:bg-peach transition ease-in-out duration-200">
     <div class="flex flex-col items-center w-48 gap-2 m-4">
       <img class="aspect-auto rounded-xl w-36" :src="person.picture.path" :alt="person.picture.label">
 

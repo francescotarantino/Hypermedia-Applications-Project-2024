@@ -29,7 +29,7 @@ import {HomeIcon} from "@heroicons/vue/24/solid";
     </AppDropdownContent>
   </AppDropdown>
   <!-- People Link -->
-  <AppHeaderLink to="/people">
+  <AppHeaderLink to="/team">
     Our Team
   </AppHeaderLink>
   <!-- Contact Us Link -->
