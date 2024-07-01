@@ -13,7 +13,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="w-64 h-64 bg-transparent cursor-pointer m-2">
+  <div class="w-64 h-64 bg-transparent cursor-pointer">
     <div
         class="w-full h-full relative hover:drop-shadow-2xl transition duration-500 ease-in-out perspective-1000"
         @click="isFlipped = !isFlipped"
@@ -29,8 +29,8 @@ defineProps<{
       <div class="flex w-full h-full absolute bg-cream border border-orange items-center justify-center rounded-xl backface-hidden duration-700 ease-in-out transform-gpu"
            :class="isFlipped ? 'rotate-y-180-front' : 'rotate-y-0-front'"
       >
-        <div class="flex-col grid grid-rows-2 justify-items-center">
-          <p class="p-4 text-orange font-bold te xt-center text-3xl">{{ value.name }}</p>
+        <div class="flex flex-col items-center justify-center gap-4">
+          <p class="text-orange font-bold te xt-center text-3xl">{{ value.name }}</p>
           <component :is="value.icon" class="text-orange flex-row w-10 h-10" />
         </div>
       </div>

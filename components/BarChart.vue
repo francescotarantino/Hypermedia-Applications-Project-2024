@@ -1,15 +1,10 @@
 <script setup lang="ts">
-const statistics = {
-  'Number of Clients Served': 5000,
-  'Crisis Interventions': 8000,
-  'Legal Advocacy': 1500,
-  'Counseling Services': 3000,
-  'Workshops': 500,
-  'Vocational Training Placements': 400
-};
+const props = defineProps<{
+  statistics: Record<string, number>;
+}>();
 
 function getPercentage (value: number) {
-  const max = Math.max(...Object.values(statistics));
+  const max = Math.max(...Object.values(props.statistics));
   return (value / max) * 100;
 }
 </script>
