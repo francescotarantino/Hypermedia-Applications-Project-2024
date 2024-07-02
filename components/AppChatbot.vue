@@ -2,7 +2,7 @@
   <div>
     <transition name="fade">
       <!-- Chatbot Icon (visible when the chat is closed) -->
-      <div v-if="!isOpen" @click="toggleChat" class="fixed bottom-4 right-4 cursor-pointer hover:scale-105 transition ease-in-out duration-200 z-chatbotButton">
+      <div v-if="!isOpen" @click="toggleChat" class="fixed bottom-4 right-4 cursor-pointer hover:scale-105 transition ease-in-out duration-300 z-chatbotButton">
         <img src="/chatbot.png" alt="Chatbot Icon" class="w-16 md:w-24 h:16 md:h-24 rounded-full shadow-lg"/>
       </div>
     </transition>
