@@ -82,3 +82,14 @@
     transform: translateY(-100%);
     opacity: 0;
 }
+
+/* Underline animation */
+.hover-underline-animation {
+    @apply inline-block relative;
+}
+.hover-underline-animation::after {
+    @apply bg-primary content-[''] absolute w-full scale-x-0 h-[1.5px] bottom-0 left-0 origin-left transition-all ease-in-out delay-100 duration-500;
+}
+.hover-underline-animation:hover::after {
+    @apply scale-x-100;
+}

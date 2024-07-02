@@ -15,7 +15,7 @@ defineProps<{
 <template>
   <div class="w-64 h-64 bg-transparent cursor-pointer">
     <div
-        class="w-full h-full relative hover:drop-shadow-2xl transition duration-500 ease-in-out perspective-1000"
+        class="w-full h-full relative transform-gpu hover:drop-shadow-2xl transition duration-500 ease-in-out perspective-1000"
         @click="isFlipped = !isFlipped"
     >
       <!-- Back -->

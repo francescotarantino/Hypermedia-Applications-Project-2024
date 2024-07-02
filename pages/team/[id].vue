@@ -71,7 +71,7 @@ useSeoMeta({
             <div class="m-4 md:m-0">
               <transition name="fade" mode="out-in">
                 <!-- Personal data -->
-                <div v-if="selectedTab === 0" class="bg-cream rounded-2xl drop-shadow p-8 flex flex-col gap-2">
+                <div v-if="selectedTab === 0" class="bg-cream rounded-2xl transform-gpu drop-shadow p-8 flex flex-col gap-2">
                   <div class="flex flex-col lg:flex-row gap-8 items-center lg:items-start xl:items-stretch">
                     <img class="bg-white object-cover rounded-xl w-64 drop-shadow-xl" :src="person?.picture.path" :alt="person?.picture.label">
 
@@ -79,7 +79,7 @@ useSeoMeta({
                       <div class="flex flex-row gap-4 flex-wrap">
                         <p>
                           <EnvelopeIcon class="w-6 h-6 inline-block mr-2" /><span class="font-bold">Email: </span>
-                          <a :href="`mailto:${person?.email}`" class="hover:underline">
+                          <a :href="`mailto:${person?.email}`" class="hover-underline-animation">
                             {{person?.email}}
                           </a>
                         </p>
@@ -126,7 +126,7 @@ useSeoMeta({
 
                 <!-- Career -->
                 <div v-else-if="selectedTab === 1">
-                  <div class="bg-cream rounded-2xl drop-shadow p-8 flex flex-col gap-6">
+                  <div class="bg-cream rounded-2xl transform-gpu drop-shadow p-8 flex flex-col gap-6">
                     <div class="flex flex-row gap-4 flex-wrap">
                       <div class="flex">
                         <LanguageIcon class="w-6 h-6 inline-block mr-2" />
