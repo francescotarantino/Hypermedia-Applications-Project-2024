@@ -41,7 +41,7 @@ onUnmounted(() => {
           </NuxtLink>
         </div>
         <!-- Phone Number Section -->
-        <div class="hidden lg:flex items-center hover:text-apricot">
+        <div class="hidden lg:flex items-center hover:text-orange transition ease-in-out duration-200">
           <a href="tel:800022399" class="flex flex-row gap-2 items-center">
             <PhoneIcon class="size-7" />
             <p class="text-4xl">800 02 2399</p>

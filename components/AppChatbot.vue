@@ -9,7 +9,7 @@
 
     <transition name="fade">
       <!-- Chatbot Window -->
-      <div class="fixed bottom-4 right-4 left-4 md:left-auto bg-white w-auto md:w-1/2 xl:w-1/4 h-4/5 md:h-3/4 lg:h-2/3 shadow-lg rounded-lg flex flex-col border border-primary z-chatbotPanel"
+      <div class="fixed bottom-4 right-4 left-4 md:left-auto bg-white w-auto h-4/5 md:w-[420px] md:max-h-[700px] shadow-lg rounded-lg flex flex-col border border-primary z-chatbotPanel"
            v-if="isOpen">
         <!-- Header -->
         <div class="p-1 bg-apricot flex justify-between items-center rounded-t-lg">
@@ -42,7 +42,7 @@
         </div>
 
         <!-- Disclaimer -->
-        <p class="text-xs opacity-50 text-center">Disclaimer: You are chatting with a virtual assistant, powered by AI. The information provided is not a substitute for professional advice.</p>
+        <p class="text-xs opacity-50 text-center">You are chatting with a virtual assistant, powered by AI. The information provided is not a substitute for professional advice.</p>
 
         <!-- Input Field -->
         <div class="h-px bg-primary" />
