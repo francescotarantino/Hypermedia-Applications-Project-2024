@@ -2,15 +2,15 @@
   <div>
     <transition name="fade">
       <!-- Chatbot Icon (visible when the chat is closed) -->
-      <div v-if="!isOpen" @click="toggleChat" class="fixed bottom-4 right-4 cursor-pointer hover:scale-105 transition ease-in-out duration-200" style="z-index: 1000000">
+      <div v-if="!isOpen" @click="toggleChat" class="fixed bottom-4 right-4 cursor-pointer hover:scale-105 transition ease-in-out duration-200 z-chatbotButton">
         <img src="/chatbot.png" alt="Chatbot Icon" class="w-16 md:w-24 h:16 md:h-24 rounded-full shadow-lg"/>
       </div>
     </transition>
 
     <transition name="fade">
       <!-- Chatbot Window -->
-      <div class="fixed bottom-4 right-4 left-4 md:left-auto bg-white w-auto md:w-1/2 xl:w-1/4 h-4/5 md:h-3/4 lg:h-2/3 shadow-lg rounded-lg flex flex-col border border-primary"
-           v-if="isOpen" style="z-index: 999999">
+      <div class="fixed bottom-4 right-4 left-4 md:left-auto bg-white w-auto md:w-1/2 xl:w-1/4 h-4/5 md:h-3/4 lg:h-2/3 shadow-lg rounded-lg flex flex-col border border-primary z-chatbotPanel"
+           v-if="isOpen">
         <!-- Header -->
         <div class="p-1 bg-apricot flex justify-between items-center rounded-t-lg">
           <img src="/chatbot.png" alt="Chatbot Icon" class="w-12 h-12 rounded-full shadow-lg border border-primary"/>
