@@ -11,8 +11,9 @@ import {HomeIcon} from "@heroicons/vue/24/solid";
   <AppHeaderLink to="/about-us">
     About Us
   </AppHeaderLink>
-  <!-- Activities Dropdown -->
-  <AppDropdown title="Activities" to="/activities">
+
+  <!-- Activities Dropdown (dropdown on large screens) -->
+  <AppDropdown title="Activities" to="/activities" class="hidden sm:inline-block">
     <AppDropdownContent>
       <!-- All activities Link -->
       <AppDropdownLink to="/activities">
@@ -28,6 +29,22 @@ import {HomeIcon} from "@heroicons/vue/24/solid";
       </AppDropdownLink>
     </AppDropdownContent>
   </AppDropdown>
+
+  <!-- Activities Links (visible on small screens) -->
+  <div class="flex flex-wrap justify-center sm:hidden gap-2">
+    <AppHeaderLink to="/activities">
+      Activities
+    </AppHeaderLink>
+    <!-- Services Link -->
+    <AppHeaderLink to="/activities/services">
+      Services
+    </AppHeaderLink>
+    <!-- Projects Link -->
+    <AppHeaderLink to="/activities/projects">
+      Projects
+    </AppHeaderLink>
+  </div>
+
   <!-- People Link -->
   <AppHeaderLink to="/team">
     Our Team

@@ -68,7 +68,7 @@ onUnmounted(() => {
       </div>
     </nav>
 
-    <div class="overflow-hidden">
+    <div class="overflow-hidden w-full absolute">
       <transition name="navbar">
         <nav v-if="isMenuOpen">
           <div class="p-2 flex gap-4 flex-col text-center items-center bg-cream">
