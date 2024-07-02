@@ -26,28 +26,6 @@ function getAge(birthdate: string) {
   return new Date().getFullYear() - new Date(birthdate).getFullYear();
 }
 
-function getFlagUrl(language: string) {
-  const LANGUAGES = [
-    { cc: 'US', name: 'English' },
-    { cc: 'ES', name: 'Spanish' },
-    { cc: 'FR', name: 'French' },
-    { cc: 'DE', name: 'German' },
-    { cc: 'IT', name: 'Italian' },
-    { cc: 'PT', name: 'Portuguese' },
-    { cc: 'RU', name: 'Russian' },
-    { cc: 'CN', name: 'Chinese' },
-    { cc: 'JP', name: 'Japanese' },
-    { cc: 'KR', name: 'Korean' },
-    { cc: 'SE', name: 'Swedish'}
-  ];
-
-  const countryCode = LANGUAGES.find(l => l.name === language)?.cc;
-  if (!countryCode) return '';
-
-  // SVG flags from https://gitlab.com/catamphetamine/country-flag-icons
-  return `https://purecatamphetamine.github.io/country-flag-icons/3x2/${countryCode}.svg`;
-}
-
 function formatDate(date: string) {
   return new Intl.DateTimeFormat('en-GB', {dateStyle: 'medium'}).format(new Date(date));
 }
@@ -63,7 +41,7 @@ useSeoMeta({
   <section>
     <div class="container mx-auto max-w-7xl flex flex-col gap-8">
       <div>
-        <h5 class="text-lg text-center text-orange font-bold mb-2">Person</h5>
+        <h5 class="text-lg text-center text-orange font-bold mb-2">Our Team</h5>
 
         <h1 class="text-3xl text-orange font-bold text-center">
           {{person?.name + ' ' + person?.surname}}
@@ -156,7 +134,7 @@ useSeoMeta({
 
                         <div class="flex-1 flex flex-wrap gap-3">
                           <div v-for="(language, index) in person?.languages" :key="index">
-                            <img :src="getFlagUrl(language)" class="w-8 inline-block rounded-sm mr-0.5" :alt="`Country flag (${language})`" />
+                            <img :src="`/flags/${language}.svg`" class="w-8 inline-block rounded-[0.25rem] mr-0.5" :alt="`${language} flag`" />
                             {{ language }}
                           </div>
                         </div>
@@ -211,25 +189,25 @@ useSeoMeta({
                 <div v-else-if="selectedTab === 2">
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <ActivityCard
-                        v-for="(activity, index) in person?.responsible_for_services.map((s) => ({...s, type: 'service'}))" :key="index"
-                        :activity="activity"
+                        v-for="(activity, index) in person?.responsible_for_services!.map((s) => ({...s, type: 'service'}))" :key="index"
+                        :activity="activity as IActivity"
                         star-label="Responsible"
                     />
 
                     <ActivityCard
-                        v-for="(activity, index) in person?.responsible_for_projects.map((s) => ({...s, type: 'project'}))" :key="index"
-                        :activity="activity"
+                        v-for="(activity, index) in person?.responsible_for_projects!.map((s) => ({...s, type: 'project'}))" :key="index"
+                        :activity="activity as IActivity"
                         star-label="Responsible"
                     />
 
                     <ActivityCard
-                        v-for="(activity, index) in person?.involved_in_services.map((s) => ({...s, type: 'service'}))" :key="index"
-                        :activity="activity"
+                        v-for="(activity, index) in person?.involved_in_services!.map((s) => ({...s, type: 'service'}))" :key="index"
+                        :activity="activity as IActivity"
                     />
 
                     <ActivityCard
-                        v-for="(activity, index) in person?.involved_in_projects.map((s) => ({...s, type: 'project'}))" :key="index"
-                        :activity="activity"
+                        v-for="(activity, index) in person?.involved_in_projects!.map((s) => ({...s, type: 'project'}))" :key="index"
+                        :activity="activity as IActivity"
                     />
                   </div>
                 </div>
