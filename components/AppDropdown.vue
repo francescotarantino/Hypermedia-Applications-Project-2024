@@ -25,7 +25,7 @@ const route = useRoute();
 
 <template>
   <!-- Container for the dropdown menu -->
-  <div class="relative inline-block text-center p-2 text-xl text-primary rounded-lg hover:bg-peach transition ease-in-out duration-200 transform-gpu"
+  <div class="relative inline-block text-center p-2 text-xl rounded-lg hover:bg-peach transition ease-in-out duration-200 transform-gpu"
        @mouseenter="toggle" @mouseleave="toggle" :class="{'bg-peach bg-opacity-50' : route.fullPath.startsWith(to)}">
     <!-- Dropdown menu content -->
     <div class="flex flex-row items-center gap-1 justify-center w-full" id="options-menu" aria-haspopup="true">

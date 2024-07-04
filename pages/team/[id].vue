@@ -64,7 +64,7 @@ useSeoMeta({
 
                 <div class="flex-grow" />
 
-                <ChevronRightIcon class="w-6 h-6 text-primary rotate-90 md:rotate-0" />
+                <ChevronRightIcon class="w-6 h-6  rotate-90 md:rotate-0" />
               </div>
             </div>
 

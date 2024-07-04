@@ -16,7 +16,7 @@
           <img src="/chatbot.png" alt="Chatbot Icon" class="w-12 h-12 rounded-full shadow-lg border border-primary"/>
           <h3 class="text-lg">SHE-helper</h3>
           <button @click="toggleChat" class="mr-3 p-1 rounded-md hover:bg-peach transition ease-in-out duration-200" aria-label="Close chatbot">
-            <XMarkIcon class="size-6 text-primary" />
+            <XMarkIcon class="size-6" />
           </button>
         </div>
 
@@ -51,7 +51,7 @@
                     ref="messageTextarea" v-model.trim="userInput" @keydown.enter.exact.prevent="submitMessage" @input="autoresize" :disabled="!taskEnded" />
 
           <button @click="submitMessage" :disabled="!taskEnded" class="bg-apricot rounded-md h-full px-2 hover:bg-opacity-50 transition ease-in-out duration-200 disabled:cursor-not-allowed">
-            <PaperAirplaneIcon class="size-6 text-primary" />
+            <PaperAirplaneIcon class="size-6" />
           </button>
         </div>
       </div>

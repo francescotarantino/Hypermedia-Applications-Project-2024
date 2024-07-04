@@ -9,7 +9,7 @@ defineProps<{
   <NuxtLink :to="`/team/${person.id}`" class="bg-cream rounded-2xl drop-shadow hover:drop-shadow-2xl transform-gpu transition ease-in-out duration-500">
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-4 m-4 text-center justify-items-center">
       <div class="col-span-2 justify-self-center">
-        <img class="aspect-auto rounded-xl w-48" :src="person.picture.path" :alt="person.picture.label">
+        <img class="bg-white drop-shadow aspect-auto rounded-xl w-48" :src="person.picture.path" :alt="person.picture.label">
       </div>
 
       <div class="flex flex-col text-center col-span-3">

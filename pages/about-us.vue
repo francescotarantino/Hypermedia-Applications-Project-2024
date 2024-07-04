@@ -134,7 +134,7 @@ const STATISTICS = {
       <br><br>
 
       <!-- Directive Board -->
-      <div class="flex flex-col xl:flex-row mt-4 mb-16 items-center justify-between gap-2">
+      <div class="flex flex-col xl:flex-row mt-4 mb-16 mx-8 items-center justify-between gap-2">
         <h2 class="flex-col flex-1 text-3xl text-orange font-bold text-center mb-8 xl:mb-0">The directive board</h2>
         <div class="flex flex-wrap gap-6 justify-center items-center">
           <div v-for="(person, index) in boardDirectors" :key="index">
@@ -178,7 +178,7 @@ const STATISTICS = {
 
               <div class="flex-grow" />
 
-              <ChevronRightIcon class="w-6 h-6 text-primary rotate-90 md:rotate-0" />
+              <ChevronRightIcon class="w-6 h-6  rotate-90 md:rotate-0" />
             </div>
           </div>
 

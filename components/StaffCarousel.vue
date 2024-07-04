@@ -69,9 +69,9 @@ const visibleItems = computed(() => getVisibleItems(currentIndex.value));
 <template>
   <div class="relative">
     <!-- Navigation buttons -->
-    <ChevronRightIcon class="absolute size-9 right-0 top-1/2 m-2 cursor-pointer text-primary z-50 drop-shadow hover:opacity-80"
+    <ChevronRightIcon class="absolute size-9 right-0 top-1/2 m-2 cursor-pointer  z-50 drop-shadow hover:opacity-80"
                       @click="nextSlide" />
-    <ChevronLeftIcon class="absolute size-9 left-0 top-1/2 m-2 cursor-pointer text-primary z-50 drop-shadow hover:opacity-80"
+    <ChevronLeftIcon class="absolute size-9 left-0 top-1/2 m-2 cursor-pointer  z-50 drop-shadow hover:opacity-80"
                      @click="prevSlide" />
     
     <!-- Items -->

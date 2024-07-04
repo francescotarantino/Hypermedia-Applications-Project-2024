@@ -22,7 +22,7 @@ defineProps<{
       <div class="flex w-full h-full absolute bg-peach items-center justify-center rounded-xl duration-700 ease-in-out transform-gpu"
            :class="isFlipped ? 'rotate-y-180-back' : 'rotate-y-0-back'"
       >
-        <p class="flex-col p-4 text-primary text-center text-lg rotate-y-180-back">{{ value.description }}</p>
+        <p class="flex-col p-4 text-center text-lg rotate-y-180-back">{{ value.description }}</p>
       </div>
 
       <!-- Front -->
