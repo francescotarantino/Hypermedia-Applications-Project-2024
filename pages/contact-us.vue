@@ -9,20 +9,34 @@ export default defineComponent({
 </script>
 <template>
   <section>
+    <div class="h-64 flex items-center justify-center bg-primary bg text-cream text-6xl text bold drop-shadow mt-[-48px]">We're available 24/7. Call us.</div>
     <div class="container mx-auto px-4 w-3/4">
-      <h5 class="text-3xl text-center text-orange font-bold mt-4 mb-8">Contact Us</h5>
-      <div class="flex flex-auto gap-8 self-center items-center justify-center">
+      <div class="my-12 flex flex-auto gap-8 self-center items-center justify-center">
         <div class="w-1/3 flex justify-center items-center">
           <img class="aspect-auto rounded-2xl" src="/contact-us-image-1.jpg" alt="Telephone Image"/>
         </div>
-        <div class="w-1/3 flex items-center justify-center text-primary hover:underline">
-          <PhoneIcon class="size-7" />
-          <a href="tel:800022399" class="text-4xl ml-2">800 02 2399</a>
+        <div class="w-2/3 flex flex-col items-center justify-center gap-8">
+          <div class="flex-grow" />
+          <p class="text-primary hover-underline-animation">
+            <PhoneIcon class="size-10 inline-block align-middle" />
+            <a href="tel:800022399" class="text-6xl ml-2 align-middle">800 02 2399</a>
+          </p>
+          <div class="flex-grow">
+            <p class="text-2xl">There's always someone on the other end of the line ready to help.</p>
+          </div>
         </div>
-        <div class="w-1/3 flex items-center justify-center text-primary hover:underline">
-          <EnvelopeIcon class="size-7" />
-          <a href="mailto:info@she.org" class="text-4xl ml-2">info@she.org</a>
-        </div>
+      </div>
+      <div class="flex items-center justify-center text-primary bg-cream">
+        <h2>...or drop us an email!</h2>
+        <form action="/received-form" method="post" enctype="text/plain">
+          <label for="name">Your Name:</label><br>
+          <input type="text" id="name" name="name"><br>
+          <label for="email">Your Email:</label><br>
+          <input type="email" id="email" name="email"><br>
+          <label for="message">Your Message:</label><br>
+          <textarea id="message" name="message"></textarea><br>
+          <input type="submit" value="Send">
+        </form>
       </div>
     </div>
   </section>
