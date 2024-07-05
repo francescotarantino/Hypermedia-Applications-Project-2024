@@ -57,7 +57,7 @@ useSeoMeta({
             <div class="flex self-center flex-col md:justify-start md:self-start gap-4 w-screen md:w-auto px-4">
               <div
                   v-for="(tab, index) in tabs" :key="index" @click="selectedTab = index"
-                  class="flex flex-row items-center w-full md:w-48 text-lg text-bold text-left p-4 rounded-xl cursor-pointer hover:bg-cream transition ease-in-out duration-200"
+                  class="flex flex-row items-center w-full md:w-48 text-lg text-left p-4 rounded-xl cursor-pointer hover:bg-cream transition ease-in-out duration-200"
                   :class="{ 'bg-peach': selectedTab === index }"
                   tabindex="0" :aria-expanded="selectedTab === index" aria-controls="tab" @keydown.enter="selectedTab = index"
               >

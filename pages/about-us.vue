@@ -171,7 +171,7 @@ const STATISTICS = {
           <div class="flex flex-col gap-4 w-full md:w-auto bg-cream rounded-xl p-4">
             <div
                 v-for="(tab, index) in tabs" :key="index" @click="changeChapter(index)"
-                class="flex flex-row items-center w-full md:w-64 text-lg text-bold text-left p-2 pl-4 rounded-xl cursor-pointer hover:bg-opacity-40 hover:bg-peach transition ease-in-out duration-200"
+                class="flex flex-row items-center w-full md:w-64 text-lg text-left p-2 pl-4 rounded-xl cursor-pointer hover:bg-opacity-40 hover:bg-peach transition ease-in-out duration-200"
                 :class="{ 'bg-peach': selectedTab === index }"
                 tabindex="0" :aria-expanded="selectedTab === index" aria-controls="tab" @keydown.enter="changeChapter(index)"
             >
