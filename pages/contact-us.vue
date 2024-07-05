@@ -26,16 +26,30 @@ export default defineComponent({
           </div>
         </div>
       </div>
-      <div class="flex items-center justify-center bg-cream">
-        <form action="/received-form" method="post" enctype="text/plain">
-          <label for="name">Your Name:</label><br>
-          <input type="text" id="name" name="name"><br>
-          <label for="email">Your Email:</label><br>
-          <input type="email" id="email" name="email"><br>
-          <label for="message">Your Message:</label><br>
-          <textarea id="message" name="message"></textarea><br>
-          <input type="submit" value="Send">
+      <div class="flex flex-auto gap-8 self-center justify-center items-stretch">
+      <div class="bg-cream rounded-xl p-8 w-2/3">
+        <h2 class="text-3xl font-semibold text-orange pb-6">Drop us an email!</h2>
+        <form action="/received-form" method="post" enctype="text/plain" class="">
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label for="name" class="block pb-2 text-gray-700 text-lg font-semibold">Your Name:</label>
+              <input type="text" id="name" name="name" class="appearance-none border-2 w-full border-orange rounded py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline" placeholder="Anne Smith">
+            </div>
+            <div>
+              <label for="email" class="block pb-2 text-gray-700 text-lg font-semibold">Your Email Address:</label>
+              <input type="email" id="email" name="email" class="appearance-none border-2 w-full border-orange rounded py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline" placeholder="anne.smith@email.com">
+            </div>
+          </div>
+          <div class="w-full h-full">
+            <label for="message" class="block pt-4 pb-2 text-gray-700 text-lg font-semibold">Your Message:</label>
+            <textarea id="message" name="message" class="appearance-none resize-none border-2 w-full border-orange rounded py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline" placeholder="Your message here..."></textarea>
+            <div class="pt-4 flex items-center justify-center">
+              <input type="submit" value="Send" class=" bg-orange text-cream font-bold py-2 px-4 rounded hover:bg-opacity-80 transition ease-in-out duration-200">
+            </div>
+          </div>
         </form>
+      </div>
+      <img src="/contact-us-image-2.jpg" alt="Contact Us Image" class="w-1/3 aspect-auto rounded-xl"/>
       </div>
     </div>
   </section>
