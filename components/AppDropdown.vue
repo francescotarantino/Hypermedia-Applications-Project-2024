@@ -32,7 +32,7 @@ const route = useRoute();
       <!-- Link with title -->
       <NuxtLink :to="to" @click="closeMenu">{{title}}</NuxtLink>
       <!-- Button to toggle dropdown -->
-      <button @click="toggle">
+      <button @click="toggle" :aria-expanded="dropdownActive ? 'true' : 'false'" aria-label="Toggle dropdown menu">
         <ChevronDownIcon class="size-4" />
       </button>
     </div>

@@ -4,7 +4,7 @@ import {HomeIcon} from "@heroicons/vue/24/solid";
 
 <template>
   <!-- Home Link -->
-  <AppHeaderLink to="/">
+  <AppHeaderLink to="/" aria-label="Homepage">
     <HomeIcon class="p-1 size-7 " />
   </AppHeaderLink>
   <!-- Activities Link -->

@@ -13,7 +13,7 @@ defineProps<{
       <div class="flex flex-col text-center">
         <h2 class="text-xl font-bold text-orange">{{ person.name + ' ' + person.surname }}</h2>
 
-        <h5 class="text-md text-orange">{{ person.email }}</h5>
+        <p class="text-md text-orange">{{ person.email }}</p>
       </div>
     </div>
 

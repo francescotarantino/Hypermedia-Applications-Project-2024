@@ -2,7 +2,8 @@
   <div>
     <transition name="fade">
       <!-- Chatbot Icon (visible when the chat is closed) -->
-      <div v-if="!isOpen" @click="toggleChat" class="fixed bottom-4 right-4 cursor-pointer hover:scale-105 transition ease-in-out duration-300 z-chatbotButton">
+      <div v-if="!isOpen" @click="toggleChat" class="fixed bottom-4 right-4 cursor-pointer hover:scale-105 transition ease-in-out duration-300 z-chatbotButton"
+           aria-label="Open chatbot" aria-expanded="false" tabindex="0" @keydown.enter="toggleChat">
         <img src="/chatbot.png" alt="Chatbot Icon" class="w-16 md:w-24 h:16 md:h-24 rounded-full shadow-lg"/>
       </div>
     </transition>
@@ -15,7 +16,8 @@
         <div class="p-1 bg-apricot flex justify-between items-center rounded-t-lg">
           <img src="/chatbot.png" alt="Chatbot Icon" class="w-12 h-12 rounded-full shadow-lg border border-primary"/>
           <h3 class="text-lg">SHE-helper</h3>
-          <button @click="toggleChat" class="mr-3 p-1 rounded-md hover:bg-peach transition ease-in-out duration-200" aria-label="Close chatbot">
+          <button @click="toggleChat" class="mr-3 p-1 rounded-md hover:bg-peach transition ease-in-out duration-200"
+                  aria-label="Close chatbot" aria-expanded="true">
             <XMarkIcon class="size-6" />
           </button>
         </div>
@@ -50,7 +52,8 @@
           <textarea type="text" placeholder="Type a message..." aria-label="Type a message to the chatbot" class="w-full bg-cream p-2 rounded-md resize-none" rows="1"
                     ref="messageTextarea" v-model.trim="userInput" @keydown.enter.exact.prevent="submitMessage" @input="autoresize" :disabled="!taskEnded" />
 
-          <button @click="submitMessage" :disabled="!taskEnded" class="bg-apricot rounded-md h-full px-2 hover:bg-opacity-50 transition ease-in-out duration-200 disabled:cursor-not-allowed">
+          <button @click="submitMessage" :disabled="!taskEnded" class="bg-apricot rounded-md h-full px-2 hover:bg-opacity-50 transition ease-in-out duration-200 disabled:cursor-not-allowed"
+                  aria-label="Submit message">
             <PaperAirplaneIcon class="size-6" />
           </button>
         </div>
@@ -100,7 +103,9 @@ function toggleChat() {
 // Scrolls the chat to the bottom
 function scrollToBottom() {
   nextTick(() => {
-    messagesContainer.value!.scrollTop = messagesContainer.value!.scrollHeight;
+    if (messagesContainer.value){
+      messagesContainer.value!.scrollTop = messagesContainer.value!.scrollHeight;
+    }
   });
 }
 

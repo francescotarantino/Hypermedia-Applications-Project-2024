@@ -17,6 +17,7 @@ defineProps<{
     <div
         class="w-full h-full relative transform-gpu hover:drop-shadow-2xl transition duration-500 ease-in-out perspective-1000"
         @click="isFlipped = !isFlipped"
+        :aria-label="`Open ${value.name} value`" :aria-expanded="isFlipped" tabindex="0" @keydown.enter="isFlipped = !isFlipped"
     >
       <!-- Back -->
       <div class="flex w-full h-full absolute bg-peach items-center justify-center rounded-xl duration-700 ease-in-out transform-gpu"

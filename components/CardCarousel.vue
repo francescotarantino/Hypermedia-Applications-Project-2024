@@ -59,10 +59,12 @@ onUnmounted(() => {
       </transition-group>
 
       <!-- Navigation buttons -->
-      <ChevronRightIcon class="absolute size-9 right-0 top-1/2 cursor-pointer  z-50 drop-shadow hover:opacity-70"
-                        @click="nextSlide" />
-      <ChevronLeftIcon class="absolute size-9 left-0 top-1/2 cursor-pointer  z-50 drop-shadow hover:opacity-70"
-                       @click="prevSlide" />
+      <button @click="nextSlide" class="absolute right-0 top-1/2 m-2 cursor-pointer z-50 drop-shadow hover:opacity-50 transition ease-in-out duration-200" aria-label="Next">
+        <ChevronRightIcon class="size-9" />
+      </button>
+      <button @click="prevSlide" class="absolute left-0 top-1/2 m-2 cursor-pointer z-50 drop-shadow hover:opacity-50 transition ease-in-out duration-200" aria-label="Previous">
+        <ChevronLeftIcon class="size-9"/>
+      </button>
     </div>
   </div>
 </template>

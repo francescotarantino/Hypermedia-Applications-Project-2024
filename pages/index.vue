@@ -10,7 +10,7 @@ const staffMembers = people?.value?.filter((p) => p.main_role !== 'Director');
   <section>
     <div class="container mx-auto px-8 md:w-3/4">
       <!-- About Us -->
-      <h2 class="text-3xl text-center text-orange font-bold mb-8">Home</h2>
+      <h1 class="text-3xl text-center text-orange font-bold mb-8">Home</h1>
 
       <p class="text-lg text-justify mb-8">
         The SHE-Centre, founded in 2001 and located at Piazza Leonardo da Vinci 32, Milan, is a pioneering organization

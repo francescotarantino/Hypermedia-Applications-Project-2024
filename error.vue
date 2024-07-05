@@ -10,9 +10,9 @@ defineProps<{
   <AppLayout>
     <div class="container mx-auto px-4 w-3/4">
       <div v-if="error.statusCode === 404">
-        <h2 class="text-3xl text-center text-orange font-bold mt-4 mb-8">
+        <h1 class="text-3xl text-center text-orange font-bold mt-4 mb-8">
           Page Not Found
-        </h2>
+        </h1>
         <p class="text-lg text-center mb-8">
           The page you are looking for does not exist. Please check the URL or return to the
           <NuxtLink to="/" class="underline">home page</NuxtLink>.
@@ -20,9 +20,9 @@ defineProps<{
       </div>
 
       <div v-else>
-        <h2 class="text-3xl text-center text-orange font-bold mt-4 mb-8">
+        <h1 class="text-3xl text-center text-orange font-bold mt-4 mb-8">
           Error {{ error.statusCode }}
-        </h2>
+        </h1>
         <p class="text-lg text-center mb-8">
           {{ error.message }}
         </p>

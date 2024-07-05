@@ -30,16 +30,16 @@ onUnmounted(() => {
   <header class="bg-none bg-center bg-contain bg-no-repeat z-header">
     <div class="container mx-auto p-4">
       <div class="flex justify-between items-center gap-8">
-        <div class="flex  items-center gap-2 sm:gap-8">
-          <!-- Logo and Centre Name -->
-          <NuxtLink to="/" class="w-16 h-16 md:w-32 md:h-32">
-            <img src="/logo.png" alt="Centre logo" class="w-fit" />
-          </NuxtLink>
-          <NuxtLink to="/">
-            <h1 class="text-3xl lg:text-5xl">SHE-centre</h1>
-            <h4 class="hidden md:block md:text-xl">Signal for Help Empowerment centre</h4>
-          </NuxtLink>
-        </div>
+        <!-- Logo and Centre Name -->
+        <NuxtLink to="/"  aria-label="Homepage">
+          <div class="flex items-center gap-2 sm:gap-8">
+            <img src="/logo.png" alt="Centre logo" class="w-16 h-16 md:w-32 md:h-32" />
+            <div>
+              <h1 class="text-3xl lg:text-5xl">SHE-centre</h1>
+              <p class="hidden md:block md:text-xl">Signal for Help Empowerment centre</p>
+            </div>
+          </div>
+        </NuxtLink>
         <!-- Phone Number Section -->
         <div class="hidden lg:flex items-center hover:text-orange transition ease-in-out duration-200">
           <a href="tel:800022399" class="flex flex-row gap-2 items-center">
@@ -49,7 +49,8 @@ onUnmounted(() => {
         </div>
         <!-- Hamburger Icon for Mobile View -->
         <div class="sm:hidden pr-4">
-          <button @click="toggleMenu" class="p-2 rounded-md hover:bg-cream transition ease-in-out duration-200">
+          <button @click="toggleMenu" class="p-2 rounded-md hover:bg-cream transition ease-in-out duration-200"
+                  aria-label="Toggle navigation bar" :aria-expanded="isMenuOpen ? 'true' : 'false'">
             <Bars3Icon class="size-7" />
           </button>
         </div>

@@ -15,7 +15,7 @@ defineProps<{
       <div class="flex flex-col text-center col-span-3">
         <h2 class="text-2xl font-bold text-orange">{{ person.name + ' ' + person.surname }}</h2>
 
-        <h5 class="text-md font-semibold text-orange">{{ person.main_role }}</h5>
+        <p class="text-md font-semibold text-orange">{{ person.main_role }}</p>
 
         <div class="flex-grow" />
 

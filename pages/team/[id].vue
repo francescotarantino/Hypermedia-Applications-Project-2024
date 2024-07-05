@@ -41,7 +41,7 @@ useSeoMeta({
   <section>
     <div class="container mx-auto max-w-7xl flex flex-col gap-8">
       <div>
-        <h5 class="text-lg text-center text-orange font-bold mb-2">Our Team</h5>
+        <p class="text-lg text-center text-orange font-bold mb-2">Our Team</p>
 
         <h1 class="text-3xl text-orange font-bold text-center">
           {{person?.name + ' ' + person?.surname}}
@@ -59,6 +59,7 @@ useSeoMeta({
                   v-for="(tab, index) in tabs" :key="index" @click="selectedTab = index"
                   class="flex flex-row items-center w-full md:w-48 text-lg text-bold text-left p-4 rounded-xl cursor-pointer hover:bg-cream transition ease-in-out duration-200"
                   :class="{ 'bg-peach': selectedTab === index }"
+                  tabindex="0" :aria-expanded="selectedTab === index" aria-controls="tab" @keydown.enter="selectedTab = index"
               >
                 <p>{{ tab }}</p>
 

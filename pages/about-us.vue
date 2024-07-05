@@ -87,7 +87,7 @@ const STATISTICS = {
   <section>
     <div class="container mx-auto px-8 sm:w-7/8 xl:w-3/4">
       <!-- About Us -->
-      <h2 class="text-3xl text-center text-orange font-bold mb-8">About Us</h2>
+      <h1 class="text-3xl text-center text-orange font-bold mb-8">About Us</h1>
       <p class="text-lg text-justify mb-8">
         Welcome to the Signal for Help Empowerment (SHE) Centre, a sanctuary of hope and support for women facing 
         domestic violence. Located at 340 Boulevard NE in Atlanta, Georgia, we are dedicated to empowering women 
@@ -173,6 +173,7 @@ const STATISTICS = {
                 v-for="(tab, index) in tabs" :key="index" @click="changeChapter(index)"
                 class="flex flex-row items-center w-full md:w-64 text-lg text-bold text-left p-2 pl-4 rounded-xl cursor-pointer hover:bg-opacity-40 hover:bg-peach transition ease-in-out duration-200"
                 :class="{ 'bg-peach': selectedTab === index }"
+                tabindex="0" :aria-expanded="selectedTab === index" aria-controls="tab" @keydown.enter="changeChapter(index)"
             >
               <p><span class="font-semibold">{{ index + 1 }}.</span> {{ tab }}</p>
 
