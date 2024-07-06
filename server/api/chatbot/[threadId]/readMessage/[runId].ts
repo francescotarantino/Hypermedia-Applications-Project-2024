@@ -44,6 +44,9 @@ export default defineEventHandler(async (event) => {
     const messageData = await messageResponse.json();
 
     message = removeBracketsContent(messageData.data[0].content[0].text.value);
+    message = replaceBoldText(message);
+    message = breakLists(message);
+    message = breakSmallLists(message); 
   }
 
   return {
@@ -58,4 +61,28 @@ function removeBracketsContent(text: string): string {
 
   // Replace matched patterns with an empty string
   return text.replace(regex, '');
+}
+
+function replaceBoldText(text: string): string {
+  // Regular expression to match ** words ** and replace them with bold HTML tags
+  const regex = /\*\*(.*?)\*\*/g;
+
+  // Replace matched patterns with <b>text</b>
+  return text.replace(regex, '<b>$1</b>');
+}
+
+function breakLists(text: string): string {
+  // Regular expression to match numbered list items and add <br> before each
+  const regex = /\d+\.\s+/g;
+
+  // Replace matched patterns with <br> + the matched pattern
+  return text.replace(regex, '<br>$&');
+}
+
+function breakSmallLists(text: string): string {
+  // Regular expression to match dashes, and add ' ' and <br> before each
+  const regex = /- /g;
+
+  // Replace matched patterns with <br> + the matched pattern
+  return text.replace(regex, '<br>&nbsp &nbsp $&');
 }

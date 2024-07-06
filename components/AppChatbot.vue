@@ -29,8 +29,7 @@
         <div class="flex-grow p-4 overflow-y-auto" ref="messagesContainer">
           <transition-group name="chat">
             <div v-for="(message, index) in messages" :key="index" class="mb-4">
-              <div :class="message.isUser ? 'text-right bg-cream' : 'text-left bg-peach'" class="p-2 rounded-md break-words">
-                {{ message.text }}
+              <div :class="message.isUser ? 'text-right bg-cream' : 'text-left bg-peach'" class="p-2 rounded-md break-words" v-html="message.text">
               </div>
             </div>
           </transition-group>
