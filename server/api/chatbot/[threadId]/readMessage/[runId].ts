@@ -46,7 +46,6 @@ export default defineEventHandler(async (event) => {
     message = removeBracketsContent(messageData.data[0].content[0].text.value);
     message = replaceBoldText(message);
     message = breakLists(message);
-    message = breakSmallLists(message); 
   }
 
   return {
@@ -72,17 +71,9 @@ function replaceBoldText(text: string): string {
 }
 
 function breakLists(text: string): string {
-  // Regular expression to match numbered list items and add <br> before each
-  const regex = /\d+\.\s+/g;
+  // Regular expression to match numbered list items, bulleted list items, and lines starting with dashes
+  const regex = /(\d+\.\s+|- )/g;
 
   // Replace matched patterns with <br> + the matched pattern
   return text.replace(regex, '<br>$&');
-}
-
-function breakSmallLists(text: string): string {
-  // Regular expression to match dashes, and add ' ' and <br> before each
-  const regex = /- /g;
-
-  // Replace matched patterns with <br> + the matched pattern
-  return text.replace(regex, '<br>&nbsp &nbsp $&');
 }
