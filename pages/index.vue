@@ -56,7 +56,9 @@ const STATISTICS = {
         <div> <!--Second column-->
           <!-- Our Team -->
           <div>
-            <h2 class="text-2xl text-center text-orange font-bold my-8">Our Team</h2>
+            <div class="text-center my-8">
+              <NuxtLink to="/team" class="text-2xl text-orange font-bold hover-underline-animation">Our Team</NuxtLink>
+            </div>
             <p class="text-lg text-justify mb-8">
               Each team member brings their unique skills and experiences to the table, united by a common goal: to combat
               violence and provide resources for those affected by it.
@@ -77,7 +79,7 @@ const STATISTICS = {
         </div>
       </div>
       <!-- Our Impact -->
-      <h2 class="text-3xl text-center text-orange font-bold mt-8 mb-4">Our Impact</h2>
+      <h2 class="text-2xl text-orange font-bold text-center mt-8 mb-4">Our Impact</h2>
       <p class="text-lg text-justify mb-8">
         Since its inception, the SHE Centre has made a significant impact on the lives of many woman in need. Here are
         some of the key statistics from our work over the years that we are proud to share with you.
