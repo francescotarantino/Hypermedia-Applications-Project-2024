@@ -27,10 +27,10 @@ const STATISTICS = {
       <h1 class="text-3xl text-center text-orange font-bold mb-8">Home</h1>
       <!-- About Us -->
       <p class="text-lg text-justify mb-8">
-        The SHE-Centre, founded in 2001 and located at Piazza Leonardo da Vinci 32, Milan, is a pioneering organization
-        dedicated to combating violence against women and promoting gender equality. Over the years, it has become a
-        cornerstone of support and advocacy for survivors of violence, offering a comprehensive range of services
-        including emergency shelter, counseling, legal assistance, and educational workshops.
+        Welcome to the Signal for Help Empowerment (SHE) Centre, a sanctuary of hope and support for women facing
+        domestic violence. Located at 340 Boulevard NE in Atlanta, Georgia, we are dedicated to empowering women
+        to reclaim their lives through a comprehensive range of services and projects tailored to support them
+        on their journey to safety and independence.
         <NuxtLink class="font-semibold text-orange hover-underline-animation" to="/about-us">
           <ArrowRightIcon class="h-4 w-4 inline-block" />
           Learn more about SHE-centre
