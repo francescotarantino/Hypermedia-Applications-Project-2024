@@ -48,7 +48,7 @@ onUnmounted(() => {
 
 <template>
   <div class="flex">
-    <div class="flex mx-auto justify-center w-screen md:w-[600px] h-[400px] md:h-[300px] relative overflow-hidden">
+    <div class="flex mx-auto justify-center w-screen md:w-[600px] h-[400px] md:h-[300px] relative overflow-x-hidden">
       <!-- Items -->
       <transition-group :name="animation">
         <template v-for="(item, index) in items" :key="index">

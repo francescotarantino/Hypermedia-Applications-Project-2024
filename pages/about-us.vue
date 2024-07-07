@@ -151,7 +151,7 @@ const STATISTICS = {
         that addresses the complex needs of survivors and promotes long-term healing and independence.
       </p>
       <div class="flex flex-wrap-reverse justify-center items-center gap-4">
-        <ValueCard v-for="(value, index) in VALUES" :key="index" :value="value" />
+        <FlipCard v-for="(value, index) in VALUES" :key="index" :content="value" />
       </div>
 
       <!-- Our History -->
