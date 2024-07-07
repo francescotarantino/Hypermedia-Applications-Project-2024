@@ -3,7 +3,10 @@ import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/vue/24/outline";
 
 const SLIDE_TIMEOUT = 10000;
 
-// Items of the carousel
+/**
+ * @property {Array<any>} items - The items to display in the carousel
+ * @property {boolean} largeOnSmallScreen - Whether to display the carousel in a larger size on small screens
+ */
 const props = defineProps<{
   items: Array<any> | undefined;
   largeOnSmallScreen?: boolean;
@@ -15,20 +18,20 @@ const animation = ref<'slide' | 'slideback'>('slide');
 let interval: NodeJS.Timeout;
 
 function nextSlide() {
-  animation.value = 'slide';
   stopSlider();
+  animation.value = 'slide';
   currentIndex.value = (currentIndex.value + 1) % props.items!.length;
 }
 
 function prevSlide() {
-  animation.value = 'slideback';
   stopSlider();
+  animation.value = 'slideback';
   currentIndex.value = (currentIndex.value - 1 + props.items!.length) % props.items!.length;
 }
 
 function startSlider() {
   interval = setInterval(() => {
-    nextSlide();
+    currentIndex.value = (currentIndex.value + 1) % props.items!.length;
   }, SLIDE_TIMEOUT);
 }
 

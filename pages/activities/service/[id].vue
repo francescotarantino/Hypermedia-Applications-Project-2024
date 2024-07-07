@@ -35,7 +35,7 @@ useSeoMeta({
             </div>
           </div>
 
-          <div class="w-full">
+          <div class="w-full max-w-2xl">
             <h2 class="text-2xl text-center text-orange font-bold my-8">Testimonials</h2>
 
             <CardCarousel :items="service?.service_testimonials">

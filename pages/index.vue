@@ -2,9 +2,12 @@
 import { ArrowRightIcon } from '@heroicons/vue/24/outline';
 import { PhoneIcon } from '@heroicons/vue/24/solid';
 
+const MOST_POPULAR_SERVICE_ID = 4;
+const MOST_POPULAR_PROJECT_ID = 1;
+
 const { data: people }  = await useFetch<IPerson[]>('/api/people');
-const { data: mostPopularService } = await useFetch<IService>('/api/services/4');
-const { data: mostPopularProject } = await useFetch<IProject>('/api/projects/1');
+const { data: mostPopularService } = await useFetch<IService>(`/api/services/${MOST_POPULAR_SERVICE_ID}`);
+const { data: mostPopularProject } = await useFetch<IProject>(`/api/projects/${MOST_POPULAR_PROJECT_ID}`);
 
 // Statistics for the Our Impact section
 const STATISTICS = {
@@ -28,8 +31,8 @@ const STATISTICS = {
         to reclaim their lives through a comprehensive range of services and projects tailored to support them
         on their journey to safety and independence.
         <NuxtLink class="font-semibold text-orange hover-underline-animation-orange float-right" to="/about-us">
-          <ArrowRightIcon class="h-4 w-4 inline-block" />
-          Learn more about SHE-centre
+          <ArrowRightIcon class="h-5 w-5 inline-block align-sub" />
+          Learn more about us
         </NuxtLink>
       </p>
       <div class="grid grid-cols-1 xl:grid-cols-2 gap-12">
@@ -77,7 +80,7 @@ const STATISTICS = {
               <NuxtLink to="/contact-us" class="text-2xl text-orange font-bold hover-underline-animation-orange">Contact Us</NuxtLink>
             </div>
             <div class="flex self-center justify-center">
-              <FlipCard :content="{ name: '800 02 2399', description: 'There\'s always someone on the other end of the line ready to help.', icon: PhoneIcon }" />
+              <FlipCard name="800 02 2399" description="There's always someone on the other end of the line ready to help." :icon="PhoneIcon" />
             </div>
           </div>
         </div>

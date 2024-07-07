@@ -17,8 +17,11 @@ function getPercentage (value: number) {
       <div v-for="(data, label) in statistics" :key="label" class="mb-4">
         <div class="flex items-center flex-col md:flex-row gap-2">
           <div class="flex-1">{{ label }}</div>
+
           <div class="flex-[2_2_0%] w-full bg-peach rounded-full">
-            <div :style="{ width: getPercentage(data) + '%' }" class="bg-apricot text-xs leading-none py-1 text-center  rounded-full">{{ data }}</div>
+            <div :style="{ width: getPercentage(data) + '%' }" class="min-w-8 bg-apricot text-xs leading-none py-1 text-center rounded-full">
+              {{ data }}
+            </div>
           </div>
         </div>
       </div>
