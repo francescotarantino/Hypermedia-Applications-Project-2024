@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { ChevronDownIcon } from "@heroicons/vue/24/solid";
 
-// Props for title and link
+/**
+ * @property {string} title - The title of the dropdown
+ * @property {string} to - The path to navigate to when the title is clicked
+ */
 defineProps<{
   title: string;
   to: string;
@@ -31,10 +34,9 @@ const route = useRoute();
     <div class="flex flex-row items-center gap-1 justify-center w-full" id="options-menu" aria-haspopup="true">
       <!-- Link with title -->
       <NuxtLink :to="to" @click="closeMenu">{{title}}</NuxtLink>
-      <!-- Button to toggle dropdown -->
-      <button @click="toggle" :aria-expanded="dropdownActive ? 'true' : 'false'" aria-label="Toggle dropdown menu">
-        <ChevronDownIcon class="size-4" />
-      </button>
+
+      <!-- Dropdown icon -->
+      <ChevronDownIcon class="size-4" />
     </div>
     <!-- Dropdown content -->
     <slot />

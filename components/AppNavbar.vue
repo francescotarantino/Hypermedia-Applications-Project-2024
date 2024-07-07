@@ -4,7 +4,7 @@ import {HomeIcon} from "@heroicons/vue/24/solid";
 
 <template>
   <!-- Home Link -->
-  <AppHeaderLink to="/" aria-label="Homepage">
+  <AppHeaderLink to="/" aria-label="Homepage" exact-match>
     <HomeIcon class="p-1 size-7 " />
   </AppHeaderLink>
   <!-- Activities Link -->
@@ -31,14 +31,16 @@ import {HomeIcon} from "@heroicons/vue/24/solid";
   </AppDropdown>
 
   <!-- Activities Links (visible on small screens) -->
-  <div class="flex flex-wrap justify-center sm:hidden gap-2">
-    <AppHeaderLink to="/activities">
+  <div class="flex flex-wrap justify-center sm:hidden gap-2 items-center">
+    <AppHeaderLink to="/activities" exact-match>
       Activities
     </AppHeaderLink>
+    •
     <!-- Services Link -->
     <AppHeaderLink to="/activities/services">
       Services
     </AppHeaderLink>
+    •
     <!-- Projects Link -->
     <AppHeaderLink to="/activities/projects">
       Projects

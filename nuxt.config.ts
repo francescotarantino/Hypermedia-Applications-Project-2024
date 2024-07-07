@@ -32,22 +32,30 @@ export default defineNuxtConfig({
       mode: 'out-in',
     },
   },
+
   css: [
     '~/assets/css/transitions.css',
   ],
+
   devtools: { enabled: true },
+
   modules: [
     "@nuxtjs/tailwindcss",
     "@nuxtjs/supabase",
     "@nuxt/fonts",
     "@nuxtjs/leaflet",
   ],
+
   supabase: {
     redirect: false,
   },
+
   ssr: true,
+
   runtimeConfig: {
     openaiApiKey: process.env.OPENAI_API_KEY,
     openaiAssistantId: process.env.OPENAI_ASSISTANT_ID,
-  }
+  },
+
+  compatibilityDate: '2024-07-07'
 })
