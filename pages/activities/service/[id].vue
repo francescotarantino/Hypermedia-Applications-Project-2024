@@ -11,7 +11,7 @@ useSeoMeta({
 
 <template>
   <section>
-    <h5 class="text-md text-center text-orange font-bold">Service</h5>
+    <p class="text-md text-center text-orange font-bold">Service</p>
 
     <div class="container mx-auto max-w-7xl">
       <h1 class="text-3xl text-center text-orange font-bold mt-4 mb-8">{{service?.name}}</h1>

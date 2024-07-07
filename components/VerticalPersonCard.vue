@@ -6,14 +6,14 @@ defineProps<{
 </script>
 
 <template>
-  <NuxtLink :to="`/person/${person.id}`" class="relative bg-cream rounded-2xl drop-shadow hover:bg-peach transition ease-in-out duration-200">
-    <div class="flex flex-col items-center w-48 gap-2 m-4">
-      <img class="aspect-auto rounded-xl w-36" :src="person.picture.path" :alt="person.picture.label">
+  <NuxtLink :to="`/team/${person.id}`" class="relative bg-cream rounded-2xl drop-shadow hover:drop-shadow-2xl transform-gpu transition ease-in-out duration-500">
+    <div class="flex flex-col items-center w-48 gap-2 my-4">
+      <img class="aspect-auto rounded-xl w-36 bg-white" :src="person.picture.path" :alt="person.picture.label">
 
       <div class="flex flex-col text-center">
         <h2 class="text-xl font-bold text-orange">{{ person.name + ' ' + person.surname }}</h2>
 
-        <h5 class="text-md text-orange">{{ person.email }}</h5>
+        <p class="text-md text-orange">{{ person.email }}</p>
       </div>
     </div>
 

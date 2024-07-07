@@ -22,25 +22,11 @@ declare interface IPerson {
     end_date: string;
     start_date: string;
     school_name: string;
+    course: string;
   }[];
-  responsible_for_services?: {
-    id: number;
-    name: string;
-    main_image: IPicture
-  }
-  involved_in_services?: {
-    id: number;
-    name: string;
-    main_image: IPicture
-  }
-  responsible_for_projects?: {
-    id: number;
-    name: string;
-    main_image: IPicture
-  }
-  involved_in_projects?: {
-    id: number;
-    name: string;
-    main_image: IPicture
-  }
+  responsible_for_services?: IActivity[];
+  involved_in_services?: IActivity[];
+  responsible_for_projects?: IActivity[];
+  involved_in_projects?: IActivity[];
 }
+

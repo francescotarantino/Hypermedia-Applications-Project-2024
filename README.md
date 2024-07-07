@@ -1,75 +1,22 @@
-# Nuxt 3 Minimal Starter
+# Hypermedia Applications Project 2024
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+**📚 Course:** Hypermedia Applications
 
-## Setup
+**📅 Academic year:** 2023/2024
 
-Make sure to install the dependencies:
+**🌐 Website:** [SHE-Centre](https://she-centre.vercel.app/)
 
-```bash
-# npm
-npm install
+**👥 Group:** Il Gruppo Del Sito
+- [Simone Callegarin](https://github.com/SimoneCallegarin)
+- [Carlo Prestifilippo](https://github.com/carloprestifilippo)
+- [Francesco Tarantino](https://github.com/francescotarantino)
 
-# pnpm
-pnpm install
+## ▶️ Run in development
 
-# yarn
-yarn install
+1. Make sure that all the required dependencies are installed: `npm install`
+2. Copy `.env.example` to `.env` and fill in the required environment variables: 
+   - `SUPABASE_URL` and `SUPABASE_KEY` are required to connect to the Supabase database
+   - `OPENAI_API_KEY` and `OPENAI_ASSISTANT_ID` are required to connect to the OpenAI API for the chatbot
+3. Run the development server: `npm run dev`
 
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+The server will be running on `http://localhost:3000`

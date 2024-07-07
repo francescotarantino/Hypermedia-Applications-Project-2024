@@ -11,6 +11,7 @@ export type Database = {
     Tables: {
       educations: {
         Row: {
+          course: string
           end_date: string
           id: number
           person_id: number
@@ -18,6 +19,7 @@ export type Database = {
           start_date: string
         }
         Insert: {
+          course?: string
           end_date: string
           id?: number
           person_id: number
@@ -25,6 +27,7 @@ export type Database = {
           start_date: string
         }
         Update: {
+          course?: string
           end_date?: string
           id?: number
           person_id?: number

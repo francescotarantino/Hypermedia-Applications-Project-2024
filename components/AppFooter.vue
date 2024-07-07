@@ -1,12 +1,12 @@
 <template>
-  <footer class="bg-cream text-primary shadow-inner py-8">
+  <footer class="bg-cream shadow-inner py-8">
     <div class="container mx-auto grid grid-cols-1 text-center md:grid-cols-5 gap-4">
       <!-- Legal Information -->
       <div>
         <h3 class="font-semibold text-lg mb-2">Legal Information</h3>
         <p>Social Cooperative SHE-centre</p>
-        <p class="text-sm"><a href="#" class="hover:underline">Privacy Policy</a></p>
-        <p class="text-sm"><a href="#" class="hover:underline">Terms of Service</a></p>
+        <p class="text-sm"><a href="#" class="hover-underline-animation">Privacy Policy</a></p>
+        <p class="text-sm"><a href="#" class="hover-underline-animation">Terms of Service</a></p>
       </div>
 
       <!-- Opening Hours -->
@@ -53,8 +53,8 @@
       <!-- Contacts -->
       <div>
         <h3 class="font-semibold text-lg mb-2">Contact Us</h3>
-        <p>Email: <a href="mailto:info@she.org" class="hover:underline">info@she.org</a></p>
-        <p>Phone: <a href="tel:800022399" class="hover:underline">800 02 2399</a></p>
+        <p>Email: <a href="mailto:info@she.org" class="hover-underline-animation">info@she.org</a></p>
+        <p>Phone: <a href="tel:800022399" class="hover-underline-animation">800 02 2399</a></p>
       </div>
     </div>
   </footer>

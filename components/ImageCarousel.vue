@@ -54,7 +54,7 @@ onUnmounted(() => {
 
 <template>
   <div class="flex h-[100%]">
-    <div class="flex mx-auto justify-center relative w-screen md:w-[400px] h-[500px] m-auto">
+    <div class="flex mx-auto justify-center relative w-screen md:w-[400px] h-[500px] m-auto group">
       <!-- Images -->
       <template v-for="(image, index) in images" :key="index">
         <!-- Fade transition -->
@@ -64,11 +64,17 @@ onUnmounted(() => {
         </transition>
       </template>
 
-      <!-- Navigation buttons -->
-      <ChevronRightIcon class="absolute size-9 right-0 top-1/2 m-2 cursor-pointer text-white z-50 drop-shadow hover:opacity-80"
-                        @click="nextSlide" />
-      <ChevronLeftIcon class="absolute size-9 left-0 top-1/2 m-2 cursor-pointer text-white z-50 drop-shadow hover:opacity-80"
-                        @click="prevSlide" />
+      <!-- Next button -->
+      <button class="absolute right-0 top-1/2 mr-3 cursor-pointer text-white z-50 opacity-100 md:opacity-0 group-hover:opacity-100 bg-primary bg-opacity-15 hover:bg-opacity-40 rounded-md transition-all ease-in-out duration-500 transform-gpu"
+              @click="nextSlide" aria-label="Next image">
+        <ChevronRightIcon class="size-9" />
+      </button>
+
+      <!-- Previous button -->
+      <button class="absolute left-0 top-1/2 ms-3 cursor-pointer text-white z-50 opacity-100 md:opacity-0 group-hover:opacity-100 bg-primary bg-opacity-15 hover:bg-opacity-40 rounded-md transition-all ease-in-out duration-500 transform-gpu"
+              @click="prevSlide" aria-label="Previous image">
+        <ChevronLeftIcon class="size-9" />
+      </button>
     </div>
   </div>
 </template>

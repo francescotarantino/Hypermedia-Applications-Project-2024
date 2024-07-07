@@ -1,15 +1,10 @@
 <script setup lang="ts">
-const statistics = {
-  'Number of Clients Served': 5000,
-  'Crisis Interventions': 8000,
-  'Legal Advocacy': 1500,
-  'Counseling Services': 3000,
-  'Workshops': 500,
-  'Vocational Training Placements': 400
-};
+const props = defineProps<{
+  statistics: Record<string, number>;
+}>();
 
 function getPercentage (value: number) {
-  const max = Math.max(...Object.values(statistics));
+  const max = Math.max(...Object.values(props.statistics));
   return (value / max) * 100;
 }
 </script>
@@ -23,7 +18,7 @@ function getPercentage (value: number) {
         <div class="flex items-center flex-col md:flex-row gap-2">
           <div class="flex-1">{{ label }}</div>
           <div class="flex-[2_2_0%] w-full bg-peach rounded-full">
-            <div :style="{ width: getPercentage(data) + '%' }" class="bg-apricot text-xs leading-none py-1 text-center text-primary rounded-full">{{ data }}</div>
+            <div :style="{ width: getPercentage(data) + '%' }" class="bg-apricot text-xs leading-none py-1 text-center  rounded-full">{{ data }}</div>
           </div>
         </div>
       </div>

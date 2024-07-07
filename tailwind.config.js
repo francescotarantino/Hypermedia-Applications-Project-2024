@@ -13,6 +13,13 @@ export default {
     fontFamily: {
         'sans': ['Outfit', 'sans-serif'],
     },
+    extend: {
+      zIndex: {
+        'header': 999999,
+        'chatbotButton': 1000000,
+        'chatbotPanel': 1000001,
+      }
+    }
   },
   variants: {
     extend: {

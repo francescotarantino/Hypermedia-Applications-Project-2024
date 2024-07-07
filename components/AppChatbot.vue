@@ -2,21 +2,23 @@
   <div>
     <transition name="fade">
       <!-- Chatbot Icon (visible when the chat is closed) -->
-      <div v-if="!isOpen" @click="toggleChat" class="fixed bottom-4 right-4 cursor-pointer hover:scale-105 transition ease-in-out duration-200" style="z-index: 1000000">
+      <div v-if="!isOpen" @click="toggleChat" class="fixed bottom-4 right-4 cursor-pointer hover:scale-105 transition ease-in-out duration-300 z-chatbotButton"
+           aria-label="Open chatbot" aria-expanded="false" tabindex="0" @keydown.enter="toggleChat">
         <img src="/chatbot.png" alt="Chatbot Icon" class="w-16 md:w-24 h:16 md:h-24 rounded-full shadow-lg"/>
       </div>
     </transition>
 
     <transition name="fade">
       <!-- Chatbot Window -->
-      <div class="fixed bottom-4 right-4 left-4 md:left-auto bg-white w-auto md:w-1/2 xl:w-1/4 h-4/5 md:h-3/4 lg:h-2/3 shadow-lg rounded-lg flex flex-col border border-primary"
-           v-if="isOpen" style="z-index: 999999">
+      <div class="fixed bottom-4 right-4 left-4 md:left-auto bg-white w-auto h-4/5 md:w-[420px] md:max-h-[700px] shadow-lg rounded-lg flex flex-col border border-primary z-chatbotPanel"
+           v-if="isOpen">
         <!-- Header -->
         <div class="p-1 bg-apricot flex justify-between items-center rounded-t-lg">
           <img src="/chatbot.png" alt="Chatbot Icon" class="w-12 h-12 rounded-full shadow-lg border border-primary"/>
           <h3 class="text-lg">SHE-helper</h3>
-          <button @click="toggleChat" class="mr-3 p-1 rounded-md hover:bg-peach transition ease-in-out duration-200" aria-label="Close chatbot">
-            <XMarkIcon class="size-6 text-primary" />
+          <button @click="toggleChat" class="mr-3 p-1 rounded-md hover:bg-peach transition ease-in-out duration-200"
+                  aria-label="Close chatbot" aria-expanded="true">
+            <XMarkIcon class="size-6" />
           </button>
         </div>
 
@@ -27,8 +29,7 @@
         <div class="flex-grow p-4 overflow-y-auto" ref="messagesContainer">
           <transition-group name="chat">
             <div v-for="(message, index) in messages" :key="index" class="mb-4">
-              <div :class="message.isUser ? 'text-right bg-cream' : 'text-left bg-peach'" class="p-2 rounded-md break-words">
-                {{ message.text }}
+              <div :class="message.isUser ? 'text-right bg-cream' : 'text-left bg-peach'" class="p-2 rounded-md break-words" v-html="message.text">
               </div>
             </div>
           </transition-group>
@@ -42,7 +43,7 @@
         </div>
 
         <!-- Disclaimer -->
-        <p class="text-xs opacity-50 text-center">Disclaimer: You are chatting with a virtual assistant, powered by AI. The information provided is not a substitute for professional advice.</p>
+        <p class="text-xs opacity-50 text-center">You are chatting with a virtual assistant, powered by AI. The information provided is not a substitute for professional advice.</p>
 
         <!-- Input Field -->
         <div class="h-px bg-primary" />
@@ -50,8 +51,9 @@
           <textarea type="text" placeholder="Type a message..." aria-label="Type a message to the chatbot" class="w-full bg-cream p-2 rounded-md resize-none" rows="1"
                     ref="messageTextarea" v-model.trim="userInput" @keydown.enter.exact.prevent="submitMessage" @input="autoresize" :disabled="!taskEnded" />
 
-          <button @click="submitMessage" :disabled="!taskEnded" class="bg-apricot rounded-md h-full px-2 hover:bg-opacity-50 transition ease-in-out duration-200 disabled:cursor-not-allowed">
-            <PaperAirplaneIcon class="size-6 text-primary" />
+          <button @click="submitMessage" :disabled="!taskEnded" class="bg-apricot rounded-md h-full px-2 hover:bg-opacity-50 transition ease-in-out duration-200 disabled:cursor-not-allowed"
+                  aria-label="Submit message">
+            <PaperAirplaneIcon class="size-6" />
           </button>
         </div>
       </div>
@@ -100,7 +102,9 @@ function toggleChat() {
 // Scrolls the chat to the bottom
 function scrollToBottom() {
   nextTick(() => {
-    messagesContainer.value!.scrollTop = messagesContainer.value!.scrollHeight;
+    if (messagesContainer.value){
+      messagesContainer.value!.scrollTop = messagesContainer.value!.scrollHeight;
+    }
   });
 }
 

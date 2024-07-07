@@ -48,7 +48,7 @@ onUnmounted(() => {
 
 <template>
   <div class="flex">
-    <div class="flex mx-auto justify-center w-screen md:w-[600px] h-[400px] md:h-[300px] relative overflow-hidden">
+    <div class="flex mx-auto justify-center w-screen md:w-[600px] h-[400px] md:h-[300px] relative overflow-x-hidden">
       <!-- Items -->
       <transition-group :name="animation">
         <template v-for="(item, index) in items" :key="index">
@@ -58,11 +58,17 @@ onUnmounted(() => {
         </template>
       </transition-group>
 
-      <!-- Navigation buttons -->
-      <ChevronRightIcon class="absolute size-9 right-0 top-1/2 cursor-pointer text-primary z-50 drop-shadow hover:opacity-70"
-                        @click="nextSlide" />
-      <ChevronLeftIcon class="absolute size-9 left-0 top-1/2 cursor-pointer text-primary z-50 drop-shadow hover:opacity-70"
-                       @click="prevSlide" />
+      <!-- Next button -->
+      <button class="absolute right-0 top-1/2 ms-3 cursor-pointer z-50 hover:bg-cream hover:bg-opacity-60 rounded-md transition ease-in-out duration-500 transform-gpu"
+              @click="nextSlide" aria-label="Next">
+        <ChevronRightIcon class="size-9" />
+      </button>
+
+      <!-- Previous button -->
+      <button class="absolute left-0 top-1/2 mr-3 cursor-pointer z-50 hover:bg-cream hover:bg-opacity-60 rounded-md transition ease-in-out duration-500 transform-gpu"
+              @click="prevSlide" aria-label="Previous">
+        <ChevronLeftIcon class="size-9"/>
+      </button>
     </div>
   </div>
 </template>
