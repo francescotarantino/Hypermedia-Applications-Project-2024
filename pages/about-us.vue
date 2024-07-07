@@ -72,15 +72,6 @@ function changeChapter(id: number) {
   document.getElementById('story-chapter')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// Statistics for the Our Impact section
-const STATISTICS = {
-  'Number of Clients Served': 5000,
-  'Crisis Interventions': 8000,
-  'Legal Advocacy': 1500,
-  'Counseling Services': 3000,
-  'Workshops': 500,
-  'Vocational Training Placements': 400
-};
 </script>
 
 <template>
@@ -381,12 +372,6 @@ const STATISTICS = {
           </div>
         </div>
 	    </div>
-
-      <!-- Our Impact -->
-      <h2 class="text-3xl text-center text-orange font-bold mt-8 mb-4">Our Impact</h2>
-      <div class="w-full">
-        <BarChart :statistics="STATISTICS" />
-      </div>
     </div>
   </section>
 </template>

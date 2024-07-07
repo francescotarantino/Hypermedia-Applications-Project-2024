@@ -44,7 +44,7 @@ const STATISTICS = {
           </div>
           <p class="text-lg text-justify mb-8">
             At SHE Centre our commitment to empowering women facing domestic violence has evolved over the years to offer a
-            comprehensive array of services.
+            comprehensive array of services. Here are some of our most popular activities.
           </p>
           <div class="grid justify-items-center">
             <div class="grid grid-cols-1 gap-6 max-w-[500px]">
