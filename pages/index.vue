@@ -19,9 +19,9 @@ const STATISTICS = {
 
 <template>
   <section>
-    <div class="container mx-auto px-8 md:w-3/4">
+    <div class="container mx-auto px-8 sm:w-7/8 xl:w-3/4">
       <h1 class="text-3xl text-center text-orange font-bold mb-8">Home</h1>
-      <!-- About Us -->
+      <!-- About Us section -->
       <p class="text-lg text-justify mb-8">
         Welcome to the Signal for Help Empowerment (SHE) Centre, a sanctuary of hope and support for women facing
         domestic violence. Located at 340 Boulevard NE in Atlanta, Georgia, we are dedicated to empowering women
@@ -32,8 +32,9 @@ const STATISTICS = {
           Learn more about SHE-centre
         </NuxtLink>
       </p>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <div> <!--First column-->
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-12">
+        <!--First column-->
+        <div>
           <!-- The most popular activities -->
           <div class="text-center my-8">
             <NuxtLink to="/activities" class="text-2xl text-orange font-bold hover-underline-animation-orange">Our activities</NuxtLink>
@@ -43,37 +44,45 @@ const STATISTICS = {
             comprehensive array of services. Here are some of our most popular activities.
           </p>
           <div class="grid justify-items-center">
-            <div class="grid grid-cols-1 gap-6 max-w-[500px]">
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 gap-6 xl:max-w-[500px]">
               <ActivityCard :activity="mostPopularService as IActivity" type="service" star-label="Most liked!" show-type-label />
               <ActivityCard :activity="mostPopularProject as IActivity" type="project" star-label="So popular!" show-type-label />
             </div>
           </div>
         </div>
-        <div> <!--Second column-->
+
+        <!--Second column-->
+        <div class="flex flex-col gap-4">
           <!-- Our Team -->
           <div>
             <div class="text-center my-8">
               <NuxtLink to="/team" class="text-2xl text-orange font-bold hover-underline-animation-orange">Our Team</NuxtLink>
             </div>
+
             <p class="text-lg text-justify mb-8">
               Each team member brings their unique skills and experiences to the table, united by a common goal: to combat
               violence and provide resources for those affected by it.
             </p>
-            <CardCarousel :items="people || []">
-              <template #default="{ item, active }">
-                <HorizontalPersonCard :person="item" :active="active" show-bio />
+
+            <CardCarousel :items="people || []" large-on-small-screen>
+              <template #default="{ item }">
+                <HorizontalPersonCard :person="item" show-bio class="h-full" />
               </template>
             </CardCarousel>
           </div>
+
           <!-- Contact Us -->
-          <div class="text-center my-8">
-            <NuxtLink to="/contact" class="text-2xl text-orange font-bold hover-underline-animation-orange">Contact Us</NuxtLink>
-          </div>
-          <div class="flex self-center justify-center">
-            <FlipCard :content="{ name: '800 02 2399', description: 'There\'s always someone on the other end of the line ready to help.', icon: PhoneIcon }" />
+          <div class="flex flex-col gap-4">
+            <div class="text-center">
+              <NuxtLink to="/contact-us" class="text-2xl text-orange font-bold hover-underline-animation-orange">Contact Us</NuxtLink>
+            </div>
+            <div class="flex self-center justify-center">
+              <FlipCard :content="{ name: '800 02 2399', description: 'There\'s always someone on the other end of the line ready to help.', icon: PhoneIcon }" />
+            </div>
           </div>
         </div>
       </div>
+
       <!-- Our Impact -->
       <h2 class="text-2xl text-orange font-bold text-center mt-8 mb-4">Our Impact</h2>
       <p class="text-lg text-justify mb-8">

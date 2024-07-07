@@ -19,7 +19,7 @@ const { data: people }  = await useFetch<IPerson[]>('/api/people');
         serve our community. Thank you for taking the time to get to know us. We look forward to getting to know you, too.
       </p>
       <div class="grid justify-items-center">
-        <div class="max-w-screen-lg grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="max-w-screen-lg grid grid-cols-1 lg:grid-cols-2 gap-6">
           <HorizontalPersonCard v-for="person in people" :key="person.id" :person="person" show-bio />
         </div>
       </div>

@@ -22,25 +22,25 @@ useSeoMeta({
         <ActivityDescription :activity="service as IActivity" />
 
         <!-- Service hours and testimonials -->
-        <div class="flex items-center flex-col lg:flex-row lg:items-start gap-4 lg:gap-12 justify-center">
+        <div class="flex items-center flex-col lg:flex-row lg:items-start gap-4 lg:gap-12 justify-center px-8">
           <div class="max-w-md">
             <h2 class="text-2xl text-center text-orange font-bold my-8">Service hours</h2>
 
             <div class="flex flex-col items-center gap-4">
               <HoursTable v-if="service?.service_hours" :hours="service?.service_hours || []" />
 
-              <p v-if="service?.service_hours_description" class="text-center px-4">
+              <p v-if="service?.service_hours_description" class="text-center">
                 {{service?.service_hours_description}}
               </p>
             </div>
           </div>
 
-          <div>
+          <div class="w-full">
             <h2 class="text-2xl text-center text-orange font-bold my-8">Testimonials</h2>
 
             <CardCarousel :items="service?.service_testimonials">
-              <template #default="{ item, active }">
-                <TestimonialCard :testimonial="item" :active="active" class="h-full" />
+              <template #default="{ item }">
+                <TestimonialCard :testimonial="item" class="h-full" />
               </template>
             </CardCarousel>
           </div>

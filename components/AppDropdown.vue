@@ -13,10 +13,13 @@ defineProps<{
 // Ref for the dropdown active state
 const dropdownActive = ref(false);
 
-// Method for toggling the dropdown
-const toggle = () => {
-  dropdownActive.value = !dropdownActive.value;
-};
+function closeDropdown() {
+  dropdownActive.value = false;
+}
+
+function openDropdown() {
+  dropdownActive.value = true;
+}
 
 // Providing the active state to the dropdown content
 provide('dropdownActive', dropdownActive);
@@ -29,7 +32,7 @@ const route = useRoute();
 <template>
   <!-- Container for the dropdown menu -->
   <div class="relative inline-block text-center p-2 text-xl rounded-lg hover:bg-peach transition ease-in-out duration-200 transform-gpu"
-       @mouseenter="toggle" @mouseleave="toggle" :class="{'bg-peach bg-opacity-50' : route.fullPath.startsWith(to)}">
+       @mouseenter="openDropdown" @mouseleave="closeDropdown" :class="{'bg-peach bg-opacity-50' : route.fullPath.startsWith(to)}">
     <!-- Dropdown menu content -->
     <div class="flex flex-row items-center gap-1 justify-center w-full" id="options-menu" aria-haspopup="true">
       <!-- Link with title -->
