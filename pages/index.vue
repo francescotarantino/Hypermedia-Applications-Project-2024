@@ -27,7 +27,7 @@ const STATISTICS = {
         domestic violence. Located at 340 Boulevard NE in Atlanta, Georgia, we are dedicated to empowering women
         to reclaim their lives through a comprehensive range of services and projects tailored to support them
         on their journey to safety and independence.
-        <NuxtLink class="font-semibold text-orange hover-underline-animation" to="/about-us">
+        <NuxtLink class="font-semibold text-orange hover-underline-animation-orange float-right" to="/about-us">
           <ArrowRightIcon class="h-4 w-4 inline-block" />
           Learn more about SHE-centre
         </NuxtLink>
@@ -36,7 +36,7 @@ const STATISTICS = {
         <div> <!--First column-->
           <!-- The most popular activities -->
           <div class="text-center my-8">
-            <NuxtLink to="/activities" class="text-2xl text-orange font-bold hover-underline-animation">Our activities</NuxtLink>
+            <NuxtLink to="/activities" class="text-2xl text-orange font-bold hover-underline-animation-orange">Our activities</NuxtLink>
           </div>
           <p class="text-lg text-justify mb-8">
             At SHE Centre our commitment to empowering women facing domestic violence has evolved over the years to offer a
@@ -53,7 +53,7 @@ const STATISTICS = {
           <!-- Our Team -->
           <div>
             <div class="text-center my-8">
-              <NuxtLink to="/team" class="text-2xl text-orange font-bold hover-underline-animation">Our Team</NuxtLink>
+              <NuxtLink to="/team" class="text-2xl text-orange font-bold hover-underline-animation-orange">Our Team</NuxtLink>
             </div>
             <p class="text-lg text-justify mb-8">
               Each team member brings their unique skills and experiences to the table, united by a common goal: to combat
@@ -67,7 +67,7 @@ const STATISTICS = {
           </div>
           <!-- Contact Us -->
           <div class="text-center my-8">
-            <NuxtLink to="/contact" class="text-2xl text-orange font-bold hover-underline-animation">Contact Us</NuxtLink>
+            <NuxtLink to="/contact" class="text-2xl text-orange font-bold hover-underline-animation-orange">Contact Us</NuxtLink>
           </div>
           <div class="flex self-center justify-center">
             <FlipCard :content="{ name: '800 02 2399', description: 'There\'s always someone on the other end of the line ready to help.', icon: PhoneIcon }" />
