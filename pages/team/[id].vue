@@ -190,25 +190,33 @@ useSeoMeta({
                 <div v-else-if="selectedTab === 2">
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <ActivityCard
-                        v-for="(activity, index) in person?.responsible_for_services!.map((s) => ({...s, type: 'service'}))" :key="index"
+                        v-for="(activity, index) in person?.responsible_for_services" :key="index"
                         :activity="activity as IActivity"
+                        type="service"
+                        show-type-label
                         star-label="Responsible"
                     />
 
                     <ActivityCard
-                        v-for="(activity, index) in person?.responsible_for_projects!.map((s) => ({...s, type: 'project'}))" :key="index"
+                        v-for="(activity, index) in person?.responsible_for_projects" :key="index"
                         :activity="activity as IActivity"
+                        type="project"
+                        show-type-label
                         star-label="Responsible"
                     />
 
                     <ActivityCard
-                        v-for="(activity, index) in person?.involved_in_services!.map((s) => ({...s, type: 'service'}))" :key="index"
+                        v-for="(activity, index) in person?.involved_in_services" :key="index"
                         :activity="activity as IActivity"
+                        type="service"
+                        show-type-label
                     />
 
                     <ActivityCard
-                        v-for="(activity, index) in person?.involved_in_projects!.map((s) => ({...s, type: 'project'}))" :key="index"
+                        v-for="(activity, index) in person?.involved_in_projects" :key="index"
                         :activity="activity as IActivity"
+                        type="project"
+                        show-type-label
                     />
                   </div>
                 </div>

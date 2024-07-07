@@ -4,6 +4,7 @@ import {StarIcon} from "@heroicons/vue/24/solid";
 defineProps<{
   activity: IActivity;
   type?: "project" | "service";
+  showTypeLabel?: boolean;
   starLabel?: string;
 }>();
 </script>
@@ -36,9 +37,9 @@ defineProps<{
       </div>
     </div>
 
-    <div v-if="activity.type" class="absolute top-0 right-0">
+    <div v-if="showTypeLabel" class="absolute top-0 right-0">
       <div class="bg-apricot text-white text-center text-sm rounded-tr-xl rounded-bl-xl px-3 first-letter:uppercase">
-        {{ activity.type }}
+        {{ type || activity.type }}
       </div>
     </div>
   </NuxtLink>

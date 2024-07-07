@@ -2,12 +2,9 @@
 import { ArrowRightIcon } from '@heroicons/vue/24/outline';
 import { PhoneIcon } from '@heroicons/vue/24/solid';
 
-
 const { data: people }  = await useFetch<IPerson[]>('/api/people');
-const {data: mostPopularService} = await useFetch<IService>('/api/services/4');
-const {data: mostPopularProject} = await useFetch<IProject>('/api/projects/1');
-mostPopularProject.value.type = 'project';
-mostPopularService.value.type = 'service';
+const { data: mostPopularService } = await useFetch<IService>('/api/services/4');
+const { data: mostPopularProject } = await useFetch<IProject>('/api/projects/1');
 
 // Statistics for the Our Impact section
 const STATISTICS = {
@@ -18,7 +15,6 @@ const STATISTICS = {
   'Workshops': 500,
   'Vocational Training Placements': 400
 };
-
 </script>
 
 <template>
@@ -48,8 +44,8 @@ const STATISTICS = {
           </p>
           <div class="grid justify-items-center">
             <div class="grid grid-cols-1 gap-6 max-w-[500px]">
-              <ActivityCard :activity="mostPopularService as IActivity" star-label="Most liked!"/>
-              <ActivityCard :activity="mostPopularProject as IActivity" star-label="So popular!"/>
+              <ActivityCard :activity="mostPopularService as IActivity" type="service" star-label="Most liked!" show-type-label />
+              <ActivityCard :activity="mostPopularProject as IActivity" type="project" star-label="So popular!" show-type-label />
             </div>
           </div>
         </div>
