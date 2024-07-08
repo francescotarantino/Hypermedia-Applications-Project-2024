@@ -1,15 +1,17 @@
 <script setup lang="ts">
 
-import {  PhoneIcon,
-          ArrowTrendingUpIcon,
+import {  ArrowTrendingUpIcon,
           ChatBubbleLeftRightIcon,
           GlobeEuropeAfricaIcon,
           CubeIcon,
           LightBulbIcon,
           BookOpenIcon,
-          EnvelopeIcon,
           ArrowRightIcon
-        } from '@heroicons/vue/24/solid';
+        } from '@heroicons/vue/24/outline';
+
+import { EnvelopeIcon,
+         PhoneIcon
+       } from '@heroicons/vue/24/solid';
 
 const MOST_POPULAR_SERVICE_ID = 4;
 const MOST_POPULAR_PROJECT_ID = 1;
