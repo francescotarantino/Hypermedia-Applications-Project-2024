@@ -141,7 +141,7 @@ const VALUES = [
       </div>
 
       <!-- Our Values -->
-      <h2 class="text-2xl text-center text-orange font-bold mt-16">Our Values</h2>
+      <h2 class="text-2xl text-center text-orange font-bold mt-16 mb-4">Our Values</h2>
       <p class="text-lg text-justify mb-8">
         We envision a world where every woman can live <b>free from the threat of domestic violence.</b>
         The SHE Centre aspires to be a beacon of hope and empowerment, offering holistic, multi-faceted support
