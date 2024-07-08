@@ -126,14 +126,14 @@ const VALUES = [
             <div class="text-center">
               <NuxtLink to="/contact-us" class="text-2xl text-orange font-bold hover-underline-animation-orange">Contact Us</NuxtLink>
             </div>
-              <div class="flex flex-col gap-4 self-center items-center bg-cream rounded-2xl p-16 mt-4 drop-shadow-md">
+              <div class="flex flex-col gap-4 self-center items-center bg-cream rounded-2xl p-8 sm:p-16 mt-4 drop-shadow-md">
                 <div class="flex flex-row gap-4 items-center">
                   <PhoneIcon class="h-8 w-8" />
-                  <a href="tel:800 02 2399" class="text-4xl text-center hover-underline-animation">800 02 2399</a>
+                  <a href="tel:800 02 2399" class="text-3xl sm:text-4xl text-center hover-underline-animation">800 02 2399</a>
                 </div>
                 <div class="flex flex-row gap-4 items-center">
                   <EnvelopeIcon class="h-8 w-8" />
-                  <a href="mailto:info@she.org" class="text-4xl text-center  hover-underline-animation">info@she.org</a>
+                  <a href="mailto:info@she.org" class="text-3xl sm:text-4xl text-center  hover-underline-animation">info@she.org</a>
                 </div>
               </div>
           </div>
