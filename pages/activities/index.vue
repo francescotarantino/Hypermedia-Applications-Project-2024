@@ -12,6 +12,10 @@ activities.value = activities.value.concat(
 
 // Sort the activities by name
 activities.value.sort((a, b) => a.name.localeCompare(b.name));
+
+useSeoMeta({
+  title: 'Activities',
+});
 </script>
 
 <template>

@@ -1,6 +1,10 @@
 <script setup lang="ts">
 // Fetch projects
 const { data: projects }  = await useFetch<IProject[]>('/api/projects');
+
+useSeoMeta({
+  title: 'Projects',
+});
 </script>
 
 <template>

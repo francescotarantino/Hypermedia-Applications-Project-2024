@@ -1,6 +1,10 @@
 <script setup lang="ts">
 // Fetch services
 const { data: services } = await useFetch<IService[]>('/api/services');
+
+useSeoMeta({
+  title: 'Services',
+});
 </script>
 
 <template>

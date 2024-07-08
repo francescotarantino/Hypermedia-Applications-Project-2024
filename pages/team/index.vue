@@ -3,6 +3,10 @@
 import HorizontalPersonCard from "~/components/HorizontalPersonCard.vue";
 
 const { data: people }  = await useFetch<IPerson[]>('/api/people');
+
+useSeoMeta({
+  title: 'Our Team',
+});
 </script>
 
 <template>

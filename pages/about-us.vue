@@ -72,6 +72,9 @@ function changeChapter(id: number) {
   document.getElementById('story-chapter')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+useSeoMeta({
+  title: 'About Us',
+});
 </script>
 
 <template>

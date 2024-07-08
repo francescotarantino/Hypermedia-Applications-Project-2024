@@ -35,9 +35,11 @@ function formatDate(date: string) {
 }
 
 useSeoMeta({
-  ogTitle: person?.value?.name,
+  title: person?.value?.name + ' ' + person?.value?.surname,
   description: person?.value?.bio,
+  ogTitle: person?.value?.name + ' ' + person?.value?.surname + ' at SHE Centre',
   ogImageUrl: person?.value?.picture.path,
+  ogDescription: person?.value?.bio,
 });
 </script>
 

@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      title: 'Signal for Help Empowerment Centre',
+      titleTemplate: '%s %separator SHE-Centre',
       charset: 'utf-8',
       htmlAttrs: {
         lang: 'en',

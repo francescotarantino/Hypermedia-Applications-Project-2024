@@ -18,15 +18,19 @@ function submitForm(event: Event) {
     (event.target as HTMLFormElement).reset();
   }, 3000);
 }
+
+useSeoMeta({
+  title: 'Contact Us',
+});
 </script>
 
 <template>
   <section>
     <div class="h-64 flex items-center justify-center bg-orange drop-shadow mt-[-48px]">
-      <p class="text-white text-4xl sm:text-6xl text-center mx-4">
+      <h1 class="text-white text-4xl sm:text-6xl text-center mx-4">
         We're available 24/7.
         Call us.
-      </p>
+      </h1>
     </div>
 
     <div class="container mx-auto px-8 sm:w-7/8 xl:w-3/4">
