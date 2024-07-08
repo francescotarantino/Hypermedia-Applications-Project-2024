@@ -1,6 +1,10 @@
 <script setup lang="ts">
 const route = useRoute();
-const { data: service } = await useFetch<IService>(`/api/services/${route.params.id}`);
+const { data: service, error } = await useFetch<IService>(`/api/services/${route.params.id}`);
+
+if (error.value) {
+  throw createError({statusCode: 404});
+}
 
 useSeoMeta({
   ogTitle: service?.value?.name,

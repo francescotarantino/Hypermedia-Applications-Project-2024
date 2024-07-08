@@ -29,6 +29,11 @@ export default defineEventHandler(async (event) => {
     .eq('id', id)
     .single();
 
+  // If there is no data, return a 404 error
+  if (!data) {
+    throw createError({statusCode: 404, message: 'Person not found'});
+  }
+
   // If there is an error in the query, return a 400 error
   if (error) {
     throw createError({statusCode: 400, message: error.message});

@@ -13,7 +13,11 @@ import {
 } from '@heroicons/vue/24/outline';
 
 const route = useRoute();
-const { data: person } = await useFetch<IPerson>(`/api/people/${route.params.id}`);
+const { data: person, error } = await useFetch<IPerson>(`/api/people/${route.params.id}`);
+
+if (error.value) {
+  throw createError({statusCode: 404});
+}
 
 const selectedTab = ref<number>(0);
 const tabs = [
