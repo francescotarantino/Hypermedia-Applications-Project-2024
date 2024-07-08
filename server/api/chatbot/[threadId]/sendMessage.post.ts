@@ -32,7 +32,8 @@ export default defineEventHandler(async (event) => {
     },
     body: JSON.stringify({
       assistant_id: assistantId,
-      max_completion_tokens: 512
+      max_completion_tokens: 512,
+      top_p: 0.8,
     }),
   });
 
