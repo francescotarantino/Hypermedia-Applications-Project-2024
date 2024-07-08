@@ -55,6 +55,8 @@ onUnmounted(stopSlider);
         <div v-if="index === currentIndex" class="absolute w-full h-full px-10 pb-8">
           <slot :item="item" />
         </div>
+
+        <div v-else />
       </template>
     </transition-group>
 
