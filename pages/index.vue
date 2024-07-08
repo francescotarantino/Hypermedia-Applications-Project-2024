@@ -7,7 +7,8 @@ import {  PhoneIcon,
           CubeIcon,
           LightBulbIcon,
           BookOpenIcon,
-          EnvelopeIcon
+          EnvelopeIcon,
+          ArrowRightIcon
         } from '@heroicons/vue/24/solid';
 
 const MOST_POPULAR_SERVICE_ID = 4;
