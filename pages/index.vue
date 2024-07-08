@@ -141,20 +141,23 @@ const VALUES = [
       </div>
 
       <!-- Our Values -->
-      <h2 class="text-2xl text-center text-orange font-bold mt-16 mb-4">Our Values</h2>
+      <h2 class="text-2xl text-center text-orange font-bold mt-16">Our Values</h2>
       <p class="text-lg text-justify mb-8">
         We envision a world where every woman can live <b>free from the threat of domestic violence.</b>
         The SHE Centre aspires to be a beacon of hope and empowerment, offering holistic, multi-faceted support
         that addresses the complex needs of survivors and promotes <b>long-term healing and independence.</b>
       </p>
-      <div class="flex justify-center">
-        <div class="flex flex-wrap justify-center items-center gap-4 max-w-[800px]">
-          <FlipCard v-for="(value, index) in VALUES" :key="index" :name="value.name" :description="value.description" :icon="value.icon" />
-        </div>
-      </div>
+    </div>
 
+    <div class="flex sm:justify-center overflow-x-scroll overflow-y-hidden scrollbar-hidden pt-4">
+      <div class="flex flex-nowrap px-10 pb-14 sm:ms-0 sm:px-4 lg:px-0 sm:flex-wrap sm:justify-center sm:items-center sm:max-w-[800px] gap-4">
+        <FlipCard v-for="(value, index) in VALUES" :key="index" :name="value.name" :description="value.description" :icon="value.icon" />
+      </div>
+    </div>
+
+    <div class="container mx-auto px-8 sm:w-7/8 xl:w-3/4">
       <!-- Our Impact -->
-      <h2 class="text-2xl text-orange font-bold text-center mt-8 mb-4">Our Impact</h2>
+      <h2 class="text-2xl text-orange font-bold text-center mb-4">Our Impact</h2>
       <p class="text-lg text-justify mb-8">
         Since its inception, the SHE Centre has made a <b>significant impact</b> on the lives of many woman in need. Here are
         some of the <b>key statistics</b> from our work over the years that we are proud to share with you.
@@ -165,3 +168,13 @@ const VALUES = [
     </div>
   </section>
 </template>
+
+<style scoped>
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hidden {
+  scrollbar-width: none;
+}
+</style>
