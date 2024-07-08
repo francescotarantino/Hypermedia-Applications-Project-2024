@@ -25,6 +25,22 @@ export default defineNuxtConfig({
           name: 'author',
           content: 'SHE-Centre Team'
         },
+        {
+          name: 'og:title',
+          content: 'SHE-Centre'
+        },
+        {
+          name: 'og:description',
+          content: 'The SHE-Centre is a pioneering organization dedicated to combating violence against women and promoting gender equality.'
+        },
+        {
+          name: 'og:image',
+          content: '/logo.png'
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary'
+        },
       ]
     },
     pageTransition: {

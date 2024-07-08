@@ -74,6 +74,7 @@ function changeChapter(id: number) {
 
 useSeoMeta({
   title: 'About Us',
+  ogImage: '/headquarter.jpg',
 });
 </script>
 

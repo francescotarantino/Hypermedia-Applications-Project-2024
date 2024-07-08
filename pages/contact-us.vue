@@ -21,6 +21,8 @@ function submitForm(event: Event) {
 
 useSeoMeta({
   title: 'Contact Us',
+  description: 'We are available 24/7. Call us at 800 02 2399 or drop us an email. We are here to help you.',
+  ogImage: '/contact-us-image-2.jpg'
 });
 </script>
 

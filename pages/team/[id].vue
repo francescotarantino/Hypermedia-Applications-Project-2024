@@ -38,7 +38,7 @@ useSeoMeta({
   title: person?.value?.name + ' ' + person?.value?.surname,
   description: person?.value?.bio,
   ogTitle: person?.value?.name + ' ' + person?.value?.surname + ' at SHE Centre',
-  ogImageUrl: person?.value?.picture.path,
+  ogImage: person?.value?.picture.path,
   ogDescription: person?.value?.bio,
 });
 </script>

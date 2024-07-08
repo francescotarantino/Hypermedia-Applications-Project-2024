@@ -10,7 +10,7 @@ useSeoMeta({
   title: service?.value?.name,
   description: service?.value?.abstract,
   ogTitle: service?.value?.name + ' at SHE Centre',
-  ogImageUrl: service?.value?.main_image.path,
+  ogImage: service?.value?.main_image.path,
   ogDescription: service?.value?.abstract,
 });
 </script>
