@@ -44,10 +44,15 @@ export default defineNuxtConfig({
     "@nuxtjs/supabase",
     "@nuxt/fonts",
     "@nuxtjs/leaflet",
+    "@nuxt/image"
   ],
 
   supabase: {
     redirect: false,
+  },
+
+  image: {
+    domains: ['hkxldzwisdxifuxuhvel.supabase.co']
   },
 
   ssr: true,
@@ -58,4 +63,4 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2024-07-07'
-})
+});

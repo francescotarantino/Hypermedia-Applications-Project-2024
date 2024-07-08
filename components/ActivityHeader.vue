@@ -10,7 +10,7 @@ defineProps<{
   <div class="flex justify-center">
     <div class="flex flex-col lg:flex-row gap-8 md:w-3/4">
       <div class="self-center drop-shadow">
-        <img class="object-cover rounded-xl w-48" :src="activity?.main_image.path" :alt="activity?.main_image.label">
+        <NuxtImg class="object-cover rounded-xl w-48" :src="activity?.main_image.path" :alt="activity?.main_image.label" :placeholder="[192, 246, 75, 10]" />
       </div>
 
       <div class="flex flex-col p-8 md:p-0 gap-8 flex-1 self-stretch">

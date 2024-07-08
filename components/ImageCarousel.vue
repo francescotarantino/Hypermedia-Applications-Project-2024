@@ -10,15 +10,6 @@ const props = defineProps<{
   images: IPicture[];
 }>();
 
-// Preload images
-useHead({
-  link: props.images.map((image) => ({
-    rel: "preload",
-    href: image.path,
-    as: "image",
-  }))
-});
-
 // State of the component: current index of the image being displayed and interval for automatic sliding
 const currentIndex = ref(0);
 let interval: NodeJS.Timeout;
@@ -61,8 +52,11 @@ onUnmounted(() => {
       <template v-for="(image, index) in images" :key="index">
         <!-- Fade transition -->
         <transition name="carousel">
-          <img :src="image.path" :alt="image.label" class="absolute w-full h-full rounded-xl object-cover"
-               v-if="index === currentIndex" />
+          <NuxtImg :src="image.path" :alt="image.label" class="absolute w-full h-full rounded-xl object-cover" :placeholder="[228, 293, 75, 10]" preload
+                   v-if="index === currentIndex" />
+
+          <NuxtImg :src="image.path" :alt="image.label" class="hidden" preload
+                   v-else />
         </transition>
       </template>
 

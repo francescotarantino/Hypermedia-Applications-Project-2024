@@ -74,7 +74,7 @@ useSeoMeta({
                 <!-- Personal data -->
                 <div v-if="selectedTab === 0" class="bg-cream rounded-2xl transform-gpu drop-shadow p-8 flex flex-col gap-2">
                   <div class="flex flex-col lg:flex-row gap-8 items-center lg:items-start xl:items-stretch">
-                    <img class="bg-white object-cover rounded-xl w-64 drop-shadow-xl" :src="person?.picture.path" :alt="person?.picture.label">
+                    <NuxtImg class="bg-white object-cover rounded-xl w-64 drop-shadow-xl" :src="person?.picture.path" :alt="person?.picture.label" :placeholder="[256, 333, 75, 10]" />
 
                     <div class="flex flex-col gap-6">
                       <div class="flex flex-row gap-4 flex-wrap">
