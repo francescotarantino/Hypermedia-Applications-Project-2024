@@ -16,13 +16,15 @@ defineProps<{
       <div class="flex flex-col p-8 md:p-0 gap-8 flex-1 self-stretch">
         <p class="text-xl text-gray-600 text-center lg:text-left">
           <UserCircleIcon class="w-6 h-6 inline-block mr-2" />
-          <NuxtLink :to="`/team/${activity.main_responsible?.id}`" class="hover-underline-animation">
+          <span class="font-bold">Responsible: </span>
+          <NuxtLink :to="`/team/${activity.main_responsible?.id}`" class="hover-underline-animation" >
             {{activity.main_responsible?.name + " " + activity.main_responsible?.surname}}
           </NuxtLink>
 
           <br />
 
-          <EnvelopeIcon class="w-6 h-6 inline-block mr-2" />
+          <EnvelopeIcon class="w-6 h-6 inline-block mr-2" aria-label="Responsible email" />
+          <span class="font-bold">Email: </span>
           <a :href="`mailto:${activity.main_responsible?.email}`" class="hover-underline-animation">
             {{activity.main_responsible?.email}}
           </a>

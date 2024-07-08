@@ -110,7 +110,7 @@ function changeChapter(id: number) {
       <!-- Our Headquarter -->
       <h2 class="text-3xl text-center text-orange font-bold mb-4">Our Headquarter</h2>
       <div class="flex flex-col md:flex-row items-center mt-4">
-        <img class="flex-none w-full md:w-1/4 aspect-auto drop-shadow-xl rounded-2xl" src="/headquarter.jpg" alt="Headquarter Image"/>
+        <img class="flex-none w-full md:w-1/4 aspect-auto drop-shadow-xl rounded-2xl" src="/headquarter.jpg" alt="Our headquarter"/>
         <p class="flex-auto text-lg pt-4 pl-0 md:pt-0 md:pl-16 text-justify">
           The headquarters of the SHE Centre is located at 340 Boulevard NE, Atlanta, GA. Situated in a spacious and welcoming 
           facility, our headquarters serves as a safe haven and hub of support for women and children fleeing domestic violence. 
