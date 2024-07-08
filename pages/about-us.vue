@@ -1,12 +1,6 @@
 <script setup lang="ts">
 import {
-  ChevronRightIcon,
-  ArrowTrendingUpIcon,
-  ChatBubbleLeftRightIcon,
-  GlobeEuropeAfricaIcon,
-  CubeIcon,
-  LightBulbIcon,
-  BookOpenIcon
+  ChevronRightIcon
 } from '@heroicons/vue/24/outline';
 
 const { data: people } = await useFetch<IPerson[]>('/api/people');
@@ -22,33 +16,6 @@ const HOURS = [
   { day: 'Friday', hours: '9:00 AM - 6:00 PM' },
   { day: 'Saturday', hours: '10:00 AM - 4:00 PM' },
   { day: 'Sunday', hours: 'Closed' },
-];
-
-const VALUES = [
-  { name: 'Empowerment',
-    description: 'We believe in equipping women with the tools and resources they need to build independent, fulfilling lives.',
-    icon: ArrowTrendingUpIcon
-  },
-  { name: 'Respect',
-    description: 'We honor the dignity and worth of every person, fostering an environment of trust and mutual respect.',
-    icon: ChatBubbleLeftRightIcon
-  },
-  { name: 'Community',
-    description: 'We are committed to building strong community ties and engaging with local partners to enhance our support network.',
-    icon: GlobeEuropeAfricaIcon
-  },
-  { name: 'Resilience',
-    description: 'We strive to overcome challenges with determination and adaptability, continually evolving to meet the needs of those we serve.',
-    icon: CubeIcon
-  },
-  { name: 'Collaboration',
-    description: 'We work together with clients, staff, and partners to create a supportive and inclusive environment that fosters growth and healing.',
-    icon: LightBulbIcon
-  },
-  { name: 'Education',
-    description: 'We believe in the power of knowledge and strive to provide educational opportunities that empower woman to make informed choices.',
-    icon: BookOpenIcon
-  }
 ];
 
 // Chapter tabs management
@@ -84,10 +51,7 @@ useSeoMeta({
       <!-- About Us -->
       <h1 class="text-3xl text-center text-orange font-bold mb-8">About Us</h1>
       <p class="text-lg text-justify mb-8">
-        Welcome to the Signal for Help Empowerment (SHE) Centre, a sanctuary of hope and support for women facing 
-        domestic violence. Located at 340 Boulevard NE in Atlanta, Georgia, we are dedicated to empowering women 
-        to reclaim their lives through a comprehensive range of services and projects tailored to support them 
-        on their journey to safety and independence. At SHE, our mission is to empower women by providing them with the
+         At SHE, our mission is to empower women by providing them with the
         tools, resources, and support necessary to break free from the cycle of domestic violence.
         We strive to create a world where every woman has the opportunity to live a life free from fear, 
         filled with confidence, and enriched with possibilities.
@@ -136,17 +100,6 @@ useSeoMeta({
             <VerticalPersonCard class="flex flex-col" :person="person" :is-main-responsible="false"/>
           </div>
         </div>
-      </div>
-
-      <!-- Our Values -->
-      <h2 class="text-3xl text-center text-orange font-bold mt-8 mb-4">Our Values</h2>
-      <p class="text-lg text-justify mb-8">
-        We envision a world where every woman can live free from the threat of domestic violence.
-        The SHE Centre aspires to be a beacon of hope and empowerment, offering holistic, multi-faceted support
-        that addresses the complex needs of survivors and promotes long-term healing and independence.
-      </p>
-      <div class="flex flex-wrap-reverse justify-center items-center gap-4">
-        <FlipCard v-for="(value, index) in VALUES" :key="index" :name="value.name" :description="value.description" :icon="value.icon" />
       </div>
 
       <!-- Our History -->
