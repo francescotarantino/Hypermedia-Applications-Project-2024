@@ -4,10 +4,7 @@ import {
   ChevronRightIcon
 } from '@heroicons/vue/24/outline';
 
-const { data: people } = await useFetch<IPerson[]>('/api/people');
-
-// Filter only the directors
-const boardDirectors = people?.value?.filter((p) => p.main_role === 'Director');
+const { people: boardDirectors } = usePeople('Director');
 
 const HOURS = [
   { day: 'Monday', hours: '9:00 AM - 6:00 PM' },
