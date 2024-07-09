@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {
+  ArrowRightIcon,
   ChevronRightIcon
 } from '@heroicons/vue/24/outline';
 
@@ -131,7 +132,7 @@ useSeoMeta({
             </div>
           </div>
 
-          <div id="story-chapter" class="scroll-mt-8 sm:scroll-mt-28">
+          <div id="story-chapter" class="scroll-mt-8 sm:scroll-mt-28 h-full relative">
             <transition name="fade" mode="out-in">
               <!-- Chapter 1 -->
               <div v-if="selectedTab === 0">
@@ -326,6 +327,16 @@ useSeoMeta({
                 </p>
               </div>
             </transition>
+
+            <div class="absolute bottom-0 right-0">
+              <transition name="fade">
+                <span class="font-semibold text-orange hover-underline-animation-orange float-right cursor-pointer"
+                      @click="changeChapter(selectedTab + 1)" v-if="selectedTab < tabs.length - 1">
+                  <ArrowRightIcon class="h-5 w-5 inline-block align-sub" />
+                  Next
+                </span>
+              </transition>
+            </div>
           </div>
         </div>
 	    </div>
