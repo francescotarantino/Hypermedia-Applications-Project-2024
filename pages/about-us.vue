@@ -94,17 +94,20 @@ useSeoMeta({
       <br><br>
 
       <!-- Directive Board -->
-      <div class="flex flex-col xl:flex-row mt-4 mb-16 mx-8 items-center justify-between gap-2">
-        <h2 class="flex-col flex-1 text-3xl text-orange font-bold text-center mb-8 xl:mb-0">The directive board</h2>
-        <div class="flex flex-wrap gap-6 justify-center items-center">
-          <div v-for="(person, index) in boardDirectors" :key="index">
-            <VerticalPersonCard class="flex flex-col" :person="person" :is-main-responsible="false"/>
+      <div class="flex flex-col xl:flex-row mt-4 mb-2 sm:mx-8 sm:items-center justify-between gap-2">
+        <h2 class="flex-col flex-1 text-3xl text-orange font-bold text-center mb-4 xl:mb-0 xl:pb-16">The directive board</h2>
+
+        <div class="flex overflow-x-scroll overflow-y-hidden scrollbar-hidden sm:justify-center -mx-8">
+          <div class="flex flex-nowrap sm:flex-wrap pt-4 px-10 pb-16 gap-6 self-center sm:justify-center sm:items-center">
+            <div v-for="(person, index) in boardDirectors" :key="index">
+              <VerticalPersonCard class="flex flex-col" :person="person" :is-main-responsible="false"/>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Our History -->
-      <h2 class="text-3xl text-center text-orange font-bold mt-8 mb-4">Our History</h2>
+      <h2 class="text-3xl text-center text-orange font-bold mb-4">Our History</h2>
       <p class="text-lg text-justify mb-4 lg:mb-20">
         The Signal for Help Empowerment (SHE) Centre, founded in 2005 by Dr. Jane Anderson and a dedicated team, 
         began as a small but vital resource for women facing domestic violence in Atlanta, Georgia. 

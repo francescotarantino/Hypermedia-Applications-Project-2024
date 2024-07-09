@@ -51,6 +51,7 @@ export default defineNuxtConfig({
 
   css: [
     '~/assets/css/transitions.css',
+    '~/assets/css/global.css',
   ],
 
   devtools: { enabled: true },

@@ -168,13 +168,3 @@ const VALUES = [
     </div>
   </section>
 </template>
-
-<style scoped>
-.scrollbar-hidden::-webkit-scrollbar {
-  display: none;
-}
-
-.scrollbar-hidden {
-  scrollbar-width: none;
-}
-</style>
