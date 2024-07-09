@@ -13,7 +13,6 @@ const zoom = ref(16);
         attribution="&amp;copy; <a href=&quot;https://www.openstreetmap.org/&quot;>OpenStreetMap</a> contributors"
         layer-type="base"
         name="OpenStreetMap"
-        detect-retina
     />
     <LMarker :lat-lng="coordinates" />
   </LMap>

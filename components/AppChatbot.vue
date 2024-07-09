@@ -3,8 +3,8 @@
     <transition name="fade">
       <!-- Chatbot Icon (visible when the chat is closed) -->
       <div v-if="!isOpen" @click="toggleChat" class="fixed bottom-4 right-4 cursor-pointer hover:scale-105 transition ease-in-out duration-300 z-chatbotButton"
-           aria-label="Open chatbot" aria-expanded="false" tabindex="0" @keydown.enter="toggleChat">
-        <img src="/chatbot.png" alt="Chatbot Icon" class="w-16 md:w-24 h:16 md:h-24 rounded-full shadow-lg"/>
+           aria-label="Open chatbot" role="button" aria-expanded="false" tabindex="0" @keydown.enter="toggleChat">
+        <img src="/chatbot.png" alt="" class="w-16 md:w-24 h:16 md:h-24 rounded-full shadow-lg" />
       </div>
     </transition>
 
@@ -14,7 +14,7 @@
            v-if="isOpen">
         <!-- Header -->
         <div class="p-1 bg-apricot flex justify-between items-center rounded-t-lg">
-          <img src="/chatbot.png" alt="Chatbot Icon" class="w-12 h-12 rounded-full shadow-lg border border-primary"/>
+          <img src="/chatbot.png" alt="Chatbot" class="w-12 h-12 rounded-full shadow-lg border border-primary" />
           <h3 class="text-lg">SHE-helper</h3>
           <button @click="toggleChat" class="mr-3 p-1 rounded-md hover:bg-peach transition ease-in-out duration-200"
                   aria-label="Close chatbot" aria-expanded="true">
@@ -27,10 +27,9 @@
 
         <!-- Chat Messages Container -->
         <div class="flex-grow p-4 overflow-y-auto" ref="messagesContainer">
-          <transition-group name="chat">
+          <transition-group name="chat" tag="div">
             <div v-for="(message, index) in messages" :key="index" class="mb-4">
-              <div :class="message.isUser ? 'text-right bg-cream' : 'text-left bg-peach'" class="p-2 rounded-md break-words" v-html="message.text">
-              </div>
+              <p :class="message.isUser ? 'text-right bg-cream' : 'text-left bg-peach'" class="p-2 rounded-md break-words" v-html="message.text" />
             </div>
           </transition-group>
 

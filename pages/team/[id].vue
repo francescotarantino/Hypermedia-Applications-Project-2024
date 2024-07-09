@@ -13,7 +13,11 @@ import {
 } from '@heroicons/vue/24/outline';
 
 const route = useRoute();
-const { data: person } = await useFetch<IPerson>(`/api/people/${route.params.id}`);
+const { data: person, error } = await useFetch<IPerson>(`/api/people/${route.params.id}`);
+
+if (error.value) {
+  throw createError({statusCode: 404});
+}
 
 const selectedTab = ref<number>(0);
 const tabs = [
@@ -31,9 +35,11 @@ function formatDate(date: string) {
 }
 
 useSeoMeta({
-  ogTitle: person?.value?.name,
+  title: person?.value?.name + ' ' + person?.value?.surname,
   description: person?.value?.bio,
-  ogImageUrl: person?.value?.picture.path,
+  ogTitle: person?.value?.name + ' ' + person?.value?.surname + ' at SHE Centre',
+  ogImage: person?.value?.picture.path,
+  ogDescription: person?.value?.bio,
 });
 </script>
 
@@ -74,7 +80,7 @@ useSeoMeta({
                 <!-- Personal data -->
                 <div v-if="selectedTab === 0" class="bg-cream rounded-2xl transform-gpu drop-shadow p-8 flex flex-col gap-2">
                   <div class="flex flex-col lg:flex-row gap-8 items-center lg:items-start xl:items-stretch">
-                    <img class="bg-white object-cover rounded-xl w-64 drop-shadow-xl" :src="person?.picture.path" :alt="person?.picture.label">
+                    <img class="bg-white object-cover rounded-xl w-64 drop-shadow-xl" :src="person?.picture.path" :alt="person?.picture.label" />
 
                     <div class="flex flex-col gap-6">
                       <div class="flex flex-row gap-4 flex-wrap">
@@ -190,25 +196,33 @@ useSeoMeta({
                 <div v-else-if="selectedTab === 2">
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <ActivityCard
-                        v-for="(activity, index) in person?.responsible_for_services!.map((s) => ({...s, type: 'service'}))" :key="index"
+                        v-for="(activity, index) in person?.responsible_for_services" :key="index"
                         :activity="activity as IActivity"
+                        type="service"
+                        show-type-label
                         star-label="Responsible"
                     />
 
                     <ActivityCard
-                        v-for="(activity, index) in person?.responsible_for_projects!.map((s) => ({...s, type: 'project'}))" :key="index"
+                        v-for="(activity, index) in person?.responsible_for_projects" :key="index"
                         :activity="activity as IActivity"
+                        type="project"
+                        show-type-label
                         star-label="Responsible"
                     />
 
                     <ActivityCard
-                        v-for="(activity, index) in person?.involved_in_services!.map((s) => ({...s, type: 'service'}))" :key="index"
+                        v-for="(activity, index) in person?.involved_in_services" :key="index"
                         :activity="activity as IActivity"
+                        type="service"
+                        show-type-label
                     />
 
                     <ActivityCard
-                        v-for="(activity, index) in person?.involved_in_projects!.map((s) => ({...s, type: 'project'}))" :key="index"
+                        v-for="(activity, index) in person?.involved_in_projects" :key="index"
                         :activity="activity as IActivity"
+                        type="project"
+                        show-type-label
                     />
                   </div>
                 </div>

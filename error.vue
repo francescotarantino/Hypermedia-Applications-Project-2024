@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <AppLayout>
+  <NuxtLayout>
     <div class="container mx-auto px-4 w-3/4">
       <div v-if="error.statusCode === 404">
         <h1 class="text-3xl text-center text-orange font-bold mt-4 mb-8">
@@ -28,5 +28,5 @@ defineProps<{
         </p>
       </div>
     </div>
-  </AppLayout>
+  </NuxtLayout>
 </template>

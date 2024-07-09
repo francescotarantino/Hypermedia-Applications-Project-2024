@@ -1,21 +1,14 @@
 <script setup lang="ts">
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/vue/24/outline";
 
-const SLIDE_TIMEOUT = 5000;
+const SLIDE_TIMEOUT = 6000;
 
-// Props of the component: images to display
+/**
+ * @property {IPicture[]} images - The images to display in the carousel
+ */
 const props = defineProps<{
   images: IPicture[];
 }>();
-
-// Preload images
-useHead({
-  link: props.images.map((image) => ({
-    rel: "preload",
-    href: image.path,
-    as: "image",
-  }))
-});
 
 // State of the component: current index of the image being displayed and interval for automatic sliding
 const currentIndex = ref(0);
@@ -33,7 +26,7 @@ const prevSlide = () => {
 
 const startSlider = () => {
   interval = setInterval(() => {
-    nextSlide();
+    currentIndex.value = (currentIndex.value + 1) % props.images.length;
   }, SLIDE_TIMEOUT);
 };
 
@@ -50,6 +43,15 @@ onMounted(() => {
 onUnmounted(() => {
   stopSlider();
 });
+
+// Preload images
+useHead({
+  link: props.images.map((image) => ({
+    rel: "preload",
+    href: image.path,
+    as: "image",
+  }))
+});
 </script>
 
 <template>
@@ -60,7 +62,10 @@ onUnmounted(() => {
         <!-- Fade transition -->
         <transition name="carousel">
           <img :src="image.path" :alt="image.label" class="absolute w-full h-full rounded-xl object-cover"
-               v-if="index === currentIndex" />
+                   v-if="index === currentIndex" />
+
+          <img :src="image.path" :alt="image.label" class="hidden"
+                   v-else />
         </transition>
       </template>
 

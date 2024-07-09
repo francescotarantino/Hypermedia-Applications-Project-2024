@@ -1,11 +1,17 @@
 <script setup lang="ts">
 const route = useRoute();
-const { data: project } = await useFetch<IProject>(`/api/projects/${route.params.id}`);
+const { data: project, error } = await useFetch<IProject>(`/api/projects/${route.params.id}`);
+
+if (error.value) {
+  throw createError({statusCode: 404});
+}
 
 useSeoMeta({
-  ogTitle: project?.value?.name,
+  title: project?.value?.name,
   description: project?.value?.abstract,
-  ogImageUrl: project?.value?.main_image.path,
+  ogTitle: project?.value?.name + ' at SHE Centre',
+  ogImage: project?.value?.main_image.path,
+  ogDescription: project?.value?.abstract,
 });
 </script>
 
