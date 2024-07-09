@@ -43,6 +43,15 @@ onMounted(() => {
 onUnmounted(() => {
   stopSlider();
 });
+
+// Preload images
+useHead({
+  link: props.images.map((image) => ({
+    rel: "preload",
+    href: image.path,
+    as: "image",
+  }))
+});
 </script>
 
 <template>
@@ -52,10 +61,10 @@ onUnmounted(() => {
       <template v-for="(image, index) in images" :key="index">
         <!-- Fade transition -->
         <transition name="carousel">
-          <NuxtImg :src="image.path" :alt="image.label" class="absolute w-full h-full rounded-xl object-cover" :placeholder="[228, 293, 75, 10]" preload
+          <img :src="image.path" :alt="image.label" class="absolute w-full h-full rounded-xl object-cover"
                    v-if="index === currentIndex" />
 
-          <NuxtImg :src="image.path" :alt="image.label" class="hidden" preload
+          <img :src="image.path" :alt="image.label" class="hidden"
                    v-else />
         </transition>
       </template>

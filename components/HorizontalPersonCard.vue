@@ -15,7 +15,7 @@ defineProps<{
     <NuxtLink :to="`/team/${person.id}`">
       <div class="flex flex-col sm:flex-row items-center sm:items-stretch gap-4 m-4 text-center justify-items-center">
         <div class="justify-self-center">
-          <NuxtImg class="bg-white aspect-auto rounded-xl w-48" :src="person.picture.path" alt="" :placeholder="[228, 293, 75, 20]" />
+          <img class="bg-white aspect-auto rounded-xl w-48" :src="person.picture.path" alt="" />
         </div>
 
         <div class="flex flex-col text-center flex-1">
