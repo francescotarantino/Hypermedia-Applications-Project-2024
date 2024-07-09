@@ -71,19 +71,19 @@ useSeoMeta({
               <div class="grid grid-cols-8 items-center gap-2">
                 <div class="col-span-3">
                   <label for="name" class="text-lg">Name</label>
-                  <input class="border-2 border-orange rounded-md py-2 px-3 focus:outline-none w-full"
+                  <input class="border-2 border-orange rounded-xl py-2 px-3 focus:outline-none w-full"
                          type="text" id="name" name="name" placeholder="Anne Smith" required>
                 </div>
 
                 <div class="col-span-5">
                   <label for="email" class="text-lg">Email address</label>
-                  <input class="border-2 border-orange rounded-md py-2 px-3 focus:outline-none w-full"
+                  <input class="border-2 border-orange rounded-xl py-2 px-3 focus:outline-none w-full"
                          type="email" id="email" name="email" placeholder="anne.smith@email.com" required>
                 </div>
               </div>
 
               <label for="message" class="text-lg">Message</label>
-              <textarea class="border-2 border-orange resize-none w-full rounded-md py-2 px-3 focus:outline-none"
+              <textarea class="border-2 border-orange resize-none w-full rounded-xl py-2 px-3 focus:outline-none"
                         id="message" name="message" placeholder="Insert your message here..." rows="6" required />
 
               <transition name="fade" mode="out-in" class="h-12">

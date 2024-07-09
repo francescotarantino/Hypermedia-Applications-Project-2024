@@ -47,7 +47,7 @@
         <!-- Input Field -->
         <div class="h-px bg-primary" />
         <div class="p-2 bg-peach rounded-b-lg flex flex-row gap-2">
-          <textarea type="text" placeholder="Type a message..." aria-label="Type a message to the chatbot" class="w-full bg-cream p-2 rounded-md resize-none" rows="1"
+          <textarea type="text" placeholder="Type a message..." aria-label="Type a message to the chatbot" class="w-full bg-cream p-2 rounded-md resize-none focus:outline-none" rows="1"
                     ref="messageTextarea" v-model.trim="userInput" @keydown.enter.exact.prevent="submitMessage" @input="autoresize" :disabled="!taskEnded" />
 
           <button @click="submitMessage" :disabled="!taskEnded" class="bg-apricot rounded-md h-full px-2 hover:bg-opacity-50 transition ease-in-out duration-200 disabled:cursor-not-allowed"

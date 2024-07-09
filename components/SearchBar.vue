@@ -5,17 +5,24 @@ import { MagnifyingGlassIcon } from '@heroicons/vue/24/outline';
 defineEmits<{
   (e: 'search-query' , query: string): void;
 }>();
+
+const isFocused = ref<boolean>(false);
+const query = ref<string>('');
+const isOpened = computed(() => isFocused.value || query.value.length > 0);
 </script>
 
 <template>
-  <div class="relative w-full">
+  <div class="relative">
     <!-- Hidden label for accessibility -->
     <label for="search" class="sr-only">Search</label>
 
     <input id="search" type="search" placeholder="Search..."
-           @input="$emit('search-query', ($event.target as HTMLInputElement).value)"
-           class="border-2 border-orange rounded-xl py-2 pl-10 pr-3 focus:outline-none w-full" />
+           v-model="query"
+           @input="$emit('search-query', query)"
+           @focus="isFocused = true" @blur="isFocused = false"
+           :class="isOpened ? 'w-72' : 'w-0'"
+           class="border-2 border-orange rounded-xl py-2.5 pl-11 outline-none transition-all duration-500 ease-in-out cursor-pointer focus:cursor-text" />
 
-    <MagnifyingGlassIcon class="absolute left-2 top-1/2 transform -translate-y-1/2 w-6 h-6" />
+    <MagnifyingGlassIcon class="pointer-events-none absolute top-1/2 transform -translate-y-1/2 w-6 h-6 left-3" />
   </div>
 </template>
