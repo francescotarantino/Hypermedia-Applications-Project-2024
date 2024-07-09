@@ -24,7 +24,8 @@ defineProps<{
           Error {{ error.statusCode }}
         </h1>
         <p class="text-lg text-center mb-8">
-          {{ error.message }}
+          An error occurred while trying to access this page. Please try again later or return to the
+          <NuxtLink to="/" class="underline">home page</NuxtLink>.
         </p>
       </div>
     </div>
