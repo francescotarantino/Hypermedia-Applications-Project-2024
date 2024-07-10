@@ -1,6 +1,12 @@
 <script setup lang="ts">
-import {StarIcon} from "@heroicons/vue/24/solid";
+import { StarIcon } from "@heroicons/vue/24/solid";
 
+/**
+ * @property {IActivity} activity - The activity to display in the card
+ * @property {("project" | "service")} [type] - The type of activity (project or service). If not provided, it will be obtained from the activity
+ * @property {boolean} [showTypeLabel] - Whether to show or not the type label of the activity on the top right hand corner
+ * @property {string} [starLabel] - The label to show in the star on the top left hand corner when hovering the card. If not provided, the star will not be shown.
+ */
 defineProps<{
   activity: IActivity;
   type?: "project" | "service";

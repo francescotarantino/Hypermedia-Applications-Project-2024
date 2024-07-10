@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { PhoneIcon, Bars3Icon } from '@heroicons/vue/24/solid'
 
-const isMenuOpen = ref(false);
+const isMenuOpen = ref<boolean>(false);
 
 // Toggle mobile menu visibility
 function toggleMenu() {
@@ -14,7 +14,7 @@ function closeMenu() {
   }
 }
 
-provide('closeMenu', closeMenu);
+provide<() => void>('closeMenu', closeMenu);
 
 onMounted(() => {
   window.addEventListener('resize', closeMenu);

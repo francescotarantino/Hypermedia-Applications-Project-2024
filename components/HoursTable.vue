@@ -1,4 +1,7 @@
 <script setup lang="ts">
+/**
+ * @property {Array<{day: string, hours: string}>} hours - The hours to display in the table.
+ */
 defineProps<{
   hours: {
     day: string;

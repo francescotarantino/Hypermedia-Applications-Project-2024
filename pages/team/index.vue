@@ -28,7 +28,7 @@ useSeoMeta({
 
         <div class="max-w-screen-lg grid grid-cols-1 lg:grid-cols-2 gap-6">
           <transition-group name="fade">
-            <HorizontalPersonCard v-for="person in people" :key="person.id" :person="person" show-bio />
+            <PersonCard v-for="person in people" :key="person.id" :person="person" show-bio />
           </transition-group>
         </div>
       </div>

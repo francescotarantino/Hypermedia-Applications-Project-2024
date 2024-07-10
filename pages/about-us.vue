@@ -67,7 +67,7 @@ useSeoMeta({
         <div>
           <h2 class="text-3xl text-orange text-center font-bold mt-8 mb-3">Our Location</h2>
           <div class="w-full h-64 lg:h-full pb-4 lg:pb-24 pt-3">
-            <Map :coordinates="[33.763590, -84.372281]"/>
+            <Map :coordinates="[33.763590, -84.372281]" tooltip="Our location" />
           </div>
         </div>
       </div>
@@ -97,7 +97,7 @@ useSeoMeta({
         <div class="flex overflow-x-scroll overflow-y-hidden scrollbar-hidden sm:justify-center -mx-8">
           <div class="flex flex-nowrap sm:flex-wrap pt-4 px-10 pb-16 gap-6 self-center sm:justify-center sm:items-center">
             <div v-for="(person, index) in boardDirectors" :key="index">
-              <VerticalPersonCard class="flex flex-col" :person="person" :is-main-responsible="false"/>
+              <VerticalPersonCard class="flex flex-col" :person="person" />
             </div>
           </div>
         </div>

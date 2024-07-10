@@ -1,7 +1,11 @@
 <script setup lang="ts">
+/**
+ * @property {IPerson} person - The person to display in the card.
+ * @property {string} label - The label to display in the top left-hand corner of the card.
+ */
 defineProps<{
   person: IPerson;
-  isMainResponsible?: boolean;
+  label?: string;
 }>();
 </script>
 
@@ -17,9 +21,9 @@ defineProps<{
       </div>
     </div>
 
-    <div v-if="isMainResponsible" class="absolute top-0 left-0">
+    <div v-if="label" class="absolute top-0 left-0">
       <div class="bg-apricot text-white text-sm rounded-br-xl rounded-tl-xl px-3">
-        Responsible
+        {{ label }}
       </div>
     </div>
   </NuxtLink>

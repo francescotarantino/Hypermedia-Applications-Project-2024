@@ -11,7 +11,7 @@ defineProps<{
 }>();
 
 // Ref for the dropdown active state
-const dropdownActive = ref(false);
+const dropdownActive = ref<boolean>(false);
 
 function closeDropdown() {
   dropdownActive.value = false;
@@ -22,7 +22,7 @@ function openDropdown() {
 }
 
 // Providing the active state to the dropdown content
-provide('dropdownActive', dropdownActive);
+provide<Ref<boolean>>('dropdownActive', dropdownActive);
 
 const closeMenu = inject<() => void>('closeMenu');
 

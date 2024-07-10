@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /**
- * This component displays a card with a person's information in a horizontal layout (on smaller screens it will be vertical).
+ * This component displays a card with a person's information in a horizontal layout (on smaller screens it will become vertical).
  * @property {IPerson} person - The person to display in the card
  * @property {boolean} showBio - Whether to show the bio of the person
  */

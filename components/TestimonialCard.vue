@@ -1,4 +1,7 @@
 <script setup lang="ts">
+/**
+ * @property {ITestimonial} testimonial - The testimonial to display in the card.
+ */
 defineProps<{
   testimonial: ITestimonial;
 }>();

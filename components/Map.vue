@@ -1,6 +1,11 @@
 <script setup lang="ts">
+/**
+ * @property {[number, number]} coordinates - The coordinates to display on the map.
+ * @property {string} tooltip - The tooltip to display on the map marker.
+ */
 defineProps<{
   coordinates: [number, number];
+  tooltip: string;
 }>();
 
 const zoom = ref(16);
@@ -14,6 +19,9 @@ const zoom = ref(16);
         layer-type="base"
         name="OpenStreetMap"
     />
-    <LMarker :lat-lng="coordinates" />
+
+    <LMarker :lat-lng="coordinates">
+      <LTooltip>{{tooltip}}</LTooltip>
+    </LMarker>
   </LMap>
 </template>

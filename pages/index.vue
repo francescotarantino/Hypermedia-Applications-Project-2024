@@ -116,7 +116,7 @@ const VALUES = [
 
             <CardCarousel :items="people || []" large-on-small-screen>
               <template #default="{ item }">
-                <HorizontalPersonCard :person="item" show-bio class="h-full" />
+                <PersonCard :person="item" show-bio class="h-full" />
               </template>
             </CardCarousel>
           </div>
@@ -151,7 +151,7 @@ const VALUES = [
 
     <div class="flex sm:justify-center overflow-x-scroll overflow-y-hidden scrollbar-hidden pt-4">
       <div class="flex flex-nowrap px-10 pb-14 sm:ms-0 sm:px-4 lg:px-0 sm:flex-wrap sm:justify-center sm:items-center sm:max-w-[800px] gap-4">
-        <FlipCard v-for="(value, index) in VALUES" :key="index" :name="value.name" :description="value.description" :icon="value.icon" />
+        <FlipCard v-for="(value, index) in VALUES" :key="index" :front="value.name" :back="value.description" :icon="value.icon" />
       </div>
     </div>
 
