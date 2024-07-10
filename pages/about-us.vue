@@ -49,13 +49,12 @@ useSeoMeta({
       <!-- About Us -->
       <h1 class="text-3xl text-center text-orange font-bold mb-8">About Us</h1>
       <p class="text-lg text-justify mb-8">
-         At SHE, our mission is to empower women by providing them with the
-        tools, resources, and support necessary to break free from the cycle of domestic violence.
-        We strive to create a world where every woman has the opportunity to live a life free from fear, 
-        filled with confidence, and enriched with possibilities.
-        We believe in the strength and resilience of women. 
-        Together, we can create a future where every woman has the opportunity to live a life of safety, 
-        independence, and dignity.
+         At SHE, our mission is to <b>empower women</b> by providing them with the
+        tools, resources, and support necessary to <b>break free from the cycle</b> of domestic violence.
+        We strive to create a world where <b>every woman</b> has the opportunity to live a life free from fear,
+        filled with confidence, and enriched with possibilities. <b>We believe in the strength and resilience of women.</b>
+        Together, we can create a future where every woman has the opportunity to live <b>a life of safety,
+        independence, and dignity.</b>
       </p>
       <div class="grid grid-cols-1 lg:grid-cols-2">
         <!-- Opening Hours -->
@@ -79,12 +78,11 @@ useSeoMeta({
         <img class="flex-none w-full md:w-1/4 aspect-auto drop-shadow-xl rounded-2xl" src="/headquarter.jpg" alt="Our headquarter" />
         <p class="flex-auto text-lg pt-4 pl-0 md:pt-0 md:pl-16 text-justify">
           The headquarters of the SHE Centre is located at 340 Boulevard NE, Atlanta, GA. Situated in a spacious and welcoming 
-          facility, our headquarters serves as a safe haven and hub of support for women and children fleeing domestic violence. 
+          facility, our headquarters serves as a <b>safe haven</b> and hub of support for women and children fleeing domestic violence.
           It provides a secure environment equipped with essential amenities, including counseling rooms, administrative offices, 
-          and communal spaces designed to promote healing and empowerment. The location not only facilitates our core services but 
-          also hosts community events, workshops, and educational programs aimed at raising awareness and fostering solidarity in 
-          the fight against domestic violence. 
-          The buzz of conversation and clinking coffee cups fill the air, a testament to the center's dynamic atmosphere. 
+          and communal spaces designed to promote <b>healing and empowerment</b>. The location not only facilitates our core services but
+          also hosts community events, workshops, and educational programs aimed at <b>raising awareness and fostering solidarity</b> in
+          the fight against domestic violence.
           Here, women from all walks of life gather to connect, learn, and empower each other.
         </p>
       </div>
@@ -108,11 +106,11 @@ useSeoMeta({
       <p class="text-lg text-justify mb-4 lg:mb-20">
         The Signal for Help Empowerment (SHE) Centre, founded in 2005 by Dr. Jane Anderson and a dedicated team, 
         began as a small but vital resource for women facing domestic violence in Atlanta, Georgia. 
-        Over the years, it expanded from a modest shelter to a comprehensive support center offering crisis intervention,
+        Over the years, it expanded from a modest shelter to a <b>comprehensive support center</b> offering crisis intervention,
         legal advocacy, counseling, educational programs, and vocational training. 
         Despite challenges, including financial strains and a facility fire, the SHE Centre grew through 
-        community support and innovative approaches. 
-        Today, it stands as a beacon of hope, empowering women to reclaim their lives and achieve independence.
+        community support and innovative approaches.
+        Today, it stands as a <b>beacon of hope</b>, empowering women to reclaim their lives and achieve independence.
       </p>
       <div class="flex flex-row">
         <div class="flex flex-col md:flex-row gap-8">
