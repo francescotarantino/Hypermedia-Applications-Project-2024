@@ -49,7 +49,7 @@ useSeoMeta({
       <!-- About Us -->
       <h1 class="text-3xl text-center text-orange font-bold mb-8">About Us</h1>
       <p class="text-lg text-justify mb-8">
-         At SHE, our mission is to <b>empower women</b> by providing them with the
+         At SHE Centre, our mission is to <b>empower women</b> by providing them with the
         tools, resources, and support necessary to <b>break free from the cycle</b> of domestic violence.
         We strive to create a world where <b>every woman</b> has the opportunity to live a life free from fear,
         filled with confidence, and enriched with possibilities. <b>We believe in the strength and resilience of women.</b>
