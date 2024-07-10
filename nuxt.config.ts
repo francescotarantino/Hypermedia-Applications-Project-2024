@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      titleTemplate: '%s %separator SHE-Centre',
+      titleTemplate: '%s %separator SHE-centre',
       charset: 'utf-8',
       htmlAttrs: {
         lang: 'en',
@@ -15,7 +15,7 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'The SHE-Centre is a pioneering organization dedicated to combating violence against women and promoting gender equality.'
+            'The SHE-centre is a pioneering organization dedicated to combating violence against women and promoting gender equality.'
         },
         {
           name: 'keywords',
@@ -23,15 +23,15 @@ export default defineNuxtConfig({
         },
         {
           name: 'author',
-          content: 'SHE-Centre Team'
+          content: 'SHE-centre Team'
         },
         {
           name: 'og:title',
-          content: 'SHE-Centre'
+          content: 'SHE-centre'
         },
         {
           name: 'og:description',
-          content: 'The SHE-Centre is a pioneering organization dedicated to combating violence against women and promoting gender equality.'
+          content: 'The SHE-centre is a pioneering organization dedicated to combating violence against women and promoting gender equality.'
         },
         {
           name: 'og:image',

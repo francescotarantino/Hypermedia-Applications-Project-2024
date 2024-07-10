@@ -12,15 +12,14 @@ useSeoMeta({
     <div class="container mx-auto px-8 md:w-3/4">
       <h1 class="text-3xl font-semibold text-center text-orange">Activities</h1>
       <p class="text-justify text-lg mt-8 mb-4">
-        At SHE Centre our commitment to empowering women facing domestic violence has evolved over the years to offer a 
-        comprehensive array of supportive services. From our humble beginnings providing safe shelter and crisis counseling, 
-        we have grown to encompass legal assistance, skills training, and community outreach initiatives. 
-        Each of these programs has been carefully developed to address the multifaceted needs of survivors, offering a 
-        holistic approach to recovery and empowerment.<br>
-        Explore our activities and discover how the SHE Centre is making a difference in the lives of women and children
+        At SHE Centre our commitment to empowering women facing domestic violence has evolved over the years to offer a
+        <b>comprehensive array</b> of supportive services. From our humble beginnings providing safe shelter and crisis counseling,
+        we have grown to encompass <b>legal assistance, skills training,</b> and <b>community outreach</b> initiatives.
+        Each of these programs has been <b>carefully developed</b> to address the multifaceted needs of survivors, offering a
+        holistic approach to recovery and empowerment. Explore our activities and discover how the SHE Centre is <b>making a difference</b> in the lives of women and children
         in our community. Whether you are seeking immediate shelter, legal guidance, skills training, or simply a supportive 
-        community, we are here to help you every step of the way. Join us in our journey towards empowerment, resilience, and 
-        a future free from violence.  
+        community, <b>we are here to help you every step of the way.</b> Join us in our journey towards empowerment, resilience, and
+        a future <b>free from violence.</b>
       </p>
 
       <div class="grid justify-items-center gap-4">
