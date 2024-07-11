@@ -17,7 +17,7 @@ useSeoMeta({
         make our anti-violence center a <b>safe</b>, <b>supportive</b>, and <b>empowering</b> environment for all who seek our services.
         Each team member brings their <b>unique</b> skills and experiences to the table, united by a common goal: to combat
         violence and provide resources for those affected by it. We are here to <b>listen</b>, to <b>support</b>, and to <b>guide</b> you
-        towards a safer future. We are proud of the work we do at SHE-Centre, and we are <b>grateful</b> for the opportunity to
+        towards a safer future. We are proud of the work we do at SHE Centre, and we are <b>grateful</b> for the opportunity to
         serve our community. <b>Thank you for taking the time to get to know us. We look forward to getting to know you, too.</b>
       </p>
 
@@ -31,6 +31,10 @@ useSeoMeta({
             <PersonCard v-for="person in people" :key="person.id" :person="person" show-bio />
           </transition-group>
         </div>
+
+        <p v-if="people.length === 0" class="text-center opacity-50 max-w-72">
+          Unfortunately, we couldn't find any team members matching your search criteria. Please try again.
+        </p>
       </div>
     </div>
   </section>

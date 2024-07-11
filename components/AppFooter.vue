@@ -4,7 +4,7 @@
       <!-- Legal Information -->
       <div>
         <h3 class="font-semibold text-lg mb-2">Legal Information</h3>
-        <p>Social Cooperative SHE-centre</p>
+        <p>Social Cooperative SHE Centre</p>
         <p class="text-sm"><a href="#" class="hover-underline-animation">Privacy Policy</a></p>
         <p class="text-sm"><a href="#" class="hover-underline-animation">Terms of Service</a></p>
       </div>

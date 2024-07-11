@@ -32,6 +32,10 @@ useSeoMeta({
             <ActivityCard v-for="(activity, index) in activities" :key="index" :activity="activity" show-type-label />
           </transition-group>
         </div>
+
+        <p v-if="activities.length === 0" class="text-center opacity-50 max-w-72">
+          Unfortunately, we couldn't find any activities matching your search criteria. Please try again.
+        </p>
       </div>
     </div>
   </section>

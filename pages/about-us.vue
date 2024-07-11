@@ -331,7 +331,7 @@ useSeoMeta({
                 <span class="font-semibold text-orange hover-underline-animation-orange float-right cursor-pointer"
                       @click="changeChapter(selectedTab + 1)" v-if="selectedTab < tabs.length - 1">
                   <ArrowRightIcon class="h-5 w-5 inline-block align-sub" />
-                  Next
+                  Next chapter
                 </span>
               </transition>
             </div>

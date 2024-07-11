@@ -54,16 +54,15 @@ useSeoMeta({
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <h2 class="text-3xl text-orange text-center font-bold">Come visit us...</h2>
+        <div class="flex flex-col gap-6 w-full h-72 lg:h-full">
+          <h2 class="text-3xl text-orange text-center font-bold">Come visit us...</h2>
 
-        <h2 class="text-3xl text-orange text-center font-bold">...or drop us an email!</h2>
-
-
-        <div class="w-full h-64 lg:h-full">
           <Map :coordinates="[33.763590, -84.372281]" tooltip="Our location" />
         </div>
 
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-6 lg:h-full">
+          <h2 class="text-3xl text-orange text-center font-bold">...or drop us an email!</h2>
+
           <div class="bg-cream rounded-xl p-4 sm:p-8 drop-shadow transform-gpu">
             <form @submit="submitForm" class="flex flex-col gap-2 pt-3">
               <div class="grid grid-cols-8 items-center gap-2">
