@@ -22,7 +22,7 @@ function submitForm(event: Event) {
 useSeoMeta({
   title: 'Contact Us',
   description: 'We are available 24/7. Call us at 800 02 2399 or drop us an email. We are here to help you.',
-  ogImage: '/contact-us-image-2.jpg'
+  ogImage: '/contact-us-image.jpg'
 });
 </script>
 
@@ -37,7 +37,7 @@ useSeoMeta({
 
     <div class="container mx-auto px-8 sm:w-7/8 xl:w-3/4">
       <div class="my-12 flex flex-auto flex-col md:flex-row gap-8 self-center items-center justify-center">
-        <img src="/contact-us-image-2.jpg" alt="Reach out for support" class="flex-none w-full sm:w-1/2 md:w-1/3 aspect-auto drop-shadow-xl rounded-2xl" />
+        <img src="/contact-us-image.jpg" alt="Reach out for support" class="flex-none w-full sm:w-1/2 md:w-1/3 aspect-auto drop-shadow-xl rounded-2xl" />
 
         <div class="md:w-2/3 flex flex-col items-center justify-center gap-8">
           <div class="flex-grow" />
