@@ -13,7 +13,7 @@ import {HomeIcon} from "@heroicons/vue/24/solid";
   </AppHeaderLink>
 
   <!-- Activities Dropdown (dropdown on large screens) -->
-  <AppDropdown title="Activities" to="/activities" class="hidden sm:inline-block">
+  <AppDropdown title="Activities" activeWhenPathStartsWith="/activities" class="hidden sm:inline-block">
     <AppDropdownContent>
       <!-- All activities Link -->
       <AppDropdownLink to="/activities">
@@ -33,7 +33,7 @@ import {HomeIcon} from "@heroicons/vue/24/solid";
   <!-- Activities Links (visible on small screens) -->
   <div class="flex flex-wrap justify-center sm:hidden gap-2 items-center">
     <AppHeaderLink to="/activities" exact-match>
-      Activities
+      All activities
     </AppHeaderLink>
     •
     <!-- Services Link -->
