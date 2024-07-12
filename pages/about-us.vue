@@ -37,9 +37,10 @@ function changeChapter(id: number) {
   document.getElementById('story-chapter')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+const config = useRuntimeConfig();
 useSeoMeta({
   title: 'About Us',
-  ogImage: (process.env.NUXT_ENV_VERCEL_URL ? `https://${process.env.NUXT_ENV_VERCEL_URL}` : '') + '/headquarter.jpg',
+  ogImage: config.deployUrl + '/headquarter.jpg',
 });
 </script>
 

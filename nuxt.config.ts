@@ -72,6 +72,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     openaiApiKey: process.env.OPENAI_API_KEY,
     openaiAssistantId: process.env.OPENAI_ASSISTANT_ID,
+    deployUrl: (process.env.NUXT_ENV_VERCEL_URL ? `https://${process.env.NUXT_ENV_VERCEL_URL}` : ''),
   },
 
   compatibilityDate: '2024-07-07'
