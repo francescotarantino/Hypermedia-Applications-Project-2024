@@ -57,7 +57,7 @@ useSeoMeta({
         <div class="flex flex-col gap-6 w-full h-72 lg:h-full">
           <h2 class="text-3xl text-orange text-center font-bold">Come visit us...</h2>
 
-          <Map :coordinates="[33.763590, -84.372281]" tooltip="Our location" />
+          <Map :coordinates="[33.763590, -84.372281]" tooltip="340 Boulevard NE, Atlanta, GA 30312" />
         </div>
 
         <div class="flex flex-col gap-6 lg:h-full">
