@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { activities, setSearchQuery } = useActivities();
+const { activities, setSearchQuery, noSearchResults } = useActivities();
 
 useSeoMeta({
   title: 'Activities',
@@ -33,7 +33,7 @@ useSeoMeta({
           </transition-group>
         </div>
 
-        <p v-if="activities.length === 0" class="text-center opacity-50 max-w-72">
+        <p v-if="noSearchResults" class="text-center opacity-50 max-w-72">
           Unfortunately, we couldn't find any activities matching your search criteria. Please try again.
         </p>
       </div>

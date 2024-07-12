@@ -1,5 +1,9 @@
 /**
  * This composable fetches people data from the API and provides a search functionality and filtering by role.
+ *
+ * @return activities - The activities list, filtered and sorted based on the search query.
+ * @return noSearchResults - A boolean indicating if there are no search results, if a search query was provided.
+ * @return setSearchQuery - A function to set the search query.
  */
 export const useActivities = () => {
   // Fetch both projects and services data from the API
@@ -40,8 +44,13 @@ export const useActivities = () => {
       });
   });
 
+  const noSearchResults = computed<boolean>(() =>
+    results.value.length === 0 && searchQuery.value.length > 0
+  );
+
   return {
     activities: results,
+    noSearchResults,
     setSearchQuery,
   };
 }

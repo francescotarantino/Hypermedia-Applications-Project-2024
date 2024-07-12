@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { people, setSearchQuery } = usePeople();
+const { people, setSearchQuery, noSearchResults } = usePeople();
 
 useSeoMeta({
   title: 'Our Team',
@@ -32,7 +32,7 @@ useSeoMeta({
           </transition-group>
         </div>
 
-        <p v-if="people.length === 0" class="text-center opacity-50 max-w-72">
+        <p v-if="noSearchResults" class="text-center opacity-50 max-w-72">
           Unfortunately, we couldn't find any team members matching your search criteria. Please try again.
         </p>
       </div>

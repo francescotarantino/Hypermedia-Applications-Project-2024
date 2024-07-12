@@ -2,6 +2,10 @@
  * This composable fetches people data from the API and provides a search functionality and filtering by role.
  *
  * @param filterByRole - The role to filter the people by. If not provided, all people are returned.
+ *
+ * @return people - The people list, filtered and sorted based on the search query and the filter by role.
+ * @return noSearchResults - A boolean indicating if there are no search results, if a search query was provided.
+ * @return setSearchQuery - A function to set the search query.
  */
 export const usePeople = (filterByRole?: string) => {
   // Fetch people data from the API
@@ -34,8 +38,13 @@ export const usePeople = (filterByRole?: string) => {
     }) || [];
   });
 
+  const noSearchResults = computed<boolean>(() =>
+    results.value.length === 0 && searchQuery.value.length > 0
+  );
+
   return {
     people: results,
+    noSearchResults,
     setSearchQuery,
   };
 }
