@@ -35,7 +35,7 @@ export default defineNuxtConfig({
         },
         {
           name: 'og:image',
-          content: '/logo.png'
+          content: (process.env.NUXT_ENV_VERCEL_URL ? `https://${process.env.NUXT_ENV_VERCEL_URL}` : '') + '/logo.png'
         },
         {
           name: 'twitter:card',

@@ -22,7 +22,7 @@ function submitForm(event: Event) {
 useSeoMeta({
   title: 'Contact Us',
   description: 'We are available 24/7. Call us at 800 02 2399 or drop us an email. We are here to help you.',
-  ogImage: '/contact-us-image.jpg'
+  ogImage: (process.env.NUXT_ENV_VERCEL_URL ? `https://${process.env.NUXT_ENV_VERCEL_URL}` : '') + '/contact-us-image.jpg',
 });
 </script>
 

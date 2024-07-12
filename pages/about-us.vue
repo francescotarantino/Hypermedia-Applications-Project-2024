@@ -39,7 +39,7 @@ function changeChapter(id: number) {
 
 useSeoMeta({
   title: 'About Us',
-  ogImage: '/headquarter.jpg',
+  ogImage: (process.env.NUXT_ENV_VERCEL_URL ? `https://${process.env.NUXT_ENV_VERCEL_URL}` : '') + '/headquarter.jpg',
 });
 </script>
 
