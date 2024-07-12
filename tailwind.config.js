@@ -3,7 +3,7 @@ export default {
   content: [],
   theme: {
     colors: {
-      'primary': '#3A233E',
+      'accent': '#3A233E',
       'orange': '#EB6343',
       'apricot': '#F59A7A',
       'peach': '#FCD1BD',

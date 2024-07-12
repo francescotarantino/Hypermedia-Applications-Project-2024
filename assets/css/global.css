@@ -10,7 +10,7 @@
 }
 
 .hover-underline-animation:hover::after {
-    @apply bg-primary scale-x-100;
+    @apply bg-accent scale-x-100;
 }
 
 .hover-underline-animation-orange:hover::after {

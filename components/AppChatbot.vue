@@ -10,11 +10,11 @@
 
     <transition name="fade">
       <!-- Chatbot Window -->
-      <div class="fixed bottom-4 right-4 left-4 md:left-auto bg-white w-auto h-4/5 md:w-[420px] md:max-h-[700px] shadow-lg rounded-lg flex flex-col border border-primary z-chatbotPanel"
+      <div class="fixed bottom-4 right-4 left-4 md:left-auto bg-white w-auto h-4/5 md:w-[420px] md:max-h-[700px] shadow-lg rounded-lg flex flex-col border border-accent z-chatbotPanel"
            v-if="isOpen">
         <!-- Header -->
         <div class="p-1 bg-apricot flex justify-between items-center rounded-t-lg">
-          <img src="/chatbot.png" alt="Chatbot" class="w-12 h-12 rounded-full shadow-lg border border-primary" />
+          <img src="/chatbot.png" alt="Chatbot" class="w-12 h-12 rounded-full shadow-lg border border-accent" />
           <h3 class="text-lg">SHE-helper</h3>
           <button @click="toggleChat" class="mr-3 p-1 rounded-md hover:bg-peach transition ease-in-out duration-200"
                   aria-label="Close chatbot" aria-expanded="true">
@@ -23,7 +23,7 @@
         </div>
 
         <!-- Divider -->
-        <div class="h-px bg-primary z-40" />
+        <div class="h-px bg-accent z-40" />
 
         <!-- Chat Messages Container -->
         <div class="flex-grow p-4 overflow-y-auto" ref="messagesContainer">
@@ -45,7 +45,7 @@
         <p class="text-xs opacity-50 text-center">You are chatting with a virtual assistant, powered by AI. The information provided is not a substitute for professional advice.</p>
 
         <!-- Input Field -->
-        <div class="h-px bg-primary" />
+        <div class="h-px bg-accent" />
         <div class="p-2 bg-peach rounded-b-lg flex flex-row gap-2">
           <textarea type="text" placeholder="Type a message..." aria-label="Type a message to the chatbot" class="w-full bg-cream p-2 rounded-md resize-none focus:outline-none" rows="1"
                     ref="messageTextarea" v-model.trim="userInput" @keydown.enter.exact.prevent="submitMessage" @input="autoresize" :disabled="!taskEnded" />
