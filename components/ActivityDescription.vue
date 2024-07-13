@@ -1,4 +1,8 @@
 <script setup lang="ts">
+/**
+ * Component used in the project/service details page to display the description of the activity, including images.
+ * @property {IActivity} activity - The activity to display
+ */
 defineProps<{
   activity: IActivity;
 }>();

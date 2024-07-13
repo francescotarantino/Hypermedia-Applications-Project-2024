@@ -4,7 +4,7 @@
 
 **📅 Academic year:** 2023/2024
 
-**🌐 Website:** [SHE-Centre](https://she-centre.vercel.app/)
+**🌐 Website:** [SHE Centre](https://she-centre.vercel.app/)
 
 **👥 Group:** Il Gruppo Del Sito
 - [Simone Callegarin](https://github.com/SimoneCallegarin)

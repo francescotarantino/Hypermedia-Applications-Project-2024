@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { PhoneIcon, Bars3Icon } from '@heroicons/vue/24/solid'
 
-const isMenuOpen = ref(false);
+const isMenuOpen = ref<boolean>(false);
 
 // Toggle mobile menu visibility
 function toggleMenu() {
@@ -14,7 +14,7 @@ function closeMenu() {
   }
 }
 
-provide('closeMenu', closeMenu);
+provide<() => void>('closeMenu', closeMenu);
 
 onMounted(() => {
   window.addEventListener('resize', closeMenu);
@@ -35,8 +35,8 @@ onUnmounted(() => {
           <div class="flex items-center gap-2 sm:gap-8">
             <img src="/logo.png" alt="" class="w-16 h-16 md:w-32 md:h-32" />
             <div>
-              <h1 class="text-3xl lg:text-5xl">SHE-centre</h1>
-              <p class="hidden md:block md:text-xl">Signal for Help Empowerment centre</p>
+              <h1 class="text-3xl lg:text-5xl">SHE Centre</h1>
+              <p class="hidden md:block md:text-xl">Signal for Help Empowerment Centre</p>
             </div>
           </div>
         </NuxtLink>

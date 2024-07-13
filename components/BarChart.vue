@@ -1,4 +1,8 @@
 <script setup lang="ts">
+/**
+ * This component displays a bar chart with statistics.
+ * @property {Record<string, number>} statistics - The statistics to display in the chart (key is the label, value is the data)
+ */
 const props = defineProps<{
   statistics: Record<string, number>;
 }>();

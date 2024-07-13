@@ -1,4 +1,8 @@
 <script setup lang="ts">
+/**
+ * This component displays a link in a dropdown menu.
+ * @property {string} to - The path to navigate to when the link is clicked.
+ */
 defineProps<{
   to: string;
 }>();

@@ -1,0 +1,27 @@
+/* Link hover underline animation */
+.hover-underline-animation,
+.hover-underline-animation-orange {
+    @apply inline-block relative;
+}
+
+.hover-underline-animation::after,
+.hover-underline-animation-orange::after {
+    @apply content-[''] absolute w-full scale-x-0 h-[1.5px] bottom-0 left-0 origin-left transition-all ease-in-out delay-100 duration-500;
+}
+
+.hover-underline-animation:hover::after {
+    @apply bg-accent scale-x-100;
+}
+
+.hover-underline-animation-orange:hover::after {
+    @apply bg-orange scale-x-100;
+}
+
+/* Scrollbar hidden for scrollable elements */
+.scrollbar-hidden {
+    scrollbar-width: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+}

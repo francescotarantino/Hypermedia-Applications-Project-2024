@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import {
+  ArrowRightIcon,
   ChevronRightIcon
 } from '@heroicons/vue/24/outline';
 
-const { data: people } = await useFetch<IPerson[]>('/api/people');
-
-// Filter only the directors
-const boardDirectors = people?.value?.filter((p) => p.main_role === 'Director');
+const { people: boardDirectors } = usePeople('Director');
 
 const HOURS = [
   { day: 'Monday', hours: '9:00 AM - 6:00 PM' },
@@ -39,9 +37,10 @@ function changeChapter(id: number) {
   document.getElementById('story-chapter')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+const config = useRuntimeConfig();
 useSeoMeta({
   title: 'About Us',
-  ogImage: '/headquarter.jpg',
+  ogImage: config.deployUrl + '/headquarter.jpg',
 });
 </script>
 
@@ -51,13 +50,12 @@ useSeoMeta({
       <!-- About Us -->
       <h1 class="text-3xl text-center text-orange font-bold mb-8">About Us</h1>
       <p class="text-lg text-justify mb-8">
-         At SHE, our mission is to empower women by providing them with the
-        tools, resources, and support necessary to break free from the cycle of domestic violence.
-        We strive to create a world where every woman has the opportunity to live a life free from fear, 
-        filled with confidence, and enriched with possibilities.
-        We believe in the strength and resilience of women. 
-        Together, we can create a future where every woman has the opportunity to live a life of safety, 
-        independence, and dignity.
+         At SHE Centre, our mission is to <b>empower women</b> by providing them with the
+        tools, resources, and support necessary to <b>break free from the cycle</b> of domestic violence.
+        We strive to create a world where <b>every woman</b> has the opportunity to live a life free from fear,
+        filled with confidence, and enriched with possibilities. <b>We believe in the strength and resilience of women.</b>
+        Together, we can create a future where every woman has the opportunity to live <b>a life of safety,
+        independence, and dignity.</b>
       </p>
       <div class="grid grid-cols-1 lg:grid-cols-2">
         <!-- Opening Hours -->
@@ -69,7 +67,7 @@ useSeoMeta({
         <div>
           <h2 class="text-3xl text-orange text-center font-bold mt-8 mb-3">Our Location</h2>
           <div class="w-full h-64 lg:h-full pb-4 lg:pb-24 pt-3">
-            <Map :coordinates="[33.763590, -84.372281]"/>
+            <Map :coordinates="[33.763590, -84.372281]" tooltip="340 Boulevard NE, Atlanta, GA 30312" />
           </div>
         </div>
       </div>
@@ -81,37 +79,39 @@ useSeoMeta({
         <img class="flex-none w-full md:w-1/4 aspect-auto drop-shadow-xl rounded-2xl" src="/headquarter.jpg" alt="Our headquarter" />
         <p class="flex-auto text-lg pt-4 pl-0 md:pt-0 md:pl-16 text-justify">
           The headquarters of the SHE Centre is located at 340 Boulevard NE, Atlanta, GA. Situated in a spacious and welcoming 
-          facility, our headquarters serves as a safe haven and hub of support for women and children fleeing domestic violence. 
+          facility, our headquarters serves as a <b>safe haven</b> and hub of support for women and children fleeing domestic violence.
           It provides a secure environment equipped with essential amenities, including counseling rooms, administrative offices, 
-          and communal spaces designed to promote healing and empowerment. The location not only facilitates our core services but 
-          also hosts community events, workshops, and educational programs aimed at raising awareness and fostering solidarity in 
-          the fight against domestic violence. 
-          The buzz of conversation and clinking coffee cups fill the air, a testament to the center's dynamic atmosphere. 
+          and communal spaces designed to promote <b>healing and empowerment</b>. The location not only facilitates our core services but
+          also hosts community events, workshops, and educational programs aimed at <b>raising awareness and fostering solidarity</b> in
+          the fight against domestic violence.
           Here, women from all walks of life gather to connect, learn, and empower each other.
         </p>
       </div>
       <br><br>
 
       <!-- Directive Board -->
-      <div class="flex flex-col xl:flex-row mt-4 mb-16 mx-8 items-center justify-between gap-2">
-        <h2 class="flex-col flex-1 text-3xl text-orange font-bold text-center mb-8 xl:mb-0">The directive board</h2>
-        <div class="flex flex-wrap gap-6 justify-center items-center">
-          <div v-for="(person, index) in boardDirectors" :key="index">
-            <VerticalPersonCard class="flex flex-col" :person="person" :is-main-responsible="false"/>
+      <div class="flex flex-col xl:flex-row mt-4 mb-2 sm:mx-8 sm:items-center justify-between gap-2">
+        <h2 class="flex-col flex-1 text-3xl text-orange font-bold text-center mb-4 xl:mb-0 xl:pb-16">The directive board</h2>
+
+        <div class="flex overflow-x-scroll overflow-y-hidden scrollbar-hidden sm:justify-center -mx-8">
+          <div class="flex flex-nowrap sm:flex-wrap pt-4 px-10 pb-16 gap-6 self-center sm:justify-center sm:items-center">
+            <div v-for="(person, index) in boardDirectors" :key="index">
+              <VerticalPersonCard class="flex flex-col" :person="person" />
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Our History -->
-      <h2 class="text-3xl text-center text-orange font-bold mt-8 mb-4">Our History</h2>
+      <h2 class="text-3xl text-center text-orange font-bold mb-4">Our History</h2>
       <p class="text-lg text-justify mb-4 lg:mb-20">
         The Signal for Help Empowerment (SHE) Centre, founded in 2005 by Dr. Jane Anderson and a dedicated team, 
         began as a small but vital resource for women facing domestic violence in Atlanta, Georgia. 
-        Over the years, it expanded from a modest shelter to a comprehensive support center offering crisis intervention,
+        Over the years, it expanded from a modest shelter to a <b>comprehensive support center</b> offering crisis intervention,
         legal advocacy, counseling, educational programs, and vocational training. 
         Despite challenges, including financial strains and a facility fire, the SHE Centre grew through 
-        community support and innovative approaches. 
-        Today, it stands as a beacon of hope, empowering women to reclaim their lives and achieve independence.
+        community support and innovative approaches.
+        Today, it stands as a <b>beacon of hope</b>, empowering women to reclaim their lives and achieve independence.
       </p>
       <div class="flex flex-row">
         <div class="flex flex-col md:flex-row gap-8">
@@ -131,7 +131,7 @@ useSeoMeta({
             </div>
           </div>
 
-          <div id="story-chapter" class="scroll-mt-8 sm:scroll-mt-28">
+          <div id="story-chapter" class="scroll-mt-8 sm:scroll-mt-28 h-full relative">
             <transition name="fade" mode="out-in">
               <!-- Chapter 1 -->
               <div v-if="selectedTab === 0">
@@ -326,6 +326,16 @@ useSeoMeta({
                 </p>
               </div>
             </transition>
+
+            <div class="absolute bottom-0 right-0">
+              <transition name="fade">
+                <span class="font-semibold text-orange hover-underline-animation-orange float-right cursor-pointer"
+                      @click="changeChapter(selectedTab + 1)" v-if="selectedTab < tabs.length - 1">
+                  <ArrowRightIcon class="h-5 w-5 inline-block align-sub" />
+                  Next chapter
+                </span>
+              </transition>
+            </div>
           </div>
         </div>
 	    </div>

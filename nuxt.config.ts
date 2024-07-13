@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      titleTemplate: '%s %separator SHE-Centre',
+      titleTemplate: '%s %separator SHE Centre',
       charset: 'utf-8',
       htmlAttrs: {
         lang: 'en',
@@ -15,7 +15,7 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'The SHE-Centre is a pioneering organization dedicated to combating violence against women and promoting gender equality.'
+            'The SHE Centre is a pioneering organization dedicated to combating violence against women and promoting gender equality.'
         },
         {
           name: 'keywords',
@@ -23,19 +23,19 @@ export default defineNuxtConfig({
         },
         {
           name: 'author',
-          content: 'SHE-Centre Team'
+          content: 'SHE Centre Team'
         },
         {
           name: 'og:title',
-          content: 'SHE-Centre'
+          content: 'SHE Centre'
         },
         {
           name: 'og:description',
-          content: 'The SHE-Centre is a pioneering organization dedicated to combating violence against women and promoting gender equality.'
+          content: 'The SHE Centre is a pioneering organization dedicated to combating violence against women and promoting gender equality.'
         },
         {
           name: 'og:image',
-          content: '/logo.png'
+          content: (process.env.NUXT_ENV_VERCEL_URL ? `https://${process.env.NUXT_ENV_VERCEL_URL}` : '') + '/logo.png'
         },
         {
           name: 'twitter:card',
@@ -51,6 +51,7 @@ export default defineNuxtConfig({
 
   css: [
     '~/assets/css/transitions.css',
+    '~/assets/css/global.css',
   ],
 
   devtools: { enabled: true },
@@ -71,6 +72,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     openaiApiKey: process.env.OPENAI_API_KEY,
     openaiAssistantId: process.env.OPENAI_ASSISTANT_ID,
+    deployUrl: (process.env.NUXT_ENV_VERCEL_URL ? `https://${process.env.NUXT_ENV_VERCEL_URL}` : ''),
   },
 
   compatibilityDate: '2024-07-07'

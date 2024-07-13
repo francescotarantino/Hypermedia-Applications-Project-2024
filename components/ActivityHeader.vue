@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import {EnvelopeIcon, UserCircleIcon} from "@heroicons/vue/24/outline";
 
+/**
+ * Component used in the project/service details page to display the generic information of the activity (at the top of the page).
+ * @property {IActivity} activity - The activity to display
+ */
 defineProps<{
   activity: IActivity;
 }>();
