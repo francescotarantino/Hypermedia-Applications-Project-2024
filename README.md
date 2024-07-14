@@ -1,5 +1,7 @@
 # Hypermedia Applications Project 2024
 
+**🎓 University:** Politecnico di Milano
+
 **📚 Course:** Hypermedia Applications
 
 **📅 Academic year:** 2023/2024
@@ -10,6 +12,10 @@
 - [Simone Callegarin](https://github.com/SimoneCallegarin)
 - [Carlo Prestifilippo](https://github.com/carloprestifilippo)
 - [Francesco Tarantino](https://github.com/francescotarantino)
+
+**📄 Documents:**
+- [Design Report](https://github.com/francescotarantino/Hypermedia-Applications-Project-2024/blob/main/deliverables/Design%20Report.pdf)
+- [Technology Report](https://github.com/francescotarantino/Hypermedia-Applications-Project-2024/blob/main/deliverables/Technology%20Report.pdf)
 
 ## ▶️ Run in development
 
